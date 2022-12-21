@@ -18,6 +18,7 @@ class Matricula {
     private Alumno alumno;
     private Integer porcentajeHorasAsistidas;
     private ListaEnlazada<Cursa> cursa;
+    private Float promedioGeneral;
 
     public Matricula(){
         
@@ -69,6 +70,14 @@ class Matricula {
 
     public void setPorcentajeHorasAsistidas(Integer porcentajeHorasAsistidas) {
         this.porcentajeHorasAsistidas = porcentajeHorasAsistidas;
+    }
+
+    public Float getPromedioGeneral() {
+        return promedioGeneral;
+    }
+
+    public void setPromedioGeneral(Float promedioGeneral) {
+        this.promedioGeneral = promedioGeneral;
     }
     
     
