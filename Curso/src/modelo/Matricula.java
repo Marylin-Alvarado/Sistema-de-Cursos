@@ -16,6 +16,7 @@ class Matricula {
     private Date fechaEmision;
     private Periodo periodo;
     private Alumno alumno;
+    private Integer porcentajeHorasAsistidas;
     private ListaEnlazada<Cursa> cursa;
 
     public Matricula(){
@@ -60,6 +61,14 @@ class Matricula {
 
     public void setCursa(ListaEnlazada<Cursa> cursa) {
         this.cursa = cursa;
+    }
+
+    public Integer getPorcentajeHorasAsistidas() {
+        return porcentajeHorasAsistidas;
+    }
+
+    public void setPorcentajeHorasAsistidas(Integer porcentajeHorasAsistidas) {
+        this.porcentajeHorasAsistidas = porcentajeHorasAsistidas;
     }
     
     
