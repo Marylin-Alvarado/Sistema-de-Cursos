@@ -11,7 +11,7 @@ package modelo;
 public class Cursa {
     private Matricula matricula;
     private Asignatura asignatura;
-    private NotaFinal nota;
+    private Integer horasAsistidas;
 
     public Matricula getMatricula() {
         return matricula;
@@ -29,12 +29,12 @@ public class Cursa {
         this.asignatura = asignatura;
     }
 
-    public NotaFinal getNota() {
-        return nota;
+    public Integer getHorasAsistidas() {
+        return horasAsistidas;
     }
 
-    public void setNota(NotaFinal nota) {
-        this.nota = nota;
+    public void setHorasAsistidas(Integer horasAsistidas) {
+        this.horasAsistidas = horasAsistidas;
     }
     
     

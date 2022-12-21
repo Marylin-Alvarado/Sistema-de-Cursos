@@ -6,14 +6,13 @@ package modelo;
 
 import controlador.listas.ListaEnlazada;
 import java.util.Date;
-import modelo.enums.DescripcionPeriodo;
 
 /**
  *
  * @author SONY VAIO
  */
 class Matricula {
-    private Integer id;
+    private Integer idMatricula;
     private Date fechaEmision;
     private Periodo periodo;
     private Alumno alumno;
@@ -22,9 +21,21 @@ class Matricula {
     public Matricula(){
         
     }
-    
-    public Integer getId() {
-        return id;
+
+    public Integer getIdMatricula() {
+        return idMatricula;
+    }
+
+    public void setIdMatricula(Integer idMatricula) {
+        this.idMatricula = idMatricula;
+    }
+
+    public Date getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
     }
 
     public Periodo getPeriodo() {
@@ -35,28 +46,6 @@ class Matricula {
         this.periodo = periodo;
     }
 
-    public ListaEnlazada<Cursa> getCursa() {
-        return cursa;
-    }
-
-    public void setCursa(ListaEnlazada<Cursa> cursa) {
-        this.cursa = cursa;
-    }
-
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
-    
-    public Date getFechaEmision() {
-        return fechaEmision;
-    }
-
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
-    }
-
     public Alumno getAlumno() {
         return alumno;
     }
@@ -64,6 +53,16 @@ class Matricula {
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
     }
+
+    public ListaEnlazada<Cursa> getCursa() {
+        return cursa;
+    }
+
+    public void setCursa(ListaEnlazada<Cursa> cursa) {
+        this.cursa = cursa;
+    }
+    
+    
     
     
 }

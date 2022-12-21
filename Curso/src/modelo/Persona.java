@@ -10,8 +10,7 @@ import modelo.enums.Generos;
  *
  * @author SONY VAIO
  */
-public class Persona {
-    private Integer id;
+public abstract class Persona {
     private String nombres;
     private String apellidos;
     private String identificacion;
@@ -20,18 +19,9 @@ public class Persona {
     private String ciudad;
     private String fechaNacimiento;
     private Generos genero;
-    //private Horario horario;
 
     public Persona(){
         
-    }
-    
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
     }
 
     public String getNombres() {
