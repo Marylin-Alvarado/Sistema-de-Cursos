@@ -4,7 +4,6 @@
  */
 package modelo;
 
-import modelo.enums.DescripcionPeriodo;
 import modelo.enums.Meses;
 
 /**
@@ -12,21 +11,21 @@ import modelo.enums.Meses;
  * @author SONY VAIO
  */
 public class Periodo {
-    private Integer id;
+    private Integer idPeriodo;
     private Meses mesInicio;
     private Meses mesFin;
-    private DescripcionPeriodo especificacion;
+    private String especificacion;
 
     public Periodo(){
         
     }
-    
-    public Integer getId() {
-        return id;
+
+    public Integer getIdPeriodo() {
+        return idPeriodo;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public void setIdPeriodo(Integer idPeriodo) {
+        this.idPeriodo = idPeriodo;
     }
 
     public Meses getMesInicio() {
@@ -45,14 +44,16 @@ public class Periodo {
         this.mesFin = mesFin;
     }
 
-    public DescripcionPeriodo getEspecificacion() {
+    public String getEspecificacion() {
         return especificacion;
     }
 
-    public void setEspecificacion(DescripcionPeriodo especificacion) {
+    public void setEspecificacion(String especificacion) {
         this.especificacion = especificacion;
     }
-
+    
+    
+    
 
     
 }

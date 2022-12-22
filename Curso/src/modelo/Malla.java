@@ -13,6 +13,8 @@ import controlador.listas.ListaEnlazada;
 public class Malla {
     private Integer id;
     private ListaEnlazada<Carrera> carreras;
+    private String regimen;
+    
     public Malla(){
     }
 
@@ -31,5 +33,15 @@ public class Malla {
     public void setCarreras(ListaEnlazada<Carrera> carreras) {
         this.carreras = carreras;
     }
+
+    public String getRegimen() {
+        return regimen;
+    }
+
+    public void setRegimen(String regimen) {
+        this.regimen = regimen;
+    }
+    
+    
     
 }

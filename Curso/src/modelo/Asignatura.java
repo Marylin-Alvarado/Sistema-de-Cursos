@@ -5,6 +5,7 @@
 package modelo;
 
 import controlador.listas.ListaEnlazada;
+import modelo.enums.Estado;
 import modelo.enums.Unidades;
 
 /**
@@ -13,10 +14,14 @@ import modelo.enums.Unidades;
  */
 public class Asignatura {
     private Integer id;
-    private Unidades unidad;
-    private String paralelo;
+    private Character paralelo;
+    private String unidad;
     private Docente docente;
-    private ListaEnlazada<Cursa> cursa;
+    private Cursa cursa;
+    private Estado estadoAsignatura;
+    private Integer numeroHoras;
+    private Float notaFinal;
+    private ListaEnlazada<Unidad> unidades; 
 
     public Integer getId() {
         return id;
@@ -26,30 +31,20 @@ public class Asignatura {
         this.id = id;
     }
 
-    public ListaEnlazada<Cursa> getCursa() {
-        return cursa;
-    }
-
-    public void setCursa(ListaEnlazada<Cursa> cursa) {
-        this.cursa = cursa;
-    }
-    
-    
-
-    public Unidades getUnidad() {
-        return unidad;
-    }
-
-    public void setUnidad(Unidades unidad) {
-        this.unidad = unidad;
-    }
-
-    public String getParalelo() {
+    public Character getParalelo() {
         return paralelo;
     }
 
-    public void setParalelo(String paralelo) {
+    public void setParalelo(Character paralelo) {
         this.paralelo = paralelo;
+    }
+
+    public String getUnidad() {
+        return unidad;
+    }
+
+    public void setUnidad(String unidad) {
+        this.unidad = unidad;
     }
 
     public Docente getDocente() {
@@ -59,6 +54,48 @@ public class Asignatura {
     public void setDocente(Docente docente) {
         this.docente = docente;
     }
+    
+    public Cursa getCursa() {
+        return cursa;
+    }
+
+    public void setCursa(Cursa cursa) {
+        this.cursa = cursa;
+    }
+
+    public Estado getEstadoAsignatura() {
+        return estadoAsignatura;
+    }
+
+    public void setEstadoAsignatura(Estado estadoAsignatura) {
+        this.estadoAsignatura = estadoAsignatura;
+    }
+
+    public Integer getNumeroHoras() {
+        return numeroHoras;
+    }
+
+    public void setNumeroHoras(Integer numeroHoras) {
+        this.numeroHoras = numeroHoras;
+    }
+
+    public Float getNotaFinal() {
+        return notaFinal;
+    }
+
+    public void setNotaFinal(Float notaFinal) {
+        this.notaFinal = notaFinal;
+    }
+
+    public ListaEnlazada<Unidad> getUnidades() {
+        return unidades;
+    }
+
+    public void setUnidades(ListaEnlazada<Unidad> unidades) {
+        this.unidades = unidades;
+    }
+    
+    
     
     
 }

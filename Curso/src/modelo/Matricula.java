@@ -6,25 +6,38 @@ package modelo;
 
 import controlador.listas.ListaEnlazada;
 import java.util.Date;
-import modelo.enums.DescripcionPeriodo;
 
 /**
  *
  * @author SONY VAIO
  */
 class Matricula {
-    private Integer id;
+    private Integer idMatricula;
     private Date fechaEmision;
     private Periodo periodo;
     private Alumno alumno;
+    private Integer porcentajeHorasAsistidas;
     private ListaEnlazada<Cursa> cursa;
+    private Float promedioGeneral;
 
     public Matricula(){
         
     }
-    
-    public Integer getId() {
-        return id;
+
+    public Integer getIdMatricula() {
+        return idMatricula;
+    }
+
+    public void setIdMatricula(Integer idMatricula) {
+        this.idMatricula = idMatricula;
+    }
+
+    public Date getFechaEmision() {
+        return fechaEmision;
+    }
+
+    public void setFechaEmision(Date fechaEmision) {
+        this.fechaEmision = fechaEmision;
     }
 
     public Periodo getPeriodo() {
@@ -35,6 +48,14 @@ class Matricula {
         this.periodo = periodo;
     }
 
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+
     public ListaEnlazada<Cursa> getCursa() {
         return cursa;
     }
@@ -43,27 +64,23 @@ class Matricula {
         this.cursa = cursa;
     }
 
-    
-    public void setId(Integer id) {
-        this.id = id;
-    }
-    
-    
-    public Date getFechaEmision() {
-        return fechaEmision;
+    public Integer getPorcentajeHorasAsistidas() {
+        return porcentajeHorasAsistidas;
     }
 
-    public void setFechaEmision(Date fechaEmision) {
-        this.fechaEmision = fechaEmision;
+    public void setPorcentajeHorasAsistidas(Integer porcentajeHorasAsistidas) {
+        this.porcentajeHorasAsistidas = porcentajeHorasAsistidas;
     }
 
-    public Alumno getAlumno() {
-        return alumno;
+    public Float getPromedioGeneral() {
+        return promedioGeneral;
     }
 
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
+    public void setPromedioGeneral(Float promedioGeneral) {
+        this.promedioGeneral = promedioGeneral;
     }
+    
+    
     
     
 }
