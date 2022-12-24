@@ -6,7 +6,6 @@ package modelo;
 
 import controlador.listas.ListaEnlazada;
 import modelo.enums.Estado;
-import modelo.enums.Unidades;
 
 /**
  *
@@ -22,6 +21,10 @@ public class Asignatura {
     private Integer numeroHoras;
     private Float notaFinal;
     private ListaEnlazada<Unidad> unidades; 
+    
+    public Asignatura(){
+        unidades = new ListaEnlazada<>();
+    }
 
     public Integer getId() {
         return id;
@@ -93,6 +96,11 @@ public class Asignatura {
 
     public void setUnidades(ListaEnlazada<Unidad> unidades) {
         this.unidades = unidades;
+    }
+
+    @Override
+    public String toString() {
+        return id.toString();
     }
     
     

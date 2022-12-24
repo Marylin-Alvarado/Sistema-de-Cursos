@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author SONY VAIO
  */
-class Matricula {
+public class Matricula {
     private Integer idMatricula;
     private Date fechaEmision;
     private Periodo periodo;
@@ -21,7 +21,7 @@ class Matricula {
     private Float promedioGeneral;
 
     public Matricula(){
-        
+        cursa = new ListaEnlazada<>();
     }
 
     public Integer getIdMatricula() {
@@ -78,6 +78,11 @@ class Matricula {
 
     public void setPromedioGeneral(Float promedioGeneral) {
         this.promedioGeneral = promedioGeneral;
+    }
+
+    @Override
+    public String toString() {
+        return idMatricula.toString();
     }
     
     

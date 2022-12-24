@@ -36,6 +36,11 @@ public class Cursa {
     public void setHorasAsistidas(Integer horasAsistidas) {
         this.horasAsistidas = horasAsistidas;
     }
+
+    @Override
+    public String toString() {
+        return "Asignatura: "+asignatura+" - HorasAsistidas: " +horasAsistidas+ " - Matricula: " + matricula;
+    }
     
     
     
