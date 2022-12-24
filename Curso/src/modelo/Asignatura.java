@@ -20,12 +20,7 @@ public class Asignatura {
     private Estado estadoAsignatura;
     private Integer numeroHoras;
     private Float notaFinal;
-    private ListaEnlazada<Unidad> unidades; 
     
-    public Asignatura(){
-        unidades = new ListaEnlazada<>();
-    }
-
     public Integer getId() {
         return id;
     }
@@ -88,14 +83,6 @@ public class Asignatura {
 
     public void setNotaFinal(Float notaFinal) {
         this.notaFinal = notaFinal;
-    }
-
-    public ListaEnlazada<Unidad> getUnidades() {
-        return unidades;
-    }
-
-    public void setUnidades(ListaEnlazada<Unidad> unidades) {
-        this.unidades = unidades;
     }
 
     @Override
