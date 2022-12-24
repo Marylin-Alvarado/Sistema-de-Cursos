@@ -1,5 +1,5 @@
 # Sistema-de-Cursos
-Funcionalidades 
+Funcionalidades <br>
 El sistema debe permitir al administrador realizar el control del sistema (todos los CRUDS).
 El sistema debe permitir que el ciclo realice un Crud del ciclo de las materias.
 El sistema debe permitir que la malla realice un Crud de carreras.
