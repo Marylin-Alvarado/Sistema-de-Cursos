@@ -13,13 +13,13 @@ import modelo.enums.Estado;
  */
 public class Asignatura {
     private Integer id;
+    private String nombre;
     private Character paralelo;
     private String unidad;
     private Docente docente;
     private Cursa cursa;
     private Estado estadoAsignatura;
     private Integer numeroHoras;
-    private Float notaFinal;
     
     public Integer getId() {
         return id;
@@ -29,6 +29,14 @@ public class Asignatura {
         this.id = id;
     }
 
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+    
     public Character getParalelo() {
         return paralelo;
     }
@@ -75,14 +83,6 @@ public class Asignatura {
 
     public void setNumeroHoras(Integer numeroHoras) {
         this.numeroHoras = numeroHoras;
-    }
-
-    public Float getNotaFinal() {
-        return notaFinal;
-    }
-
-    public void setNotaFinal(Float notaFinal) {
-        this.notaFinal = notaFinal;
     }
 
     @Override

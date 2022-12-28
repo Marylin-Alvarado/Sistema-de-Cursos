@@ -3,12 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Workspace/Curso/src/modelo/Matricula.java</file>
-            <file>file:/C:/Workspace/Curso/src/modelo/Unidad.java</file>
+            <file>file:/C:/Workspace/Curso/src/vista/DialogDocente.java</file>
             <file>file:/C:/Workspace/Curso/src/modelo/Cursa.java</file>
-            <file>file:/C:/Workspace/Curso/src/controlador/MatriculaController.java</file>
-            <file>file:/C:/Workspace/Curso/src/curso/Curso.java</file>
-            <file>file:/C:/Workspace/Curso/src/controlador/CursaController.java</file>
+            <file>file:/C:/Workspace/Curso/src/modelo/Asignatura.java</file>
+            <file>file:/C:/Workspace/Curso/src/vista/DialogAsignatura.java</file>
         </group>
     </open-files>
 </project-private>
