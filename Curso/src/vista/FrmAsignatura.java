@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorAsignatura;
 import javax.swing.JOptionPane;
+import vista.utilidades.Utilidades;
 
 /**
  * fecha: 26/12/2022
@@ -15,6 +16,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     public FrmAsignatura(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarCombo();
     }
 
     private void limpiar() {
@@ -23,15 +25,19 @@ public class FrmAsignatura extends javax.swing.JDialog {
         txtNombreAsignatura.setText("");
         txtNroHoras.setText("");
         txtUnidad.setText("");
-        cbxParalelo.setSelectedItem(-1);
-        txtEstadoAsignatura.setText("");
+        cbxParalelo.setSelectedIndex(-1);
+        cbxEstadoAsignatura.setSelectedIndex(-1);
         controladorAsignatura.setAsignatura(null);
+    }
+
+    private void cargarCombo() {
+        Utilidades.cargarComboBoxEstado(cbxEstadoAsignatura);
     }
 
     private void guardar() {
         if (txtNombreAsignatura.getText().trim().isEmpty() || txtDocente.getText().trim().isEmpty() || txtNombreAsignatura.getText().trim().isEmpty()
                 || txtNroHoras.getText().trim().isEmpty() || txtUnidad.getText().trim().isEmpty()
-                || cbxParalelo.getSelectedIndex() == -1 || txtEstadoAsignatura.getText().trim().isEmpty()) {
+                || cbxParalelo.getSelectedIndex() == -1 || cbxEstadoAsignatura.getSelectedIndex() == -1) {
             JOptionPane.showMessageDialog(null, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
             limpiar();
         } else {
@@ -69,7 +75,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
         jLabel7 = new javax.swing.JLabel();
         txtNombreAsignatura = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
-        txtEstadoAsignatura = new javax.swing.JTextField();
+        cbxEstadoAsignatura = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -121,13 +127,10 @@ public class FrmAsignatura extends javax.swing.JDialog {
 
         tblTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblTabla);
@@ -138,6 +141,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
         jLabel1.setText("Unidad");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, -1, -1));
 
+        cbxParalelo.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         cbxParalelo.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "A", "B", "C", "D", "E", "F", "G", "H" }));
         getContentPane().add(cbxParalelo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 50, -1));
 
@@ -180,8 +184,8 @@ public class FrmAsignatura extends javax.swing.JDialog {
         jLabel8.setText("Estado asignatura");
         getContentPane().add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
 
-        txtEstadoAsignatura.setText(" ");
-        getContentPane().add(txtEstadoAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 170, 30));
+        cbxEstadoAsignatura.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getContentPane().add(cbxEstadoAsignatura, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 170, 180, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -238,6 +242,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     private javax.swing.JButton bntGuardar;
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBorrar;
+    private javax.swing.JComboBox<String> cbxEstadoAsignatura;
     private javax.swing.JComboBox<String> cbxParalelo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -251,7 +256,6 @@ public class FrmAsignatura extends javax.swing.JDialog {
     private javax.swing.JTable tblTabla;
     private javax.swing.JTextField txtCursa;
     private javax.swing.JTextField txtDocente;
-    private javax.swing.JTextField txtEstadoAsignatura;
     private javax.swing.JTextField txtNombreAsignatura;
     private javax.swing.JTextField txtNroHoras;
     private javax.swing.JTextField txtUnidad;

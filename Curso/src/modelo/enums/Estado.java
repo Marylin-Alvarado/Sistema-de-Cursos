@@ -10,5 +10,5 @@ package modelo.enums;
  * @author David Campoverde
  */
 public enum Estado {
-    APROBADA, REPROBADA;
+    APROBADA, REPROBADA, PENDIENTE;
 }

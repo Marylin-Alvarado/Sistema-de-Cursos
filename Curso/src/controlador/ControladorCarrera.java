@@ -8,12 +8,13 @@ import modelo.Carrera;
  * @author: CEAS
  */
 public class ControladorCarrera {
+
     private Carrera carrera;
     private final Float APROBADO = 7.00F;
 
     public Carrera getCarrera() {
-        if (carrera==null) {
-            carrera=new Carrera();
+        if (carrera == null) {
+            carrera = new Carrera();
         }
         return carrera;
     }
@@ -21,11 +22,6 @@ public class ControladorCarrera {
     public void setCarrera(Carrera carrera) {
         this.carrera = carrera;
     }
-
-
-    
-    
-    
 
     public Boolean guardar() {
         return true;
@@ -48,5 +44,5 @@ public class ControladorCarrera {
         }
         return false;
     }
-    
+
 }

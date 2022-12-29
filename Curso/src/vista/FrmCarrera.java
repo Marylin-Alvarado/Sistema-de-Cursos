@@ -2,6 +2,7 @@ package vista;
 
 import controlador.ControladorCarrera;
 import javax.swing.JOptionPane;
+import vista.utilidades.Utilidades;
 
 /**
  * fecha: 26/12/2022
@@ -15,17 +16,18 @@ public class FrmCarrera extends javax.swing.JDialog {
     public FrmCarrera(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarCombo();
     }
 
     private void limpiar() {
         txtNombre.setText("");
         listaCiclos.setSelectedIndex(-1);
-        txtSeccion.setText("");
+        cbxSeccion.setSelectedIndex(-1);
         controladorCarrera.setCarrera(null);
     }
 
     private void guardar(){
-        if (txtNombre.getText().trim().isEmpty()||txtSeccion.getText().trim().isEmpty()||listaCiclos.getSelectedIndex()==-1) {
+        if (txtNombre.getText().trim().isEmpty()||cbxSeccion.getSelectedIndex()==-1||listaCiclos.getSelectedIndex()==-1) {
             JOptionPane.showMessageDialog(null, "Campos vacios", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             if(controladorCarrera.guardar()){
@@ -37,6 +39,9 @@ public class FrmCarrera extends javax.swing.JDialog {
             }
             limpiar();
         }
+    }
+    private void cargarCombo(){
+        Utilidades.cargarComboBoxSeccion(cbxSeccion);
     }
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -53,7 +58,7 @@ public class FrmCarrera extends javax.swing.JDialog {
         jScrollPane2 = new javax.swing.JScrollPane();
         listaCiclos = new javax.swing.JList<>();
         jLabel3 = new javax.swing.JLabel();
-        txtSeccion = new javax.swing.JTextField();
+        cbxSeccion = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -97,13 +102,10 @@ public class FrmCarrera extends javax.swing.JDialog {
 
         tblTabla.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         jScrollPane1.setViewportView(tblTabla);
@@ -126,7 +128,9 @@ public class FrmCarrera extends javax.swing.JDialog {
         jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel3.setText("Sección");
         getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
-        getContentPane().add(txtSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 160, -1));
+
+        cbxSeccion.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        getContentPane().add(cbxSeccion, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, 160, -1));
 
         pack();
         setLocationRelativeTo(null);
@@ -188,6 +192,7 @@ public class FrmCarrera extends javax.swing.JDialog {
     private javax.swing.JButton btnActualizar;
     private javax.swing.JButton btnBorrar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JComboBox<String> cbxSeccion;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -196,7 +201,6 @@ public class FrmCarrera extends javax.swing.JDialog {
     private javax.swing.JList<String> listaCiclos;
     private javax.swing.JTable tblTabla;
     private javax.swing.JTextField txtNombre;
-    private javax.swing.JTextField txtSeccion;
     // End of variables declaration//GEN-END:variables
 
 }
