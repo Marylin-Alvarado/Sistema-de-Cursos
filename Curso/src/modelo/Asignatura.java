@@ -1,27 +1,20 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package modelo;
 
-import controlador.listas.ListaEnlazada;
 import modelo.enums.Estado;
-import modelo.enums.Unidades;
 
 /**
  *
  * @author SONY VAIO
  */
 public class Asignatura {
+
     private Integer id;
     private Character paralelo;
-    private String unidad;
+    private String unidad, nombreAsignatura;
     private Docente docente;
     private Cursa cursa;
     private Estado estadoAsignatura;
     private Integer numeroHoras;
-    private Float notaFinal;
-    private ListaEnlazada<Unidad> unidades; 
 
     public Integer getId() {
         return id;
@@ -29,6 +22,14 @@ public class Asignatura {
 
     public void setId(Integer id) {
         this.id = id;
+    }
+
+    public String getNombreAsignatura() {
+        return nombreAsignatura;
+    }
+
+    public void setNombreAsignatura(String nombreAsignatura) {
+        this.nombreAsignatura = nombreAsignatura;
     }
 
     public Character getParalelo() {
@@ -54,7 +55,7 @@ public class Asignatura {
     public void setDocente(Docente docente) {
         this.docente = docente;
     }
-    
+
     public Cursa getCursa() {
         return cursa;
     }
@@ -79,23 +80,4 @@ public class Asignatura {
         this.numeroHoras = numeroHoras;
     }
 
-    public Float getNotaFinal() {
-        return notaFinal;
-    }
-
-    public void setNotaFinal(Float notaFinal) {
-        this.notaFinal = notaFinal;
-    }
-
-    public ListaEnlazada<Unidad> getUnidades() {
-        return unidades;
-    }
-
-    public void setUnidades(ListaEnlazada<Unidad> unidades) {
-        this.unidades = unidades;
-    }
-    
-    
-    
-    
 }
