@@ -5,16 +5,32 @@
 
 package vista;
 
+import controlador.dao.AlumnoDao;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import vista.Tabla.modeloTablaAlumnos;
+
 /**
  *
  * @author SONY VAIO
  */
 public class FrmCompanieros extends javax.swing.JDialog {
 
+    modeloTablaAlumnos mta = new modeloTablaAlumnos();
+    AlumnoDao daoAlumno = new AlumnoDao();
+    
     /** Creates new form FrmCompanieros */
     public FrmCompanieros(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        cargarTabla();
+    }
+    
+    public void cargarTabla(){
+        mta.setLista(daoAlumno.listar());
+        jTable1.setModel(mta);
+        jTable1.updateUI();
     }
 
     /** This method is called from within the constructor to
@@ -30,8 +46,11 @@ public class FrmCompanieros extends javax.swing.JDialog {
         jSpinner2 = new javax.swing.JSpinner();
         lblNombreAsignatura = new javax.swing.JLabel();
         lblNombreAsignatura1 = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        listCompanieros = new javax.swing.JList<>();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
+        lblNombreAsignatura2 = new javax.swing.JLabel();
+        txtNombreBuscar = new javax.swing.JTextField();
+        btnBuscar = new javax.swing.JToggleButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -39,12 +58,27 @@ public class FrmCompanieros extends javax.swing.JDialog {
 
         lblNombreAsignatura1.setText("Nombres y apellidos");
 
-        listCompanieros.setModel(new javax.swing.AbstractListModel<String>() {
-            String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
-            public int getSize() { return strings.length; }
-            public String getElementAt(int i) { return strings[i]; }
+        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable1);
+
+        lblNombreAsignatura2.setText("Nombre");
+
+        btnBuscar.setText("Buscar");
+        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarActionPerformed(evt);
+            }
         });
-        jScrollPane1.setViewportView(listCompanieros);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -57,11 +91,17 @@ public class FrmCompanieros extends javax.swing.JDialog {
                         .addComponent(lblNombreAsignatura))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(15, 15, 15)
-                        .addComponent(lblNombreAsignatura1)))
-                .addContainerGap(91, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jScrollPane1))
+                        .addComponent(lblNombreAsignatura1)
+                        .addGap(112, 112, 112)
+                        .addComponent(lblNombreAsignatura2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 102, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 474, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -69,15 +109,39 @@ public class FrmCompanieros extends javax.swing.JDialog {
                 .addGap(14, 14, 14)
                 .addComponent(lblNombreAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(lblNombreAsignatura1)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(btnBuscar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(lblNombreAsignatura1)
+                        .addComponent(lblNombreAsignatura2)
+                        .addComponent(txtNombreBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 179, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 282, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
+        try {
+            // TODO add your handling code here:
+            buscarAlumno();
+        } catch (Exception ex) {
+            Logger.getLogger(FrmCompanieros.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnBuscarActionPerformed
+
+    public void buscarAlumno()throws Exception{
+        String nombreAlumno = txtNombreBuscar.getText();
+        if(nombreAlumno == null){
+            JOptionPane.showConfirmDialog(null, "Introducar el nombre a buscar");
+        }else{
+            mta.setLista(daoAlumno.listar().buscar("nombres", nombreAlumno));
+            jTable1.setModel(mta);
+            jTable1.updateUI();
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -121,12 +185,15 @@ public class FrmCompanieros extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JToggleButton btnBuscar;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JSpinner jSpinner2;
+    private javax.swing.JTable jTable1;
     private javax.swing.JLabel lblNombreAsignatura;
     private javax.swing.JLabel lblNombreAsignatura1;
-    private javax.swing.JList<String> listCompanieros;
+    private javax.swing.JLabel lblNombreAsignatura2;
+    private javax.swing.JTextField txtNombreBuscar;
     // End of variables declaration//GEN-END:variables
 
 }
