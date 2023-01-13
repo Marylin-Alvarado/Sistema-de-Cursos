@@ -19,6 +19,8 @@ public abstract class Persona {
     private String ciudad;
     private String fechaNacimiento;
     private Generos genero;
+    private String correo;
+    private String contrasenia;
 
     public Persona(){
         
@@ -87,5 +89,22 @@ public abstract class Persona {
     public void setGenero(Generos genero) {
         this.genero = genero;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasenia() {
+        return contrasenia;
+    }
+
+    public void setContrasenia(String contrasenia) {
+        this.contrasenia = contrasenia;
+    }
+    
     
 }

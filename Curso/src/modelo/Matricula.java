@@ -11,7 +11,7 @@ import java.util.Date;
  *
  * @author SONY VAIO
  */
-class Matricula {
+public class Matricula {
     private Integer idMatricula;
     private Date fechaEmision;
     private Periodo periodo;

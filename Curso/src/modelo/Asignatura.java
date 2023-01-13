@@ -22,6 +22,7 @@ public class Asignatura {
     private Integer numeroHoras;
     private Float notaFinal;
     private ListaEnlazada<Unidad> unidades; 
+    private String nombre;
 
     public Integer getId() {
         return id;
@@ -93,6 +94,14 @@ public class Asignatura {
 
     public void setUnidades(ListaEnlazada<Unidad> unidades) {
         this.unidades = unidades;
+    }
+
+    public String getNombre() {
+        return nombre;
+    }
+
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
     
     
