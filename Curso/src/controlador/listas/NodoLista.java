@@ -4,9 +4,6 @@
  */
 package controlador.listas;
 
-import javax.xml.bind.annotation.XmlAnyElement;
-import javax.xml.bind.annotation.XmlElement;
-
 /**
  *
  * @author SONY VAIO
