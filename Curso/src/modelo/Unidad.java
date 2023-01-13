@@ -18,6 +18,10 @@ public class Unidad {
     private Float acompanamientoD;
     private Float evaluacion;
     private Float notaUnidad;
+    
+    public void calcularNotaUnidad(){
+        this.notaUnidad = ((this.acompanamientoD * 0.2f)+(this.trabajoE * 0.25f)+(this.aprendizajeA *0.2f)+(this.evaluacion * 0.35f));
+    }
 
     public Float getAprendizajeA() {
         return aprendizajeA;
@@ -65,6 +69,11 @@ public class Unidad {
 
     public void setUnidadNro(Unidades unidadNro) {
         this.unidadNro = unidadNro;
+    }
+
+    @Override
+    public String toString() {
+        return unidadNro.toString();
     }
     
     

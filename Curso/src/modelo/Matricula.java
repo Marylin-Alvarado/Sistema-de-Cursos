@@ -21,7 +21,7 @@ public class Matricula {
     private Float promedioGeneral;
 
     public Matricula(){
-        
+        cursa = new ListaEnlazada<>();
     }
 
     public Integer getIdMatricula() {
@@ -78,6 +78,11 @@ public class Matricula {
 
     public void setPromedioGeneral(Float promedioGeneral) {
         this.promedioGeneral = promedioGeneral;
+    }
+
+    @Override
+    public String toString() {
+        return idMatricula.toString();
     }
     
     
