@@ -5,8 +5,7 @@
  */
 package vistas;
 
-import controlador.dao.AsignaturaDao;
-import vistas.Tabla.ModeloTablaAsignatura;
+
 
 /**
  *
@@ -14,8 +13,7 @@ import vistas.Tabla.ModeloTablaAsignatura;
  */
 
 public class FrmAsignatura extends javax.swing.JFrame {
-    private AsignaturaDao asignaturaDao = new AsignaturaDao();
-    private ModeloTablaAsignatura mtAsg = new ModeloTablaAsignatura();
+
 
     /**
      * Creates new form FrmAsignatura

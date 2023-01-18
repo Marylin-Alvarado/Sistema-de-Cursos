@@ -16,8 +16,7 @@ import vistas.Utilidades.Utilidades;
  */
 public class FrmCuenta extends javax.swing.JFrame {
     
-    private CuentaDao cuentaDao = new CuentaDao();
-    private ModeloTablaUsuario mtp = new ModeloTablaUsuario();
+
 
     /**
      * Creates new form FrmUsuario

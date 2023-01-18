@@ -5,17 +5,13 @@
  */
 package vistas;
 
-import controlador.dao.AsistenciaDao;
-import vistas.Tabla.ModeloTablaAsistencia;
 
 /**
  *
  * @author Marylin
  */
 public class FrmAsistencia extends javax.swing.JFrame {
-    private AsistenciaDao asistenciaDao = new AsistenciaDao();
-    private ModeloTablaAsistencia mtAsg = new ModeloTablaAsistencia();
-    
+
     
 
     /**

@@ -5,8 +5,7 @@
  */
 package vistas;
 
-import controlador.dao.PersonaDao;
-import vistas.Tabla.ModeloTablaAdministrador;
+
 
 /**
  *
@@ -14,8 +13,7 @@ import vistas.Tabla.ModeloTablaAdministrador;
  */
 public class FrmAdministrador extends javax.swing.JFrame {
     
-    private PersonaDao personaDao = new PersonaDao();
-    private ModeloTablaAdministrador mtadm = new ModeloTablaAdministrador();
+ 
 
     /**
      * Creates new form FrmAdministrador

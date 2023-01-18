@@ -5,8 +5,7 @@
  */
 package vistas;
 
-import controlador.dao.AlumnoDao;
-import vistas.Tabla.ModeloTablaAlumno;
+
 
 /**
  *
@@ -14,8 +13,7 @@ import vistas.Tabla.ModeloTablaAlumno;
  */
 public class FrmAlumno extends javax.swing.JFrame {
     
-    private AlumnoDao alumnoDao = new AlumnoDao();
-    private ModeloTablaAlumno mtalm = new ModeloTablaAlumno();
+
 
 
     /**
