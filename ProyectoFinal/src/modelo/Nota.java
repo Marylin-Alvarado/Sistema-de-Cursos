@@ -16,6 +16,9 @@ public class Nota {
     private Float evaluacion;
     private Float notaTotal;
     
+    /**
+     * Método para calcular la nota final de una matrícula en especifico
+     */
     public void calcularNota(){
         this.notaTotal = ((this.acompanamientoD * 0.2f)+(this.trabajoE * 0.25f)+(this.aprendizajeA *0.2f)+(this.evaluacion * 0.35f));
     }

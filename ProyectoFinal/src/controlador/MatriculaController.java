@@ -15,13 +15,15 @@ import modelo.Matricula;
 public class MatriculaController {
     private Matricula matricula;
     
+    /**
+     * Método para calcular el promedio general de todas las asignaturas de una matrícula
+     */
     public void calcularPromedioGeneral(){
         Float aux = 0f;
         for(int i = 0; i < matricula.getCursa().getSize(); i++){
             try {
                 aux = aux + matricula.getCursa().obtener(i).getNotaFinal().getNotaTotal();
             } catch (Exception e) {
-//                System.out.println(e.getMessage());
             }
         }
         matricula.setPromedioGeneral(aux/matricula.getCursa().getSize());

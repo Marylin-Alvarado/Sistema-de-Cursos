@@ -18,7 +18,6 @@ public class Asignatura {
     private String unidad;
     private Docente docente;
     private Cursa cursa;
-    private Estado estadoAsignatura;
     private Integer numeroHoras;
     
     public Integer getId() {
@@ -69,14 +68,6 @@ public class Asignatura {
         this.cursa = cursa;
     }
 
-    public Estado getEstadoAsignatura() {
-        return estadoAsignatura;
-    }
-
-    public void setEstadoAsignatura(Estado estadoAsignatura) {
-        this.estadoAsignatura = estadoAsignatura;
-    }
-
     public Integer getNumeroHoras() {
         return numeroHoras;
     }
@@ -87,7 +78,7 @@ public class Asignatura {
 
     @Override
     public String toString() {
-        return id.toString();
+        return nombre;
     }
     
     

@@ -5,6 +5,7 @@
 package modelo;
 
 import controlador.listas.ListaEnlazada;
+import modelo.enums.Estado;
 
 /**
  *
@@ -16,6 +17,7 @@ public class Cursa {
     private Integer horasAsistidas;
     private Nota notaFinal;
     private Integer porcentajeHorasAsistidas;
+    private Estado estadoAsignatura;
 
     public Matricula getMatricula() {
         return matricula;
@@ -56,7 +58,14 @@ public class Cursa {
     public void setPorcentajeHorasAsistidas(Integer porcentajeHorasAsistidas) {
         this.porcentajeHorasAsistidas = porcentajeHorasAsistidas;
     }
-    
+
+    public Estado getEstadoAsignatura() {
+        return estadoAsignatura;
+    }
+
+    public void setEstadoAsignatura(Estado estadoAsignatura) {
+        this.estadoAsignatura = estadoAsignatura;
+    }
     
     @Override
     public String toString() {
