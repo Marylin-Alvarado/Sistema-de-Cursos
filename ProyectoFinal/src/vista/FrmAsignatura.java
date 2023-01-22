@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
+package vista;
 
 import controlador.AsignaturaController;
 import controlador.listas.ListaEnlazada;
@@ -35,7 +35,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
     public void CargarCombos(){
 //        Utilidades.cargarUnidades(cbxUnidad);
 //        Utilidades.cargarDocentes(cbxDocente, Utilidades.listar("docentes"));
-        Utilidades.cargarEstados(cbxEstado);
     }
 
     public void cargarTabla(){
@@ -69,8 +68,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
         cbxDocente = new javax.swing.JComboBox<>();
         jLabel6 = new javax.swing.JLabel();
         txtNumeroHoras = new javax.swing.JTextField();
-        jLabel7 = new javax.swing.JLabel();
-        cbxEstado = new javax.swing.JComboBox<>();
         btnGuardar = new javax.swing.JButton();
         btnCargar = new javax.swing.JButton();
 
@@ -126,10 +123,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
 
         jLabel6.setText("Número de horas:");
 
-        jLabel7.setText("Estado:");
-
-        cbxEstado.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item1" }));
-
         btnGuardar.setText("Guardar");
         btnGuardar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -153,20 +146,20 @@ public class FrmAsignatura extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel7))
-                        .addGap(18, 18, 18)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cbxUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(78, 78, 78)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel4))
+                                .addGap(18, 18, 18)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(cbxUnidad, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel6)
                                 .addGap(18, 18, 18)
-                                .addComponent(txtNumeroHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(txtNumeroHoras, javax.swing.GroupLayout.PREFERRED_SIZE, 75, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(78, 78, 78)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel3)
                                 .addGap(18, 18, 18)
@@ -180,7 +173,7 @@ public class FrmAsignatura extends javax.swing.JFrame {
                         .addComponent(btnGuardar)
                         .addGap(18, 18, 18)
                         .addComponent(btnCargar)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                .addContainerGap(126, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -200,9 +193,7 @@ public class FrmAsignatura extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(txtNumeroHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel7)
-                    .addComponent(cbxEstado, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNumeroHoras, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(8, 8, 8)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnGuardar)
@@ -256,7 +247,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
         aC.getAsignatura().setParalelo(((String)cbxParalelo.getSelectedItem()).charAt(0));
         aC.getAsignatura().setUnidad((String) cbxUnidad.getSelectedItem());
         aC.getAsignatura().setDocente(new Docente());
-        aC.getAsignatura().setEstadoAsignatura((Estado) cbxEstado.getSelectedItem());
         aC.getAsignatura().setNumeroHoras(Integer.parseInt(txtNumeroHoras.getText()));
         if (!txtNombre.getText().isEmpty() || !txtNumeroHoras.getText().isEmpty()) {
             aC.getAsignatura().setId(Utilidades.listarAsignaturas().getSize()+1);
@@ -305,7 +295,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
     private javax.swing.JButton btnCargar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cbxDocente;
-    private javax.swing.JComboBox<String> cbxEstado;
     private javax.swing.JComboBox<String> cbxParalelo;
     private javax.swing.JComboBox<String> cbxUnidad;
     private javax.swing.JLabel jLabel1;
@@ -314,7 +303,6 @@ public class FrmAsignatura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;

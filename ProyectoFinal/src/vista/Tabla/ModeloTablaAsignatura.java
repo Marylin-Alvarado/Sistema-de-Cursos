@@ -52,8 +52,6 @@ public class ModeloTablaAsignatura extends AbstractTableModel{
             case 1:
                 return "Nombre";
             case 2:
-                return "Estado";
-            case 3:
                 return "Numero de horas";
             default:
                 return null;
@@ -62,7 +60,7 @@ public class ModeloTablaAsignatura extends AbstractTableModel{
     
     @Override
     public int getColumnCount() {
-        return 4;
+        return 3;
     }
     
 
@@ -71,15 +69,7 @@ public class ModeloTablaAsignatura extends AbstractTableModel{
         Asignatura a = null;
         try {
             a = listaAsignaturas.obtener(rowIndex);
-//            Object aLista = (Object)listaAsignaturas.obtener(rowIndex);
-//            LinkedTreeMap<Object, Object> t = (LinkedTreeMap<Object, Object>) aLista;
-////            String idS = t.get("id").toString();
-////            Integer id = Integer.parseInt(idS.substring(0,idS.indexOf('.')));
-//            String nombre = t.get("nombre").toString();
-//            Estado estado =  (Estado.valueOf(t.get("estadoAsignatura").toString()));
-//            String numHor = t.get("numeroHoras").toString();
-//            Integer numHoras = Integer.parseInt(numHor.substring(0, numHor.indexOf('.')));
-//            a = new Asignatura(nombre, estado, numHoras);
+
         } catch (Exception e) {
             System.out.println("Error en getValueAt : " + e);
         }
@@ -89,8 +79,6 @@ public class ModeloTablaAsignatura extends AbstractTableModel{
             case 1:
                 return (a != null) ? a.getNombre(): "No definido";
             case 2:
-                return (a != null) ? a.getEstadoAsignatura(): "No definido";
-            case 3:
                 return (a != null) ? a.getNumeroHoras() : "No definido";
             default:
                 return null;
