@@ -21,6 +21,15 @@ public class Asignatura {
     private Estado estadoAsignatura;
     private Integer numeroHoras;
     
+    public Asignatura(){
+        
+    }
+    public Asignatura(String nombre, Estado estado, Integer numHoras){
+        this.nombre = nombre;
+        this.estadoAsignatura = estado;
+        this.numeroHoras = numHoras;
+    }
+    
     public Integer getId() {
         return id;
     }

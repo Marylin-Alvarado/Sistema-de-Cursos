@@ -1,0 +1,34 @@
+{
+  "cabecera": {
+    "dato": {
+      "id": 1,
+      "nombre": "UNO",
+      "asignaturas": {
+        "cabecera": {
+          "dato": {
+            "id": 1,
+            "nombre": "YIR",
+            "paralelo": "A",
+            "unidad": "I",
+            "docente": {},
+            "estadoAsignatura": "APROBADA",
+            "numeroHoras": 12
+          },
+          "siguiente": {
+            "dato": {
+              "id": 2,
+              "nombre": "y",
+              "paralelo": "A",
+              "unidad": "I",
+              "docente": {},
+              "estadoAsignatura": "APROBADA",
+              "numeroHoras": 10
+            }
+          }
+        },
+        "size": 2
+      }
+    }
+  },
+  "size": 1
+}

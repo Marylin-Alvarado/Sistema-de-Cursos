@@ -8,17 +8,18 @@ import controlador.listas.ListaEnlazada;
 
 /**
  *
- * @author SONY VAIO
+ * @author TecnoeXtrem
  */
-class Ciclo {
+public class Ciclo {
+
     private Integer id;
     private String nombre;
     private ListaEnlazada<Asignatura> asignaturas;
 
-    public Ciclo(){
-        
+    public Ciclo() {
+
     }
-    
+
     public Integer getId() {
         return id;
     }
@@ -42,6 +43,6 @@ class Ciclo {
     public void setAsignaturas(ListaEnlazada<Asignatura> asignaturas) {
         this.asignaturas = asignaturas;
     }
-    
-    
+
 }
+

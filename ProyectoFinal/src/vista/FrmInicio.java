@@ -3,10 +3,8 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
+package vista;
 
-import controlador.dao.CuentaDao;
-import controlador.dao.RolDao;
 import javax.swing.JOptionPane;
 import modelo.Cuenta;
 
@@ -16,7 +14,6 @@ import modelo.Cuenta;
  */
 public class FrmInicio extends javax.swing.JDialog {
 
-    private CuentaDao cd;
     /**
      * Creates new form FrmInicio
      */
@@ -24,9 +21,7 @@ public class FrmInicio extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         setLocationRelativeTo(this);
-        cd = new CuentaDao();
-        new RolDao().crearRoles();  
-        cd.crearCuenta();
+
         
     }
     
@@ -35,7 +30,7 @@ public class FrmInicio extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             this.dispose();
-            new FrmPrincipal().setVisible(true);
+//            new FrmPrincipal().setVisible(true);
         }
             
     }

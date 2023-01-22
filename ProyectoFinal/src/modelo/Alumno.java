@@ -15,6 +15,7 @@ public class Alumno extends Persona {
     private Integer numMaterias;
     private String asistencia;
     private ListaEnlazada<Matricula> matriculas;
+    
     public Alumno(){
         
     }

@@ -3,12 +3,10 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
+package vista;
 
-import controlador.dao.PersonaDao;
 import controlador.listas.ListaEnlazada;
 import javax.swing.JTable;
-import vistas.Tabla.ModeloTablaPersona;
 
 /**
  *
@@ -16,9 +14,9 @@ import vistas.Tabla.ModeloTablaPersona;
  */
 public class FrmSimulacion extends javax.swing.JDialog implements Runnable {
 
-    private PersonaDao pd = new PersonaDao();
-    private ModeloTablaPersona mtp = new ModeloTablaPersona();
-    private ModeloTablaPersona mtp1 = new ModeloTablaPersona();
+//    private PersonaDao pd = new PersonaDao();
+//    private ModeloTablaPersona mtp = new ModeloTablaPersona();
+//    private ModeloTablaPersona mtp1 = new ModeloTablaPersona();
     private ListaEnlazada lisat = new ListaEnlazada();
 
     /**
@@ -28,34 +26,32 @@ public class FrmSimulacion extends javax.swing.JDialog implements Runnable {
         super(parent, modal);
         initComponents();
         setSize(600, 500);
-        mtp.setLista(pd.listar());
-        cargarTabla1(mtp, tblTabla);
         Thread hilo = new Thread(this);
         hilo.start();
         setLocationRelativeTo(this);
         
     }
 
-    private void cargarTabla1(ModeloTablaPersona mtp, JTable tblTabla) {
-        //mtp.setLista(pd.listar());
-        tblTabla.setModel(mtp);
-        //tblTabla.fireTableDataChanged();
-        tblTabla.updateUI();
-    }
+//    private void cargarTabla1(ModeloTablaPersona mtp, JTable tblTabla) {
+//        //mtp.setLista(pd.listar());
+//        tblTabla.setModel(mtp);
+//        //tblTabla.fireTableDataChanged();
+//        tblTabla.updateUI();
+//    }
 
     @Override
     public void run() {
-        ListaEnlazada aux = new ListaEnlazada();
-        Integer cont = mtp.getLista().getSize();
+//        ListaEnlazada aux = new ListaEnlazada();
+//        Integer cont = mtp.getLista().getSize();
         try {
-            for (int i = 0; i < cont; i++) {
-                aux.insertar(mtp.getLista().eliminar(0));
-                Thread.sleep(3000);
-                cargarTabla1(mtp, tblTabla);
-                mtp1.setLista(aux);
-                cargarTabla1(mtp1, tblTabla2);
-                
-            }
+//            for (int i = 0; i < cont; i++) {
+//                aux.insertar(mtp.getLista().eliminar(0));
+//                Thread.sleep(3000);
+//                cargarTabla1(mtp, tblTabla);
+//                mtp1.setLista(aux);
+//                cargarTabla1(mtp1, tblTabla2);
+//                
+//            }
         } catch (Exception e) {
             System.out.println(e);
             e.printStackTrace();

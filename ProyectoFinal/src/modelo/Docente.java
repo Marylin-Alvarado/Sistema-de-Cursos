@@ -58,6 +58,13 @@ public class Docente extends Persona {
     public void setAniosExpLaboral(Integer aniosExpLaboral) {
         this.aniosExpLaboral = aniosExpLaboral;
     }
+
+    @Override
+    public String toString() {
+        return getNombres() + " " + getApellidos();
+    }
+    
+    
     
     
 }

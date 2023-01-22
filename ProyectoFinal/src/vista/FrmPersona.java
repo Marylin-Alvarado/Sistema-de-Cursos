@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
+package vista;
 
-import controlador.dao.PersonaDao;
 import javax.swing.JOptionPane;
-import vistas.Tabla.ModeloTablaPersona;
-import vistas.Utilidades.Utilidades;
 
 /**
  *
@@ -16,8 +13,6 @@ import vistas.Utilidades.Utilidades;
  */
 public class FrmPersona extends javax.swing.JDialog {
 
-    private PersonaDao personaDao = new PersonaDao();
-    private ModeloTablaPersona mtp = new ModeloTablaPersona();
     
     /**
      * Creates new form FrmPersona
@@ -25,70 +20,70 @@ public class FrmPersona extends javax.swing.JDialog {
     public FrmPersona(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        cargarCombos();
-        limpiar();
+//        cargarCombos();
+//        limpiar();
         setLocationRelativeTo(this);
     }
     
-    private void cargarTabla(){
-        mtp.setLista(personaDao.listar());
-        jTable1.setModel(mtp);
-        jTable1.updateUI();
-    }
+//    private void cargarTabla(){
+//        mtp.setLista(personaDao.listar());
+//        jTable1.setModel(mtp);
+//        jTable1.updateUI();
+//    }
 
-    private void cargarCombos() {
-        Utilidades.cargarTipoIndentificacion(cbxidentificacion);
-    }
-    
-    private void limpiar (){
-        cargarCombos();
-        cargarTabla();
-        txtApellidos.setText("");
-        txtcedula.setText("");
-        txtcorreo.setText("");
-        txtdireccion.setText("");
-        txtNombres.setText("");
-        personaDao.setPersona(null);
-    }
+//    private void cargarCombos() {
+//        Utilidades.cargarTipoIndentificacion(cbxidentificacion);
+//    }
+//    
+//    private void limpiar (){
+//        cargarCombos();
+//        cargarTabla();
+//        txtApellidos.setText("");
+//        txtcedula.setText("");
+//        txtcorreo.setText("");
+//        txtdireccion.setText("");
+//        txtNombres.setText("");
+//        personaDao.setPersona(null);
+//    }
 
-    private void guardar() {
-        if (txtcedula.getText().isEmpty() || txtApellidos.getText().isEmpty()
-                || txtcorreo.getText().isEmpty() || txtdireccion.getText().isEmpty()
-                || txtNombres.getText().isEmpty()) {
-            JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        } else {
-            Boolean verificar = false;
-            if (cbxidentificacion.getSelectedItem().toString().equalsIgnoreCase("PASAPORTE")) {
-                verificar = true;
-            } else if (!(cbxidentificacion.getSelectedItem().toString().equalsIgnoreCase("PASAPORTE")) &&
-                    controlador.utiles.Utilidades.validadorDeCedula(txtcedula.getText())) {
-                verificar = true;
-            } else {
-                verificar = false;
-                JOptionPane.showMessageDialog(null, "Cedula no valida", "Error", JOptionPane.ERROR_MESSAGE);
-            }
-            if (verificar) {
-                //save
-                personaDao.getPersona().setApellidos(txtApellidos.getText());
-                personaDao.getPersona().setNombres(txtNombres.getText());
-                personaDao.getPersona().setCorreo(txtcorreo.getText());
-                personaDao.getPersona().setDireccion(txtdireccion.getText());
-                personaDao.getPersona().setId_rol(4);
-                personaDao.getPersona().setIndetifiacion(txtcedula.getText());
-                personaDao.getPersona().setTipoIdentificacion(Utilidades.obtenerTipoIdentificacion(cbxidentificacion));
-                try {
-                    if(personaDao.guardar()) {
-                        limpiar();
-                       JOptionPane.showMessageDialog(null, "Se ha registraso", "Exitosamente", JOptionPane.INFORMATION_MESSAGE); 
-                    }
-                    
-                } catch (Exception e) {
-                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error desconocido", JOptionPane.ERROR_MESSAGE);
-                }
-                
-            }
-        }
-    }
+//    private void guardar() {
+//        if (txtcedula.getText().isEmpty() || txtApellidos.getText().isEmpty()
+//                || txtcorreo.getText().isEmpty() || txtdireccion.getText().isEmpty()
+//                || txtNombres.getText().isEmpty()) {
+//            JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
+//        } else {
+//            Boolean verificar = false;
+//            if (cbxidentificacion.getSelectedItem().toString().equalsIgnoreCase("PASAPORTE")) {
+//                verificar = true;
+//            } else if (!(cbxidentificacion.getSelectedItem().toString().equalsIgnoreCase("PASAPORTE")) &&
+//                    controlador.utiles.Utilidades.validadorDeCedula(txtcedula.getText())) {
+//                verificar = true;
+//            } else {
+//                verificar = false;
+//                JOptionPane.showMessageDialog(null, "Cedula no valida", "Error", JOptionPane.ERROR_MESSAGE);
+//            }
+//            if (verificar) {
+//                //save
+//                personaDao.getPersona().setApellidos(txtApellidos.getText());
+//                personaDao.getPersona().setNombres(txtNombres.getText());
+//                personaDao.getPersona().setCorreo(txtcorreo.getText());
+//                personaDao.getPersona().setDireccion(txtdireccion.getText());
+//                personaDao.getPersona().setId_rol(4);
+//                personaDao.getPersona().setIndetifiacion(txtcedula.getText());
+//                personaDao.getPersona().setTipoIdentificacion(Utilidades.obtenerTipoIdentificacion(cbxidentificacion));
+//                try {
+//                    if(personaDao.guardar()) {
+//                        limpiar();
+//                       JOptionPane.showMessageDialog(null, "Se ha registraso", "Exitosamente", JOptionPane.INFORMATION_MESSAGE); 
+//                    }
+//                    
+//                } catch (Exception e) {
+//                    JOptionPane.showMessageDialog(null, e.getMessage(), "Error desconocido", JOptionPane.ERROR_MESSAGE);
+//                }
+//                
+//            }
+//        }
+//    }
     
     private void eliminar() {
         
@@ -261,7 +256,7 @@ public class FrmPersona extends javax.swing.JDialog {
     }//GEN-LAST:event_cbxidentificacionActionPerformed
 
     private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        guardar();
+//        guardar();
     }//GEN-LAST:event_btnGuardarActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

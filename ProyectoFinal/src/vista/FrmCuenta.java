@@ -3,12 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package vistas;
+package vista;
 
-import controlador.dao.CuentaDao;
-import java.awt.Frame;
-import vistas.Tabla.ModeloTablaUsuario;
-import vistas.Utilidades.Utilidades;
+
 
 /**
  *
@@ -34,9 +31,6 @@ public class FrmCuenta extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        modeloTablaUsuario1 = new vistas.Tabla.ModeloTablaUsuario();
-        modeloTablaUsuario2 = new vistas.Tabla.ModeloTablaUsuario();
-        modeloTablaUsuario3 = new vistas.Tabla.ModeloTablaUsuario();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable1 = new javax.swing.JTable();
@@ -144,9 +138,6 @@ public class FrmCuenta extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable jTable1;
-    private vistas.Tabla.ModeloTablaUsuario modeloTablaUsuario1;
-    private vistas.Tabla.ModeloTablaUsuario modeloTablaUsuario2;
-    private vistas.Tabla.ModeloTablaUsuario modeloTablaUsuario3;
     // End of variables declaration//GEN-END:variables
 
 }
