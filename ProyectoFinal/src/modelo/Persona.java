@@ -5,25 +5,38 @@
 package modelo;
 
 import modelo.enums.Generos;
+import modelo.enums.TipoIdentificacion;
 
 /**
  *
  * @author SONY VAIO
  */
 public abstract class Persona {
+    private Integer id;
     private String nombres;
     private String apellidos;
     private String identificacion;
+    private TipoIdentificacion tipoIdentificacion;
     private String direccion;
     private String telefono;
     private String ciudad;
     private String fechaNacimiento;
     private Generos genero;
     private Cuenta cuenta;
+    private String correo;
 
     public Persona(){
         
     }
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+    
 
     public String getNombres() {
         return nombres;
@@ -48,6 +61,15 @@ public abstract class Persona {
     public void setIdentificacion(String identificacion) {
         this.identificacion = identificacion;
     }
+
+    public TipoIdentificacion getTipoIdentificacion() {
+        return tipoIdentificacion;
+    }
+
+    public void setTipoIdentificacion(TipoIdentificacion tipoIdentificacion) {
+        this.tipoIdentificacion = tipoIdentificacion;
+    }
+    
 
     public String getDireccion() {
         return direccion;
@@ -96,6 +118,15 @@ public abstract class Persona {
     public void setCuenta(Cuenta cuenta) {
         this.cuenta = cuenta;
     }
+
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+    
     
     
     
