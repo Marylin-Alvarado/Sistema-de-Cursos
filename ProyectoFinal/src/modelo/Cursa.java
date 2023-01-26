@@ -9,7 +9,7 @@ import modelo.enums.Estado;
 
 /**
  *
- * @author SONY VAIO
+ * @author David Campoverde
  */
 public class Cursa {
     private Matricula matricula;

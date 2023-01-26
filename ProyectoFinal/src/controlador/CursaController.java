@@ -68,9 +68,6 @@ public class CursaController {
 
     public void setCursa(ListaEnlazada<Cursa> cursa) {
         this.cursa = cursa;
-    }
-    
-    
-    
+    }  
     
 }

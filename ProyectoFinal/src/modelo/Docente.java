@@ -8,7 +8,7 @@ import controlador.listas.ListaEnlazada;
 
 /**
  *
- * @author SONY VAIO
+ * @author David Campoverde
  */
 public class Docente extends Persona {
     private Integer idDocente;

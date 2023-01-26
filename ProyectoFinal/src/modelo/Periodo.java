@@ -8,7 +8,7 @@ import modelo.enums.Meses;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public class Periodo {
     private Integer idPeriodo;

@@ -6,7 +6,7 @@ package modelo.enums;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public enum Generos {
     MASCULINO, FEMENINO

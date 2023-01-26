@@ -6,7 +6,7 @@ package modelo.enums;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public enum Meses {
     ENERO, FEBRERO, MARZO, ABRIL, MAYO, JUNIO, JULIO, AGOSTO, SEPTIEMBRE, OCTUBRE, NOVIEMBRE, DICIEMBRE

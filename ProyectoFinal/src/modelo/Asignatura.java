@@ -9,7 +9,7 @@ import modelo.enums.Estado;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public class Asignatura {
     private Integer id;

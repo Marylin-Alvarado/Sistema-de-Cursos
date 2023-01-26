@@ -4,7 +4,6 @@
  */
 package vista.Tabla;
 
-import com.google.gson.internal.LinkedTreeMap;
 import controlador.listas.ListaEnlazada;
 import controlador.listas.excepciones.ListaNullException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;

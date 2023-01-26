@@ -10,11 +10,11 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import controlador.listas.ListaEnlazada;
 import controlador.listas.excepciones.ListaNullException;
+import controlador.listas.excepciones.ListaVaciaException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
-import java.io.IOException;
 import java.io.PrintWriter;
 import java.lang.reflect.Type;
 import java.util.logging.Level;
@@ -35,6 +35,11 @@ public class Utilidades {
     
     // Aqui se van a implementar los metodos de guardar y listar
 
+    /**
+     * Metodo para cargar los generos que se encuentran en un enum dentro de un JComboBox
+     * @param cbx
+     * @return 
+     */
     public static JComboBox cargarComboGenero(JComboBox cbx) {
         cbx.removeAllItems();
         for (Generos genero : Generos.values()) {
@@ -42,14 +47,16 @@ public class Utilidades {
         }
         return cbx;
     }
-    public static JComboBox cargarUnidades(JComboBox cbx){
-        cbx.removeAllItems();
-        for(Unidades unidad : Unidades.values()){
-            cbx.addItem(unidad);
-        }
-        return cbx;
+    
+    public static Generos getComboGenero(JComboBox cbx){
+        return (Generos) cbx.getSelectedItem();
     }
     
+    /**
+     * Metodo para cargar los estados que se encuentran dentro de un enum en un JComboBox
+     * @param cbx
+     * @return 
+     */
     public static JComboBox cargarEstados(JComboBox cbx){
         cbx.removeAllItems();
         for(Estado estado : Estado.values()){
@@ -58,6 +65,12 @@ public class Utilidades {
         return cbx;
     }
     
+    /**
+     * Metodo para cargar los docentes dentro de un JComboBox
+     * @param cbx
+     * @param docentes
+     * @return 
+     */
     public static JComboBox cargarDocentes(JComboBox cbx, ListaEnlazada docentes){
         cbx.removeAllItems();
         for(int i = 0; i < docentes.getSize() ; i++){
@@ -71,10 +84,26 @@ public class Utilidades {
         }
         return cbx;
     }
+    
+    public static JComboBox cargarAsignaturas(JComboBox cbx, ListaEnlazada asignaturas){
+        cbx.removeAllItems();
+        for(int i = 0; i < asignaturas.getSize(); i++){
+            try {
+                cbx.addItem(asignaturas.obtener(i));
+            } catch (PosicionNoEncontradaException | ListaNullException ex) {
+                Logger.getLogger(Utilidades.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        return cbx;
+    }
 
-    public static void guardarAsignatura(Asignatura dato) {
+    /**
+     * Metodo para guardar un tipo de dato Asignatura dentro de un archivo JSON
+     * @param asignatura 
+     */
+    public static void guardarAsignatura(Asignatura asignatura) {
         ListaEnlazada<Asignatura> lista = listarAsignaturas();
-        lista.insertar(dato);
+        lista.insertar(asignatura);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(lista);
@@ -85,9 +114,46 @@ public class Utilidades {
         }
     }
     
-    public static void guardarCiclo(Ciclo dato) {
+    
+    /**
+     * Metodo para modicar la asignatura dentro de un archivo JSON
+     * @param asignatura
+     * @param posicion
+     * @throws PosicionNoEncontradaException 
+     */
+    public static void modificarAsignatura(Asignatura asignatura, Integer posicion) throws PosicionNoEncontradaException{
+        ListaEnlazada<Asignatura> lista = listarAsignaturas();
+        lista.modificarPosicion(asignatura, posicion);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("asignaturas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }    
+    
+    public static void modificarCiclo(Ciclo ciclo, Integer posicion) throws PosicionNoEncontradaException{
         ListaEnlazada<Ciclo> lista = listarCiclos();
-        lista.insertar(dato);
+        lista.modificarPosicion(ciclo, posicion);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("ciclos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    } 
+    
+    /**
+     * Metodo para guardar ciclo dentro de un archivo JSON
+     * @param ciclo 
+     */
+    public static void guardarCiclo(Ciclo ciclo) {
+        ListaEnlazada<Ciclo> lista = listarCiclos();
+        lista.insertar(ciclo);
 
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(lista);
@@ -98,6 +164,10 @@ public class Utilidades {
         }
     }
     
+    /**
+     * Metodo para obtener la lista de ciclo de un archivo JSON 
+     * @return 
+     */
     
     public static ListaEnlazada<Ciclo> listarCiclos() {
         ListaEnlazada<Ciclo> lista = new ListaEnlazada<>();
@@ -122,6 +192,10 @@ public class Utilidades {
         return lista;
     }
     
+    /**
+     * Metodo para obtener la lista de asignaturas desde un archivo JSON
+     * @return 
+     */
     public static ListaEnlazada<Asignatura> listarAsignaturas() {
         ListaEnlazada<Asignatura> lista = new ListaEnlazada<>();
         String json = "";
@@ -144,5 +218,50 @@ public class Utilidades {
         }
         return lista;
     }
-
+    /**
+     * Eliinar Asignatura
+     */
+    
+    public static void eliminarAsignatura(Integer posicion) throws PosicionNoEncontradaException, ListaVaciaException{
+        ListaEnlazada<Asignatura> lista = listarAsignaturas();
+        lista.eliminar(posicion);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("asignaturas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    
+    public static void eliminarAsignaturaCiclo(Integer posicionCiclo, Integer posicionAsignatura) throws PosicionNoEncontradaException, ListaVaciaException, ListaNullException{
+        ListaEnlazada<Ciclo> lista = listarCiclos();
+        Ciclo ciclo = lista.obtener(posicionCiclo);
+        ListaEnlazada cicloAsignaturas = ciclo.getAsignaturas();
+        cicloAsignaturas.eliminar(posicionAsignatura);
+        ciclo.setAsignaturas(cicloAsignaturas);
+        lista.modificarPosicion(ciclo, posicionCiclo);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("ciclos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    
+    public static void eliminarCiclo(Integer posicionCiclo) throws ListaVaciaException, PosicionNoEncontradaException{
+        ListaEnlazada<Ciclo> lista = listarCiclos();
+        lista.eliminar(posicionCiclo);
+        
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("ciclos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 }

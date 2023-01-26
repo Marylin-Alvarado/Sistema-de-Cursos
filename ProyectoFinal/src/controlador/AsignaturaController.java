@@ -32,7 +32,6 @@ public class AsignaturaController {
     }
     
     
-    
     public ListaEnlazada<Asignatura> getAsignatursList() {
         return asignatursList;
     }

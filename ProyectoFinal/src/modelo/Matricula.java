@@ -9,7 +9,7 @@ import java.util.Date;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public class Matricula {
     private Integer idMatricula;
@@ -18,6 +18,7 @@ public class Matricula {
     private Alumno alumno;
     
     private ListaEnlazada<Cursa> cursa;
+    
     private Float promedioGeneral;
 
     public Matricula(){

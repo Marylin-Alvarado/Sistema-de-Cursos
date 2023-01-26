@@ -8,7 +8,7 @@ import controlador.listas.ListaEnlazada;
 
 /**
  *
- * @author SONY VAIO
+ * @author Marylin Alvarado
  */
 public class Malla {
     private Integer id;
