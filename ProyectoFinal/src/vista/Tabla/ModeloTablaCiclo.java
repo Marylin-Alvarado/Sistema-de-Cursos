@@ -4,7 +4,6 @@
  */
 package vista.Tabla;
 
-import com.google.gson.internal.LinkedTreeMap;
 import controlador.CicloController;
 import controlador.listas.ListaEnlazada;
 import java.util.concurrent.LinkedTransferQueue;

@@ -48,6 +48,10 @@ public class Utilidades {
         return cbx;
     }
     
+    public static Generos getComboGenero(JComboBox cbx){
+        return (Generos) cbx.getSelectedItem();
+    }
+    
     /**
      * Metodo para cargar los estados que se encuentran dentro de un enum en un JComboBox
      * @param cbx

@@ -25,10 +25,9 @@ import vista.Utilidades.Utilidades;
  * @author TecnoeXtrem
  */
 public class FrmAsignatura extends javax.swing.JDialog {
-
     private AsignaturaController aC = new AsignaturaController();
     private ModeloTablaAsignatura mta = new ModeloTablaAsignatura();
-
+    private FrmDocente docentes = new FrmDocente();
     /**
      * Creates new form FrmAsignaturas
      */
@@ -60,7 +59,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel1 = new org.edisoncor.gui.panel.Panel();
+        panel1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAsignatura = new javax.swing.JTable();
@@ -82,8 +81,6 @@ public class FrmAsignatura extends javax.swing.JDialog {
         btnEliminar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        panel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/vector.jpg"))); // NOI18N
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Asignaturas"));
 
@@ -290,6 +287,38 @@ public class FrmAsignatura extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        try {
+            // TODO add your handling code here:
+            eliminarMateria();
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaVaciaException ex) {
+            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        try {
+            // TODO add your handling code here:
+            modificarAsignatura();
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
+        // TODO add your handling code here:
+        cargarTabla();
+    }//GEN-LAST:event_btnCargarActionPerformed
+
+    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
+        // TODO add your handling code here:
+        guardar();
+    }//GEN-LAST:event_btnGuardarActionPerformed
+
     private void tblAsignaturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignaturaMouseClicked
         try {
             // TODO add your handling code here:
@@ -304,38 +333,6 @@ public class FrmAsignatura extends javax.swing.JDialog {
         btnModificar.setEnabled(true);
         btnEliminar.setEnabled(true);
     }//GEN-LAST:event_tblAsignaturaMouseClicked
-
-    private void btnGuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGuardarActionPerformed
-        // TODO add your handling code here:
-        guardar();
-    }//GEN-LAST:event_btnGuardarActionPerformed
-
-    private void btnCargarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCargarActionPerformed
-        // TODO add your handling code here:
-        cargarTabla();
-    }//GEN-LAST:event_btnCargarActionPerformed
-
-    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
-        try {
-            // TODO add your handling code here:
-            modificarAsignatura();
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaNullException ex) {
-            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnModificarActionPerformed
-
-    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
-        try {
-            // TODO add your handling code here:
-            eliminarMateria();
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaVaciaException ex) {
-            Logger.getLogger(FrmAsignatura.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnEliminarActionPerformed
 
     public void eliminarMateria() throws PosicionNoEncontradaException, ListaVaciaException{
         if(tblAsignatura.getSelectedRow() >= 0 ){
@@ -442,7 +439,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private org.edisoncor.gui.panel.Panel panel1;
+    private org.netbeans.modules.form.InvalidComponent panel1;
     private javax.swing.JTable tblAsignatura;
     private javax.swing.JTextField txtNombre;
     private javax.swing.JTextField txtNumeroHoras;
