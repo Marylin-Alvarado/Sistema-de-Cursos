@@ -1,25 +1,35 @@
 {
   "cabecera": {
     "dato": {
-      "id": 1.0,
-      "nombre": "YIR",
+      "id": 1,
+      "nombre": "Mate",
       "paralelo": "A",
       "unidad": "I",
       "docente": {},
-      "estadoAsignatura": "APROBADA",
-      "numeroHoras": 12.0
+      "numeroHoras": 10
     },
     "siguiente": {
       "dato": {
         "id": 2,
-        "nombre": "y",
+        "nombre": "Lenguage y Literatura",
         "paralelo": "A",
         "unidad": "I",
         "docente": {},
-        "estadoAsignatura": "APROBADA",
-        "numeroHoras": 10
+        "numeroHoras": 30
+      },
+      "siguiente": {
+        "dato": {
+          "id": 3,
+          "nombre": "Historia",
+          "paralelo": "A",
+          "unidad": "I",
+          "docente": {},
+          "numeroHoras": 30
+        }
       }
     }
   },
-  "size": 2
+  "size": 3,
+  "ascendente": 1,
+  "descendente": 2
 }

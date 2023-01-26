@@ -1,11 +1,14 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ *
  */
 package vista;
 
 import controlador.CicloController;
+import controlador.listas.excepciones.ListaNullException;
+import controlador.listas.excepciones.ListaVaciaException;
+import controlador.listas.excepciones.PosicionNoEncontradaException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import modelo.Asignatura;
 import modelo.Ciclo;
@@ -15,29 +18,30 @@ import vista.Utilidades.Utilidades;
 
 /**
  *
- * @author Marylin
+ * @author TecnoeXtrem
  */
 public class FrmCiclo extends javax.swing.JFrame {
 
     private CicloController cC = new CicloController();
-    private ModeloTablaCiclo mtc= new ModeloTablaCiclo();
+    private ModeloTablaCiclo mtc = new ModeloTablaCiclo();
     private ModeloTablaAsignatura mta = new ModeloTablaAsignatura();
+    private Integer indiceCiclo;
 
     /**
-     * Creates new form FrmCiclo
+     * Creates new form FrmCiclos
      */
     public FrmCiclo() {
         initComponents();
-        cargarTablaCiclos();
+        cargarTablaCiclo();
     }
-    
-    public void cargarTablaAsignaturas(){
+
+    public void cargarTablaAsignaturas() {
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
         tblAsignaturasCiclos.setModel(mta);
         tblAsignaturasCiclos.updateUI();
     }
-    
-    public void cargarTablaCiclos(){
+
+    public void cargarTablaCiclo() {
         mtc.setListaCiclo(Utilidades.listarCiclos());
         tblAsignaturasCiclos.setModel(mtc);
         tblAsignaturasCiclos.updateUI();
@@ -52,45 +56,42 @@ public class FrmCiclo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tblAsignaturasCiclos = new javax.swing.JTable();
+        panel1 = new org.edisoncor.gui.panel.Panel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        btnImportar = new javax.swing.JButton();
+        btnAgregarAsignatura = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         btnCrear = new javax.swing.JButton();
         txtNombreCiclo = new javax.swing.JTextField();
         btnCiclosDisponibles = new javax.swing.JButton();
+        btnEliminarAsignatura = new javax.swing.JButton();
+        btnModificarCiclo = new javax.swing.JButton();
+        btnMostrar = new javax.swing.JButton();
+        btnEliminarCiclo = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tblAsignaturasCiclos = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAsignatura = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        tblAsignaturasCiclos.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tblAsignaturasCiclos);
+        panel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computación.jpg"))); // NOI18N
 
         jLabel1.setText("Ciclo");
 
-        btnImportar.setText("<=");
-        btnImportar.addActionListener(new java.awt.event.ActionListener() {
+        btnAgregarAsignatura.setText("+");
+        btnAgregarAsignatura.setEnabled(false);
+        btnAgregarAsignatura.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnImportarActionPerformed(evt);
+                btnAgregarAsignaturaActionPerformed(evt);
             }
         });
 
         jLabel2.setText("Nombre:");
 
-        btnSelecionar.setText("Seleccionar");
+        btnSelecionar.setText("Mostrar");
         btnSelecionar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnSelecionarActionPerformed(evt);
@@ -107,36 +108,84 @@ public class FrmCiclo extends javax.swing.JFrame {
         });
 
         btnCiclosDisponibles.setText("Ciclos");
+        btnCiclosDisponibles.setEnabled(false);
+        btnCiclosDisponibles.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCiclosDisponiblesActionPerformed(evt);
+            }
+        });
+
+        btnEliminarAsignatura.setText("-");
+        btnEliminarAsignatura.setEnabled(false);
+        btnEliminarAsignatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarAsignaturaActionPerformed(evt);
+            }
+        });
+
+        btnModificarCiclo.setText("Modificar");
+        btnModificarCiclo.setEnabled(false);
+        btnModificarCiclo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarCicloActionPerformed(evt);
+            }
+        });
+
+        btnMostrar.setText("Selecionar");
+        btnMostrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMostrarActionPerformed(evt);
+            }
+        });
+
+        btnEliminarCiclo.setText("Eliminar");
+        btnEliminarCiclo.setEnabled(false);
+        btnEliminarCiclo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarCicloActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel3))
-                        .addGap(27, 27, 27)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNombreCiclo)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnCiclosDisponibles)
-                                    .addComponent(btnSelecionar))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnImportar, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addGap(161, 161, 161)
+                        .addComponent(jLabel1))
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(btnCrear)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(14, 14, 14))
+                        .addGap(14, 14, 14)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(btnCrear)
+                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jLabel2)
+                                .addComponent(jLabel3)))
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(27, 27, 27)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addComponent(btnSelecionar)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnAgregarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(btnEliminarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnModificarCiclo)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnMostrar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnEliminarCiclo)))))
+                .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jLabel1)
-                .addGap(121, 121, 121))
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnCiclosDisponibles, javax.swing.GroupLayout.PREFERRED_SIZE, 72, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,76 +199,274 @@ public class FrmCiclo extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(btnImportar)
-                    .addComponent(btnSelecionar))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                    .addComponent(btnAgregarAsignatura)
+                    .addComponent(btnSelecionar)
+                    .addComponent(btnEliminarAsignatura))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnCiclosDisponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCrear)
-                    .addComponent(btnCiclosDisponibles))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(btnModificarCiclo)
+                    .addComponent(btnMostrar)
+                    .addComponent(btnEliminarCiclo))
+                .addGap(16, 16, 16))
+        );
+
+        tblAsignaturasCiclos.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblAsignaturasCiclos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAsignaturasCiclosMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblAsignaturasCiclos);
+
+        tblAsignatura.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblAsignatura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAsignaturaMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblAsignatura);
+
+        javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
+        panel1.setLayout(panel1Layout);
+        panel1Layout.setHorizontalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(19, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(160, 160, 160))
+        );
+        panel1Layout.setVerticalGroup(
+            panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(panel1Layout.createSequentialGroup()
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(58, 58, 58)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(1, 1, 1)))
+                .addGap(20, 20, 20)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41))
+            .addComponent(panel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(43, 43, 43)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(117, Short.MAX_VALUE))
+            .addComponent(panel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnImportarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnImportarActionPerformed
-        // TODO add your handling code here:
-        registrarAsignatura();
-    }//GEN-LAST:event_btnImportarActionPerformed
+    private void btnAgregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAsignaturaActionPerformed
+        try {
+            // TODO add your handling code here:
+            registrarAsignatura();
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnAgregarAsignaturaActionPerformed
+
+    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
+        cargarTablaAsignaturas();
+        btnCiclosDisponibles.setEnabled(true);
+        btnAgregarAsignatura.setEnabled(true);
+    }//GEN-LAST:event_btnSelecionarActionPerformed
 
     private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
         // TODO add your handling code here:
         crearCiclo();
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        // TODO add your handling code here:
-        cargarTablaAsignaturas();
-    }//GEN-LAST:event_btnSelecionarActionPerformed
+    private void btnEliminarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAsignaturaActionPerformed
+        eliminaAsignatura();
+        try {
+            cargarTablaAsignaturaCiclo();
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarAsignaturaActionPerformed
 
-    public void crearCiclo(){
-        if(txtNombreCiclo.getText().isEmpty() || cC.getAsignaturaList() == null){
-            JOptionPane.showMessageDialog(null, "Datos incompletos");
+    public void eliminaAsignatura(){
+        try {
+            // TODO add your handling code here:
+            Utilidades.eliminarAsignaturaCiclo(indiceCiclo, tblAsignatura.getSelectedRow());
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaVaciaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    private void tblAsignaturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignaturaMouseClicked
+        // TODO add your handling code here:
+        btnEliminarAsignatura.setEnabled(true);
+    }//GEN-LAST:event_tblAsignaturaMouseClicked
+
+    private void tblAsignaturasCiclosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignaturasCiclosMouseClicked
+        btnEliminarCiclo.setEnabled(true);
+    }//GEN-LAST:event_tblAsignaturasCiclosMouseClicked
+
+    private void btnCiclosDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiclosDisponiblesActionPerformed
+        // TODO add your handling code here:
+        indiceCiclo = null;
+        btnEliminarAsignatura.setEnabled(false);
+        txtNombreCiclo.setText("");
+        cargarTablaCiclo();
+    }//GEN-LAST:event_btnCiclosDisponiblesActionPerformed
+
+    private void btnModificarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCicloActionPerformed
+        // TODO add your handling code here:
+        if (indiceCiclo >= 0) {
+            try {
+                cC.setCiclo(cC.getCicloList().obtener(indiceCiclo));
+                cC.getCiclo().setNombre(txtNombreCiclo.getText());
+                Utilidades.modificarCiclo(cC.getCiclo(), indiceCiclo);
+                cargarTablaAsignaturas();
+                indiceCiclo = null;
+            } catch (PosicionNoEncontradaException ex) {
+                Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ListaNullException ex) {
+                Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            }
+
+        }
+    }//GEN-LAST:event_btnModificarCicloActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
+        // TODO add your handling code here:
+        try {
+//             TODO add your handling code here
+            cargarTablaAsignaturaCiclo();
+            txtNombreCiclo.setText(cC.getCiclo().getNombre());
+            btnModificarCiclo.setEnabled(true);
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMostrarActionPerformed
+
+    private void btnEliminarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCicloActionPerformed
+        try {
+            // TODO add your handling code here:
+            eliminarCiclo();
+        } catch (ListaVaciaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarCicloActionPerformed
+
+    public void eliminarCiclo() throws ListaVaciaException, PosicionNoEncontradaException{
+        if(indiceCiclo != null){
+            Utilidades.eliminarCiclo(indiceCiclo);
+            txtNombreCiclo.setText("");
+            cargarTablaCiclo();
         }else{
+            if(tblAsignaturasCiclos.getSelectedRow() >= 0 && mta.getListaAsignaturas() != cC.getCiclo().getAsignaturas()){
+                Utilidades.eliminarCiclo(tblAsignaturasCiclos.getSelectedRow());
+                cargarTablaCiclo();
+            }else{
+                JOptionPane.showMessageDialog(null, "Escoja un ciclo");
+            }
+        }
+    }
+    public void cargarTablaAsignaturaCiclo() throws PosicionNoEncontradaException, ListaNullException {
+        int fila = tblAsignaturasCiclos.getSelectedRow();
+        if (fila >= 0) {
+            if (indiceCiclo == null) {
+                indiceCiclo = tblAsignaturasCiclos.getSelectedRow();
+            }
+            cC.setCicloList(Utilidades.listarCiclos());
+            cC.setCiclo(cC.getCicloList().obtener(indiceCiclo));
+
+            mta.setListaAsignaturas(cC.getCiclo().getAsignaturas());
+            tblAsignatura.setModel(mta);
+            tblAsignatura.updateUI();
+        }
+    }
+
+    public void crearCiclo() {
+        if (txtNombreCiclo.getText().isEmpty() || cC.getAsignaturaList().getSize() == 0) {
+            JOptionPane.showMessageDialog(null, "Datos incompletos");
+        } else {
             cC.getCiclo().setNombre(txtNombreCiclo.getText());
             cC.getCiclo().setAsignaturas(cC.getAsignaturaList());
-            cC.getCiclo().setId(Utilidades.listarCiclos().getSize()+1);
+            cC.getCiclo().setId(Utilidades.listarCiclos().getSize() + 1);
             Utilidades.guardarCiclo(cC.getCiclo());
             JOptionPane.showMessageDialog(null, "Ciclo registrado");
-            
+            cC.getAsignaturaList().vaciar();
+
         }
     }
-    public void registrarAsignatura(){
+
+    public void registrarAsignatura() throws PosicionNoEncontradaException, ListaNullException {
         Asignatura asignatura = new Asignatura();
-        if(tblAsignaturasCiclos.getSelectedRow() >= 0){
+        if (tblAsignaturasCiclos.getSelectedRow() >= 0) {
             int fila = tblAsignaturasCiclos.getSelectedRow();
-            System.out.println("fila" + fila);
-            asignatura =  mta.leerAsignatura(fila);
-            cC.getAsignaturaList().insertar(asignatura);
+            asignatura = mta.leerAsignatura(fila);
+            if (indiceCiclo != null) {
+                cC.setCiclo(cC.getCicloList().obtener(indiceCiclo));
+                cC.getCiclo().getAsignaturas().insertar(asignatura);
+                Utilidades.modificarCiclo(cC.getCiclo(), indiceCiclo);
+                cargarTablaAsignaturaCiclo();
+            } else {
+                cC.getAsignaturaList().insertar(asignatura);
+            }
         }
-        
     }
+
+    public void modificarListaAsignaturas() throws PosicionNoEncontradaException, ListaNullException {
+        int fila = tblAsignaturasCiclos.getSelectedRow();
+        if (fila >= 0) {
+            cC.setCiclo(cC.getCicloList().obtener(fila));
+
+//            cC.getCiclo().setAsignaturas(asignaturas);
+        }
+    }
+
     /**
      * @param args the command line arguments
      */
@@ -246,6 +493,13 @@ public class FrmCiclo extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(FrmCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
+        //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
@@ -256,15 +510,22 @@ public class FrmCiclo extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAgregarAsignatura;
     private javax.swing.JButton btnCiclosDisponibles;
     private javax.swing.JButton btnCrear;
-    private javax.swing.JButton btnImportar;
+    private javax.swing.JButton btnEliminarAsignatura;
+    private javax.swing.JButton btnEliminarCiclo;
+    private javax.swing.JButton btnModificarCiclo;
+    private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnSelecionar;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private org.edisoncor.gui.panel.Panel panel1;
+    private javax.swing.JTable tblAsignatura;
     private javax.swing.JTable tblAsignaturasCiclos;
     private javax.swing.JTextField txtNombreCiclo;
     // End of variables declaration//GEN-END:variables

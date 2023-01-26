@@ -51,6 +51,11 @@ public class Periodo {
     public void setEspecificacion(String especificacion) {
         this.especificacion = especificacion;
     }
+
+    @Override
+    public String toString() {
+        return "" + mesInicio + "-" + mesFin;
+    }
     
     
     

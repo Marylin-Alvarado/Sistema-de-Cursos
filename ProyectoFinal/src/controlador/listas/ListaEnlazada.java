@@ -7,6 +7,7 @@ package controlador.listas;
 import controlador.Utilidades.Utilidades;
 import controlador.listas.excepciones.AtributoException;
 import controlador.listas.excepciones.ListaNullException;
+import controlador.listas.excepciones.ListaVaciaException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;
 import java.lang.reflect.Array;
 import java.lang.reflect.Field;
@@ -92,6 +93,42 @@ public class ListaEnlazada<E> {
         }
     }
     
+    /**
+     * Eliminar 
+     */
+    
+
+    public E eliminar(Integer pos) throws ListaVaciaException, PosicionNoEncontradaException {
+        if (!estaVacia()) {
+            E dato = null;
+            if (pos >= 0 && pos < size) {
+                if (pos == 0) {
+                    dato = cabecera.getDato();
+                    cabecera = cabecera.getSiguiente();
+                    size--;
+
+                } else {
+                    NodoLista<E> aux = cabecera;
+
+                    for (int i = 0; i < pos - 1; i++) {
+                        aux = aux.getSiguiente();
+                    }
+
+                    dato = aux.getDato();
+                    NodoLista<E> proximo = aux.getSiguiente();
+                    aux.setSiguiente(proximo.getSiguiente());
+                    size--;
+                }
+
+            } else {
+                throw new PosicionNoEncontradaException();
+            }
+            return dato;
+        } else {
+            throw new ListaVaciaException();
+        }
+
+    }    
     /**
      * Método para imprimir por consola la lista
      */
@@ -422,12 +459,33 @@ public class ListaEnlazada<E> {
                 return true;
             }
             
-            
         }
 
         return false;
     }
+      
     
+   public void modificarPosicion(E dato, Integer pos) throws PosicionNoEncontradaException {
+        if (estaVacia()) {
+            insertar(dato);
+        } else if (pos >= 0 && pos < size) {
+            if (pos == 0) {
+                cabecera.setDato(dato);
+            } else {
+
+                NodoLista<E> aux = cabecera;
+
+                for (int i = 0; i < pos; i++) {
+                    aux = aux.getSiguiente();
+                }
+                aux.setDato(dato);
+            }
+
+        } else {
+            throw new PosicionNoEncontradaException();
+        }
+    }
+   
     /**
      * Método para buscar un objeto
      * @param aux
