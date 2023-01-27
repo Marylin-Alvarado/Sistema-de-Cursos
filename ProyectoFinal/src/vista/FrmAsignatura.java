@@ -60,6 +60,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        buttonSeven1 = new org.edisoncor.gui.button.ButtonSeven();
         panel1 = new org.edisoncor.gui.panel.Panel();
         jLabel1 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
@@ -80,6 +81,8 @@ public class FrmAsignatura extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblAsignatura = new javax.swing.JTable();
+
+        buttonSeven1.setText("buttonSeven1");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -429,6 +432,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     private javax.swing.JButton btnEliminar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JButton btnModificar;
+    private org.edisoncor.gui.button.ButtonSeven buttonSeven1;
     private javax.swing.JComboBox<String> cbxDocente;
     private javax.swing.JComboBox<String> cbxParalelo;
     private javax.swing.JComboBox<String> cbxUnidad;

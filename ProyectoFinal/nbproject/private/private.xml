@@ -6,6 +6,16 @@
         <group/>
 =======
         <group>
+<<<<<<< HEAD
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmCiclo.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogMatriculas.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/modelo/Periodo.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/Utilidades/FrmDocente.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/modelo/Ciclo.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/Tabla/ModeloTablaMatriculas.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/modelo/Docente.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmMatriculasEstudiante.java</file>
+=======
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/Tabla/ModeloTablaAsignatura.java</file>
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/Tabla/ModeloTablaCiclo.java</file>
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/modelo/Alumno.java</file>
@@ -13,6 +23,7 @@
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/Utilidades/Utilidades.java</file>
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmDocente.java</file>
             <file>file:/D:/WorkSpace/UNL/ProyectoEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/Tabla/ModeloTablaDocente.java</file>
+>>>>>>> 3597be2c218f5fe2305c28e7db460af50b36f403
         </group>
 >>>>>>> 3597be2c218f5fe2305c28e7db460af50b36f403
     </open-files>

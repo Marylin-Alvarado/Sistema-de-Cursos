@@ -365,6 +365,7 @@ public class DialogoAlumno extends javax.swing.JDialog {
             
         } else{
               JOptionPane.showMessageDialog(null, "No se puede crear estudiante por datos incompletos");
+           // JOptionPane.showMessageDialog(null , "No s epeuede crear estudiante por datos imcompletos");
         }       
     }
     /**

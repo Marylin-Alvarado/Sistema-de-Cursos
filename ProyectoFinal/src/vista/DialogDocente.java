@@ -7,6 +7,7 @@ package vista;
 
 import javax.swing.JOptionPane;
 import modelo.Docente;
+import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
 
 /**
@@ -55,7 +56,7 @@ public class DialogDocente extends java.awt.Dialog {
             d.setTelefono(txtTelefonoDocente.getText());
             d.setCiudad(txtCiudadDocente.getText());
             d.setFechaNacimiento(txtFechaNacimientoDocente.getText());
-            d.setGenero(Utilidades.getComboGenero(cbxGeneroDocente));
+            //d.setGenero(Utilidades.getComboGenero(cbxGeneroDocente));
             d.setTituloTercerNivel(txtTTercerNivelDocente.getText());
             d.setTituloCuartoNivel(txtTTCuartoNivelDocente.getText());
             d.setAniosExpDocente(Integer.parseInt(txtAniosExpDocente.getText()));
@@ -79,7 +80,7 @@ public class DialogDocente extends java.awt.Dialog {
             docente.setTelefono(txtTelefonoDocente.getText());
             docente.setCiudad(txtCiudadDocente.getText());
             docente.setFechaNacimiento(txtFechaNacimientoDocente.getText());
-            docente.setGenero(Utilidades.getComboGenero(cbxGeneroDocente));
+            docente.setGenero((Generos) cbxGeneroDocente.getSelectedItem());
             docente.setTituloTercerNivel(txtTTercerNivelDocente.getText());
             docente.setTituloCuartoNivel(txtTTCuartoNivelDocente.getText());
             docente.setAniosExpDocente(Integer.parseInt(txtAniosExpDocente.getText()));

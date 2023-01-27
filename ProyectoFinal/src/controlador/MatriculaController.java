@@ -16,7 +16,6 @@ import modelo.Matricula;
 public class MatriculaController {
     private Matricula matricula;
     private ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
-    
     /**
      * Método para calcular el promedio general de todas las asignaturas de una matrícula
      */
@@ -32,6 +31,9 @@ public class MatriculaController {
     }
 
     public Matricula getMatricula() {
+        if(matricula == null){
+            matricula = new Matricula();
+        }
         return matricula;
     }
 
@@ -51,3 +53,4 @@ public class MatriculaController {
     
     
 }
+

@@ -24,13 +24,13 @@ import vista.Utilidades.Utilidades;
  */
 public class DialogoCiclo extends javax.swing.JDialog {
     
-   private CicloController cC = new CicloController();
+    private CicloController cC = new CicloController();
     private ModeloTablaCiclo mtc = new ModeloTablaCiclo();
     private ModeloTablaAsignatura mta = new ModeloTablaAsignatura();
     private Integer indiceCiclo;
 
     /**
-     * Creates new form DialogoCiclo
+     * Creates new form DialogoCiclos
      */
     public DialogoCiclo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
@@ -38,7 +38,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
         cargarTablaCiclo();
     }
     
-    public void cargarTablaAsignaturas() {
+     public void cargarTablaAsignaturas() {
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
         tblAsignaturasCiclos.setModel(mta);
         tblAsignaturasCiclos.updateUI();
@@ -198,11 +198,12 @@ public class DialogoCiclo extends javax.swing.JDialog {
                     .addComponent(jLabel2)
                     .addComponent(txtNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
-                    .addComponent(btnAgregarAsignatura)
-                    .addComponent(btnSelecionar)
-                    .addComponent(btnEliminarAsignatura))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnAgregarAsignatura, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel3)
+                        .addComponent(btnSelecionar)
+                        .addComponent(btnEliminarAsignatura)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnCiclosDisponibles, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
@@ -257,7 +258,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 20, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel1Layout.createSequentialGroup()
@@ -274,7 +275,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(80, 80, 80)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(72, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -495,6 +496,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(DialogoCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */

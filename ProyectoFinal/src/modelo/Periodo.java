@@ -54,7 +54,7 @@ public class Periodo {
 
     @Override
     public String toString() {
-        return "" + mesInicio + "-" + mesFin;
+        return getMesInicio() + "-" + getMesFin();
     }
     
     

@@ -30,8 +30,5 @@ public class AlumnoController {
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
     }
-    
-    
-    
    
 }
