@@ -47,8 +47,8 @@ public class Curso {
         n1.setAprendizajeA(10f);
         n1.setEvaluacion(10f);
         n1.setTrabajoE(10f);
-        cc.getCursa().insertar(cu1);
-        cc.getCursa().insertar(cu2);
+        cc.getCursaList().insertar(cu1);
+        cc.getCursaList().insertar(cu2);
         ma1.getCursa().insertar(cu2);
         cu2.setAsignatura(asi2);
         cu2.setMatricula(ma1);

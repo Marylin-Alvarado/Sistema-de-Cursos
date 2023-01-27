@@ -44,5 +44,11 @@ public class Ciclo {
         this.asignaturas = asignaturas;
     }
 
+    @Override
+    public String toString() {
+        return getNombre();
+    }
+    
+
 }
 

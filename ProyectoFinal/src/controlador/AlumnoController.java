@@ -13,6 +13,7 @@ import modelo.Alumno;
  */
 public class AlumnoController {
     ListaEnlazada<Alumno> alumnoList = new ListaEnlazada<>();
+    Alumno alumno = new Alumno();
 
     public ListaEnlazada<Alumno> getAlumnoList() {
         return alumnoList;
@@ -21,7 +22,13 @@ public class AlumnoController {
     public void setAlumnoList(ListaEnlazada<Alumno> alumnoList) {
         this.alumnoList = alumnoList;
     }
-    
-    
-   
+
+    public Alumno getAlumno() {
+        return alumno;
+    }
+
+    public void setAlumno(Alumno alumno) {
+        this.alumno = alumno;
+    }
+       
 }

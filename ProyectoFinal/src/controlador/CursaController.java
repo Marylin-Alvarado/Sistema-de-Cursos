@@ -16,19 +16,20 @@ import modelo.enums.Estado;
  */
 public class CursaController {
     
-    private ListaEnlazada<Cursa> cursa;
+    private ListaEnlazada<Cursa> cursaList = new ListaEnlazada<>();
+    private Cursa cursa;
     
     public CursaController(){
-        cursa = new ListaEnlazada<>();
+        cursaList = new ListaEnlazada<>();
     }
     
     /**
      * Método para calcular el porcentaje de horas asistidas en una asignatura de una determinada matrícula
      */
     public void porcentajeHorasAsistidas(){
-        for(int i = 0; i <= cursa.getSize();i++){
+        for(int i = 0; i <= cursaList.getSize();i++){
             try {
-                Cursa cursaAux = cursa.obtener(i);
+                Cursa cursaAux = cursaList.obtener(i);
                 cursaAux.setPorcentajeHorasAsistidas((cursaAux.getHorasAsistidas() * 100) / cursaAux.getAsignatura().getNumeroHoras());
             } catch (Exception e) {
             }
@@ -39,9 +40,9 @@ public class CursaController {
      * Método para calcular la nota final de una matrícula en determinada asignatura
      */
     public void calcularNotaFinal(){
-        for(int i = 0; i <= cursa.getSize();i++){
+        for(int i = 0; i <= cursaList.getSize();i++){
             try {
-                Cursa cursaAux = cursa.obtener(i);
+                Cursa cursaAux = cursaList.obtener(i);
                 Nota nota = cursaAux.getNotaFinal();
                 nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f)+(nota.getTrabajoE() * 0.25f)+(nota.getAprendizajeA() *0.2f)+(nota.getEvaluacion() * 0.35f));
                 determinarEstadoAsignatura(cursaAux);
@@ -62,12 +63,12 @@ public class CursaController {
         }
     }
 
-    public ListaEnlazada<Cursa> getCursa() {
-        return cursa;
+    public ListaEnlazada<Cursa> getCursaList() {
+        return cursaList;
     }
 
-    public void setCursa(ListaEnlazada<Cursa> cursa) {
-        this.cursa = cursa;
+    public void setCursaList(ListaEnlazada<Cursa> cursaList) {
+        this.cursaList = cursaList;
     }
     
     

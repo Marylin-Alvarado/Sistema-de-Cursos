@@ -1,0 +1,21 @@
+{
+  "cabecera": {
+    "dato": {
+      "idPeriodo": 1,
+      "mesInicio": "ENERO",
+      "mesFin": "ENERO",
+      "especificacion": "111"
+    },
+    "siguiente": {
+      "dato": {
+        "idPeriodo": 2,
+        "mesInicio": "ENERO",
+        "mesFin": "ENERO",
+        "especificacion": "222"
+      }
+    }
+  },
+  "size": 2,
+  "ascendente": 1,
+  "descendente": 2
+}
