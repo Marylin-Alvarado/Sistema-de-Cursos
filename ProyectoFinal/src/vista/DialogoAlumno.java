@@ -15,7 +15,7 @@ import vista.Tabla.ModeloTablaAlumno;
  */
 public class DialogoAlumno extends javax.swing.JDialog {
     
-    private AlumnoController alumnoCrontroller = new AlumnoController();
+    private AlumnoController aC = new AlumnoController();
     private ModeloTablaAlumno mtalm = new ModeloTablaAlumno();
 
     /**
@@ -238,7 +238,7 @@ public class DialogoAlumno extends javax.swing.JDialog {
                 .addComponent(btnEliminar)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap(37, Short.MAX_VALUE)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 562, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(95, 95, 95))
         );
@@ -311,7 +311,7 @@ public class DialogoAlumno extends javax.swing.JDialog {
                     .addComponent(btnEliminar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(61, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -352,20 +352,19 @@ public class DialogoAlumno extends javax.swing.JDialog {
                 || !txtTelefono.getText().isEmpty() || !txtCiudad.getText().isEmpty() || !txtCorreo.getText().isEmpty() || !txtDireccion.getText().isEmpty()
                 || !txtCiudad.getText().isEmpty()){
                 
-            //aC.getAlumno().setNombres(txtNombre.getText());
-            //aC.getAlumno().setApellidos(txtApellidos.getText());
-            //aC.getAlumno().setIdentificacion(txtIdentificacion.getText());
-            //aC.getAlumno().setFechaNacimiento(txtDiaNacimiento.getText() + "-" + txtMesNacimiento.getText() + "-" + txtAnioNacimiento.getText());
-            //System.out.println("DATE ; " + aC.getAlumno().getFechaNacimiento());
-            //aC.getAlumno().setTelefono(txtTelefono.getText());
-            //aC.getAlumno().setCiudad(txtCiudad.getText());
-            //aC.getAlumno().setCorreo(txtCorreo.getText());
-            //aC.getAlumno().setDireccion(txtDireccion.getText());
+            aC.getAlumno().setNombres(txtNombre.getText());
+            aC.getAlumno().setApellidos(txtApellidos.getText());
+            aC.getAlumno().setIdentificacion(txtIdentificacion.getText());
+            aC.getAlumno().setFechaNacimiento(txtDiaNacimiento.getText() + "-" + txtMesNacimiento.getText() + "-" + txtAnioNacimiento.getText());
+            System.out.println("DATE : " + aC.getAlumno().getFechaNacimiento());
+            aC.getAlumno().setTelefono(txtTelefono.getText());
+            aC.getAlumno().setCiudad(txtCiudad.getText());
+            aC.getAlumno().setCorreo(txtCorreo.getText());
+            aC.getAlumno().setDireccion(txtDireccion.getText());
             
             
         } else{
               JOptionPane.showMessageDialog(null, "No se puede crear estudiante por datos incompletos");
-           // JOptionPane.showMessageDialog(null , "No s epeuede crear estudiante por datos imcompletos");
         }       
     }
     /**
