@@ -94,10 +94,12 @@ public class ListaEnlazada<E> {
     }
     
     /**
-     * Eliminar 
+     * Método para eliminar un elemento de la lista
+     * @param pos
+     * @return
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
      */
-    
-
     public E eliminar(Integer pos) throws ListaVaciaException, PosicionNoEncontradaException {
         if (!estaVacia()) {
             E dato = null;

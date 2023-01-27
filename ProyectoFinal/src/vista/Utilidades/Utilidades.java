@@ -53,7 +53,7 @@ public class Utilidades {
         }
         return cbx;
     }
-
+    
     /**
      * Metodo para cargar los estados que se encuentran dentro de un enum en un
      * JComboBox

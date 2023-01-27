@@ -56,7 +56,7 @@ public class FrmCiclo extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        panel1 = new org.edisoncor.gui.panel.Panel();
+        panel1 = new org.netbeans.modules.form.InvalidComponent();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         btnAgregarAsignatura = new javax.swing.JButton();
@@ -76,8 +76,6 @@ public class FrmCiclo extends javax.swing.JFrame {
         tblAsignatura = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-
-        panel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/computación.jpg"))); // NOI18N
 
         jLabel1.setText("Ciclo");
 
@@ -295,51 +293,6 @@ public class FrmCiclo extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnAgregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAsignaturaActionPerformed
-        try {
-            // TODO add your handling code here:
-            registrarAsignatura();
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaNullException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnAgregarAsignaturaActionPerformed
-
-    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
-        cargarTablaAsignaturas();
-        btnCiclosDisponibles.setEnabled(true);
-        btnAgregarAsignatura.setEnabled(true);
-    }//GEN-LAST:event_btnSelecionarActionPerformed
-
-    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
-        // TODO add your handling code here:
-        crearCiclo();
-    }//GEN-LAST:event_btnCrearActionPerformed
-
-    private void btnEliminarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAsignaturaActionPerformed
-        eliminaAsignatura();
-        try {
-            cargarTablaAsignaturaCiclo();
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaNullException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnEliminarAsignaturaActionPerformed
-
-    public void eliminaAsignatura(){
-        try {
-            // TODO add your handling code here:
-            Utilidades.eliminarAsignaturaCiclo(indiceCiclo, tblAsignatura.getSelectedRow());
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaVaciaException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaNullException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
     private void tblAsignaturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignaturaMouseClicked
         // TODO add your handling code here:
         btnEliminarAsignatura.setEnabled(true);
@@ -349,13 +302,30 @@ public class FrmCiclo extends javax.swing.JFrame {
         btnEliminarCiclo.setEnabled(true);
     }//GEN-LAST:event_tblAsignaturasCiclosMouseClicked
 
-    private void btnCiclosDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiclosDisponiblesActionPerformed
+    private void btnEliminarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCicloActionPerformed
+        try {
+            // TODO add your handling code here:
+            eliminarCiclo();
+        } catch (ListaVaciaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnEliminarCicloActionPerformed
+
+    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
         // TODO add your handling code here:
-        indiceCiclo = null;
-        btnEliminarAsignatura.setEnabled(false);
-        txtNombreCiclo.setText("");
-        cargarTablaCiclo();
-    }//GEN-LAST:event_btnCiclosDisponiblesActionPerformed
+        try {
+            //             TODO add your handling code here
+            cargarTablaAsignaturaCiclo();
+            txtNombreCiclo.setText(cC.getCiclo().getNombre());
+            btnModificarCiclo.setEnabled(true);
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnMostrarActionPerformed
 
     private void btnModificarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarCicloActionPerformed
         // TODO add your handling code here:
@@ -375,31 +345,59 @@ public class FrmCiclo extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_btnModificarCicloActionPerformed
 
-    private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
-        // TODO add your handling code here:
+    private void btnEliminarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarAsignaturaActionPerformed
+        eliminaAsignatura();
         try {
-//             TODO add your handling code here
             cargarTablaAsignaturaCiclo();
-            txtNombreCiclo.setText(cC.getCiclo().getNombre());
-            btnModificarCiclo.setEnabled(true);
         } catch (PosicionNoEncontradaException ex) {
             Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaNullException ex) {
             Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnMostrarActionPerformed
+    }//GEN-LAST:event_btnEliminarAsignaturaActionPerformed
 
-    private void btnEliminarCicloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarCicloActionPerformed
+    private void btnCiclosDisponiblesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCiclosDisponiblesActionPerformed
+        // TODO add your handling code here:
+        indiceCiclo = null;
+        btnEliminarAsignatura.setEnabled(false);
+        txtNombreCiclo.setText("");
+        cargarTablaCiclo();
+    }//GEN-LAST:event_btnCiclosDisponiblesActionPerformed
+
+    private void btnCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCrearActionPerformed
+        // TODO add your handling code here:
+        crearCiclo();
+    }//GEN-LAST:event_btnCrearActionPerformed
+
+    private void btnSelecionarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSelecionarActionPerformed
+        cargarTablaAsignaturas();
+        btnCiclosDisponibles.setEnabled(true);
+        btnAgregarAsignatura.setEnabled(true);
+    }//GEN-LAST:event_btnSelecionarActionPerformed
+
+    private void btnAgregarAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarAsignaturaActionPerformed
         try {
             // TODO add your handling code here:
-            eliminarCiclo();
-        } catch (ListaVaciaException ex) {
-            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            registrarAsignatura();
         } catch (PosicionNoEncontradaException ex) {
             Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnEliminarCicloActionPerformed
+    }//GEN-LAST:event_btnAgregarAsignaturaActionPerformed
 
+    public void eliminaAsignatura(){
+        try {
+            // TODO add your handling code here:
+            Utilidades.eliminarAsignaturaCiclo(indiceCiclo, tblAsignatura.getSelectedRow());
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaVaciaException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmCiclo.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     public void eliminarCiclo() throws ListaVaciaException, PosicionNoEncontradaException{
         if(indiceCiclo != null){
             Utilidades.eliminarCiclo(indiceCiclo);
@@ -525,7 +523,7 @@ public class FrmCiclo extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
-    private org.edisoncor.gui.panel.Panel panel1;
+    private org.netbeans.modules.form.InvalidComponent panel1;
     private javax.swing.JTable tblAsignatura;
     private javax.swing.JTable tblAsignaturasCiclos;
     private javax.swing.JTextField txtNombreCiclo;

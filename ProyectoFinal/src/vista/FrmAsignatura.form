@@ -41,7 +41,7 @@
     </DimensionLayout>
   </Layout>
   <SubComponents>
-    <Container class="org.edisoncor.gui.panel.Panel" name="panel1">
+    <Container class="org.netbeans.modules.form.InvalidComponent" name="panel1">
       <Properties>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="3" name="/img/vector.jpg"/>

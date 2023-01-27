@@ -6,6 +6,7 @@ package controlador;
 
 import controlador.listas.ListaEnlazada;
 import modelo.Asignatura;
+import modelo.Docente;
 import modelo.enums.Estado;
 
 /**
@@ -15,9 +16,11 @@ import modelo.enums.Estado;
 public class AsignaturaController {
     private ListaEnlazada<Asignatura> asignatursList;
     private Asignatura asignatura;
+    private ListaEnlazada<Docente> docenteList;
 
     public AsignaturaController(){
         asignatursList = new ListaEnlazada<>();
+        docenteList = new ListaEnlazada<>();
     }
 
     public Asignatura getAsignatura() {
@@ -44,6 +47,16 @@ public class AsignaturaController {
     public void generarId(){
         
     }
+
+    public ListaEnlazada<Docente> getDocenteList() {
+        return docenteList;
+    }
+
+    public void setDocenteList(ListaEnlazada<Docente> docenteList) {
+        this.docenteList = docenteList;
+    }
+    
+    
     
     
 }

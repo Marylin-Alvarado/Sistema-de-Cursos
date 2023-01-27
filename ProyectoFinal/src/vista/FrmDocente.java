@@ -5,17 +5,45 @@
  */
 package vista;
 
+import controlador.AsignaturaController;
+import controlador.listas.ListaEnlazada;
+import javax.swing.JOptionPane;
+import modelo.Docente;
+import vista.Tabla.ModeloTablaDocente;
+
 /**
  *
  * @author Marylin
  */
 public class FrmDocente extends javax.swing.JFrame {
+//    private ListaEnlazada<Docente> docentes = new ListaEnlazada<>();
+
+    private AsignaturaController asignaturaC = new AsignaturaController();
+    private DialogDocente diaDocente;
+    private ModeloTablaDocente mtd = new ModeloTablaDocente();
 
     /**
      * Creates new form FrmDocente
      */
     public FrmDocente() {
         initComponents();
+        cargarTabla();
+        setLocationRelativeTo(this);
+    }
+
+    public FrmDocente(AsignaturaController ac) {
+        this.asignaturaC = ac;
+        initComponents();
+        cargarTabla();
+        setLocationRelativeTo(this);
+    }
+
+    public void cargarTabla() {
+        if (asignaturaC.getDocenteList().getSize() != null) {
+            mtd.setDocentes(asignaturaC.getDocenteList());
+            tblDocentes.setModel(mtd);
+            tblDocentes.updateUI();
+        }
     }
 
     /**
@@ -29,15 +57,16 @@ public class FrmDocente extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        tblDocentes = new javax.swing.JTable();
+        btnAgregarDocente = new javax.swing.JButton();
+        btnEliminarDocente = new javax.swing.JButton();
+        btnEditar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Docente"));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        tblDocentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -48,11 +77,35 @@ public class FrmDocente extends javax.swing.JFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(jTable1);
+        tblDocentes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblDocentesMouseClicked(evt);
+            }
+        });
+        jScrollPane1.setViewportView(tblDocentes);
 
-        jButton1.setText("Agregar");
+        btnAgregarDocente.setText("Agregar");
+        btnAgregarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAgregarDocenteActionPerformed(evt);
+            }
+        });
 
-        jButton2.setText("Eliminar");
+        btnEliminarDocente.setText("Eliminar");
+        btnEliminarDocente.setEnabled(false);
+        btnEliminarDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarDocenteActionPerformed(evt);
+            }
+        });
+
+        btnEditar.setText("Editar");
+        btnEditar.setEnabled(false);
+        btnEditar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEditarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,10 +116,11 @@ public class FrmDocente extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(btnAgregarDocente)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton2)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarDocente)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -74,11 +128,12 @@ public class FrmDocente extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 129, Short.MAX_VALUE)
+                .addGap(33, 33, 33)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
-                .addGap(48, 48, 48))
+                    .addComponent(btnAgregarDocente)
+                    .addComponent(btnEliminarDocente)
+                    .addComponent(btnEditar))
+                .addContainerGap(33, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -94,12 +149,61 @@ public class FrmDocente extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnAgregarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregarDocenteActionPerformed
+        diaDocente = new DialogDocente(this, true);
+        diaDocente.setVisible(true);
+        Docente d = diaDocente.getDocente();
+        if (d != null) {
+            asignaturaC.getDocenteList().insertar(d);
+            d.setIdDocente(asignaturaC.getDocenteList().getSize() + 1);
+            cargarTabla();
+            asignaturaC.getDocenteList().imprimir();
+        }
+    }//GEN-LAST:event_btnAgregarDocenteActionPerformed
+
+    private void tblDocentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocentesMouseClicked
+        btnEliminarDocente.setEnabled(true);
+        btnEditar.setEnabled(true);
+    }//GEN-LAST:event_tblDocentesMouseClicked
+
+    private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
+        Integer i = JOptionPane.showConfirmDialog(this, "¿Esta seguro de que quiere eliminar al docente?");
+        if (i == JOptionPane.OK_OPTION) {
+            try {
+                asignaturaC.getDocenteList().eliminar(tblDocentes.getSelectedRow());
+            } catch (Exception e) {
+            }
+        }
+    }//GEN-LAST:event_btnEliminarDocenteActionPerformed
+
+    private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
+        Integer i = JOptionPane.showConfirmDialog(this, "¿Esta seguro de que quiere modificar al docente?");
+        if (i == JOptionPane.OK_OPTION) {
+            try {
+                diaDocente = new DialogDocente(this, true, asignaturaC.getDocenteList().obtener(tblDocentes.getSelectedRow()));
+                diaDocente.setVisible(true);
+                cargarTabla();
+            } catch (Exception e) {
+            }
+        }
+
+
+    }//GEN-LAST:event_btnEditarActionPerformed
+
+    public AsignaturaController getAsignaturaC() {
+        return asignaturaC;
+    }
+
+    public void setAsignaturaC(AsignaturaController asignaturaC) {
+        this.asignaturaC = asignaturaC;
+    }
 
     /**
      * @param args the command line arguments
@@ -137,10 +241,11 @@ public class FrmDocente extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnAgregarDocente;
+    private javax.swing.JButton btnEditar;
+    private javax.swing.JButton btnEliminarDocente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    private javax.swing.JTable tblDocentes;
     // End of variables declaration//GEN-END:variables
 }
