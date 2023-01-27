@@ -7,20 +7,24 @@ package vista;
 
 import controlador.AlumnoController;
 import javax.swing.JOptionPane;
+import vista.Tabla.ModeloTablaAlumno;
 
 /**
  *
  * @author Marylin
  */
 public class DialogoAlumno extends javax.swing.JDialog {
+    
+    private AlumnoController alumnoCrontroller = new AlumnoController();
+    private ModeloTablaAlumno mtalm = new ModeloTablaAlumno();
 
-    private AlumnoController aC;
     /**
-     * Creates new form NewJDialog
+     * Creates new form DialogoAlumnos
      */
     public DialogoAlumno(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
+        this.setLocationRelativeTo(null);
     }
 
     /**
@@ -192,7 +196,7 @@ public class DialogoAlumno extends javax.swing.JDialog {
                                         .addGap(10, 10, 10)
                                         .addComponent(jLabel14)))))
                         .addGap(0, 0, Short.MAX_VALUE)))
-                .addGap(0, 118, Short.MAX_VALUE)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
@@ -280,10 +284,11 @@ public class DialogoAlumno extends javax.swing.JDialog {
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(btnGenero, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                            .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(jLabel13)
-                                            .addComponent(jLabel14))
+                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel14)
+                                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 16, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                .addComponent(jLabel13)))
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 16, Short.MAX_VALUE)
                                         .addComponent(txtCorreo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                                     .addGroup(jPanel1Layout.createSequentialGroup()
@@ -306,7 +311,7 @@ public class DialogoAlumno extends javax.swing.JDialog {
                     .addComponent(btnEliminar))
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(50, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -329,10 +334,6 @@ public class DialogoAlumno extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtCiudadActionPerformed
-
     private void txtEdadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtEdadActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtEdadActionPerformed
@@ -342,23 +343,30 @@ public class DialogoAlumno extends javax.swing.JDialog {
         crearEstudiante();
     }//GEN-LAST:event_btnCrearActionPerformed
 
-    public void crearEstudiante(){
+    private void txtCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCiudadActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCiudadActionPerformed
+
+     public void crearEstudiante(){
             if(!txtNombre.getText().isEmpty() || !txtApellidos.getText().isEmpty() || !txtIdentificacion.getText().isEmpty() || !txtEdad.getText().isEmpty()
                 || !txtTelefono.getText().isEmpty() || !txtCiudad.getText().isEmpty() || !txtCorreo.getText().isEmpty() || !txtDireccion.getText().isEmpty()
                 || !txtCiudad.getText().isEmpty()){
+                
+            //aC.getAlumno().setNombres(txtNombre.getText());
+            //aC.getAlumno().setApellidos(txtApellidos.getText());
+            //aC.getAlumno().setIdentificacion(txtIdentificacion.getText());
+            //aC.getAlumno().setFechaNacimiento(txtDiaNacimiento.getText() + "-" + txtMesNacimiento.getText() + "-" + txtAnioNacimiento.getText());
+            //System.out.println("DATE ; " + aC.getAlumno().getFechaNacimiento());
+            //aC.getAlumno().setTelefono(txtTelefono.getText());
+            //aC.getAlumno().setCiudad(txtCiudad.getText());
+            //aC.getAlumno().setCorreo(txtCorreo.getText());
+            //aC.getAlumno().setDireccion(txtDireccion.getText());
             
-            aC.getAlumno().setNombres(txtNombre.getText());
-            aC.getAlumno().setApellidos(txtApellidos.getText());
-            aC.getAlumno().setIdentificacion(txtIdentificacion.getText());
-            aC.getAlumno().setFechaNacimiento(txtDiaNacimiento.getText() + "-" + txtMesNacimiento.getText() + "-" + txtAnioNacimiento.getText());
-            System.out.println("DATE ; " + aC.getAlumno().getFechaNacimiento());
-            aC.getAlumno().setTelefono(txtTelefono.getText());
-            aC.getAlumno().setCiudad(txtCiudad.getText());
-            aC.getAlumno().setCorreo(txtCorreo.getText());
-            aC.getAlumno().setDireccion(txtDireccion.getText());
-        }else{
-            JOptionPane.showMessageDialog(null , "No s epeuede crear estudiante por datos imcompletos");
-        }
+            
+        } else{
+              JOptionPane.showMessageDialog(null, "No se puede crear estudiante por datos incompletos");
+           // JOptionPane.showMessageDialog(null , "No s epeuede crear estudiante por datos imcompletos");
+        }       
     }
     /**
      * @param args the command line arguments

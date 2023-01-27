@@ -179,7 +179,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                         .addComponent(jButton1)
                         .addGap(64, 64, 64)
                         .addComponent(jButton2)))
-                .addContainerGap(26, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -192,7 +192,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(163, 163, 163))
+                .addGap(70, 70, 70))
         );
 
         pack();

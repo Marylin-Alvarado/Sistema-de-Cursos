@@ -30,7 +30,6 @@ public class FrmInicio extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
             this.dispose();
-//            new FrmPrincipal().setVisible(true);
         }
             
     }

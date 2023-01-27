@@ -15,7 +15,7 @@ import java.util.Date;
 
 /**
  *
- * @author Marylin Alvarado
+ * @author SONY VAIO
  */
 public class ListaEnlazada<E> {
     

@@ -58,12 +58,8 @@ public class ModeloTablaCiclo extends AbstractTableModel{
         Ciclo c = null;
         try {
             c = listaCiclo.obtener(rowIndex);
-            Object aLista = listaCiclo.obtener(rowIndex);
-//            LinkedTreeMap<Object, Object> t = (LinkedTreeMap<Object, Object>)aLista;
-//            String idS = t.get("id").toString();
-//            Integer id = Integer.parseInt(idS.substring(0,idS.indexOf('.')));
-//            String nombre = t.get("nombre").toString();
-//            
+            Object aLista = listaCiclo.obtener(rowIndex);  
+            
             //TODO FALTA OBTENER EL NUM DE ASIGNATURAS
         } catch (Exception e) {
             System.out.println("Error en lista " + e);

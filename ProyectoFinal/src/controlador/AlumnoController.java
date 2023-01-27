@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package controlador;
 
@@ -10,15 +9,11 @@ import modelo.Alumno;
 
 /**
  *
- * @author Marylin
+ * @author TecnoeXtrem
  */
 public class AlumnoController {
-    private ListaEnlazada<Alumno> alumnoList;
-    private Alumno alumno;
+    ListaEnlazada<Alumno> alumnoList = new ListaEnlazada<>();
 
-    
-    
-    
     public ListaEnlazada<Alumno> getAlumnoList() {
         return alumnoList;
     }
@@ -26,16 +21,7 @@ public class AlumnoController {
     public void setAlumnoList(ListaEnlazada<Alumno> alumnoList) {
         this.alumnoList = alumnoList;
     }
-
-    public Alumno getAlumno() {
-        if(alumno == null){
-            alumno = new Alumno();
-        }
-        return alumno;
-    }
-
-    public void setAlumno(Alumno alumno) {
-        this.alumno = alumno;
-    }
     
+    
+   
 }

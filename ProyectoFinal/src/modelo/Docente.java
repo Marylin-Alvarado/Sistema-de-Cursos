@@ -17,7 +17,7 @@ public class Docente extends Persona {
     private Integer aniosExpDocente;
     private Integer aniosExpLaboral;
     private ListaEnlazada<Asignatura> asignaturas;
-
+    
     public Integer getIdDocente() {
         return idDocente;
     }
@@ -59,6 +59,14 @@ public class Docente extends Persona {
         this.aniosExpLaboral = aniosExpLaboral;
     }
 
+    public ListaEnlazada<Asignatura> getAsignaturas() {
+        return asignaturas;
+    }
+
+    public void setAsignaturas(ListaEnlazada<Asignatura> asignaturas) {
+        this.asignaturas = asignaturas;
+    }
+    
     @Override
     public String toString() {
         return getNombres() + " " + getApellidos();

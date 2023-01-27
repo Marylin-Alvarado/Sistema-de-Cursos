@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package vista.Tabla;
 
@@ -11,87 +10,65 @@ import modelo.Docente;
 
 /**
  *
- * @author DEEPIN
+ * @author David Campoverde
  */
 public class ModeloTablaDocente extends AbstractTableModel {
 
-    private ListaEnlazada<Docente> lista = new ListaEnlazada<>();
+    ListaEnlazada<Docente> docentes = new ListaEnlazada<>();
 
-    public ListaEnlazada<Docente> getLista() {
-        return lista;
-    }
-
-    public void setLista(ListaEnlazada<Docente> lista) {
-        this.lista = lista;
+    @Override
+    public int getRowCount() {
+        return docentes.getSize();
     }
 
     @Override
     public int getColumnCount() {
-        return 8;
-    }
-
-    @Override
-    public int getRowCount() {
-        return lista.getSize();
+        return 6;
     }
 
     @Override
     public String getColumnName(int column) {
         switch (column) {
-            case 0:
-                return "Nro";
-            case 1:
-                return "Usuario";
-            case 2:
-                return "Identificacion";
-            case 3:
-                return "Nombre";
-            case 4:
-                return "Direccion";
-            case 5:
-                return "Correo";
-            case 6:
-                return "Asignatura";
-            case 7:
-                return "Fecha";
-            case 8:
-                return "Titulo";
+            case 0: return "ID";
+            case 1: return "Nombres";
+            case 2: return "Apellidos";
+            case 3: return "Identificacion";
+            case 4: return "Direccion";
+            case 5: return "Telefono";
+            case 6: return "Fecha nacimiento";
             default:
                 return null;
         }
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Docente d = null;
         try {
-            d = lista.obtener(rowIndex);
+            d = docentes.obtener(rowIndex);
         } catch (Exception e) {
+            System.out.println("Error en getValueAt : " + e);
         }
         switch (columnIndex) {
-//            case 0:
-//                return (rowIndex + 1);
-//            case 1:
-//                return (d != null) ? d.getUsuario().toString() : "NO DEFINIDO";
-//            case 2:
-//                return (d != null) ? d.getIndetifiacion().toString() : "NO DEFINIDO";
-//            case 3:
-//                return (d != null) ? (d.getApellidos() + " " + d.getNombres()) : "NO DEFINIDO";
-//            case 4:
-//                return (d != null) ? d.getDireccion() : "NO DEFINIDO";
-//            case 5:
-//                return (d != null) ? d.getCorreo() : "NO DEFINIDO";
-//            case 6:
-//                return (d != null) ? d.getAsignatura(): "NO DEFINIDO";
-//            case 7: 
-//                return (d != null) ? d.getFechaNacimiento(): "NO DEFINIDO";
-//            case 8:
-//                return (d != null) ? d.getTituloCuartoNivel(): "NO DEFINIDO";
-//            
-            default:
-            
-                return null;
-        }
+            case 0: return (rowIndex + 1);
+            case 1: return (d != null) ? d.getNombres() : "No definido";
+            case 2: return (d != null) ? d.getApellidos() : "No definido";
+            case 3: return (d != null) ? d.getIdentificacion() : "No definido";
+            case 4: return (d != null) ? d.getDireccion() : "No definido";
+            case 5: return (d != null) ? d.getTelefono() : "No definido";
+            case 6: return (d != null) ? d.getFechaNacimiento() : "No definido";
+            default: return null;
+        }    
     }
 
+    public ListaEnlazada<Docente> getDocentes() {
+        return docentes;
+    }
+
+    public void setDocentes(ListaEnlazada<Docente> docentes) {
+        this.docentes = docentes;
+    }
+    
+    
+    
 }

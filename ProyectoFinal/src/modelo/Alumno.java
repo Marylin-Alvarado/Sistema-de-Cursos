@@ -36,8 +36,6 @@ public class Alumno extends Persona {
         this.matriculas = matriculas;
     }
 
-    
-
     public Integer getNumMaterias() {
         return numMaterias;
     }
