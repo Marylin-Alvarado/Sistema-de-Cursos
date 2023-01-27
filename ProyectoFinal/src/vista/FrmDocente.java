@@ -5,6 +5,7 @@
  */
 package vista;
 
+import controlador.AsignaturaController;
 import controlador.listas.ListaEnlazada;
 import javax.swing.JOptionPane;
 import modelo.Docente;
@@ -15,9 +16,12 @@ import vista.Tabla.ModeloTablaDocente;
  * @author Marylin
  */
 public class FrmDocente extends javax.swing.JFrame {
-    private ListaEnlazada<Docente> docentes = new ListaEnlazada<>();
+//    private ListaEnlazada<Docente> docentes = new ListaEnlazada<>();
+
+    private AsignaturaController asignaturaC = new AsignaturaController();
     private DialogDocente diaDocente;
     private ModeloTablaDocente mtd = new ModeloTablaDocente();
+
     /**
      * Creates new form FrmDocente
      */
@@ -26,10 +30,17 @@ public class FrmDocente extends javax.swing.JFrame {
         cargarTabla();
         setLocationRelativeTo(this);
     }
-    
-    public void cargarTabla(){
-        if(docentes.getSize() != null){
-            mtd.setDocentes(docentes);
+
+    public FrmDocente(AsignaturaController ac) {
+        this.asignaturaC = ac;
+        initComponents();
+        cargarTabla();
+        setLocationRelativeTo(this);
+    }
+
+    public void cargarTabla() {
+        if (asignaturaC.getDocenteList().getSize() != null) {
+            mtd.setDocentes(asignaturaC.getDocenteList());
             tblDocentes.setModel(mtd);
             tblDocentes.updateUI();
         }
@@ -149,10 +160,11 @@ public class FrmDocente extends javax.swing.JFrame {
         diaDocente = new DialogDocente(this, true);
         diaDocente.setVisible(true);
         Docente d = diaDocente.getDocente();
-        if(d != null){
-            docentes.insertar(d);
-            d.setIdDocente(docentes.getSize()+1);
+        if (d != null) {
+            asignaturaC.getDocenteList().insertar(d);
+            d.setIdDocente(asignaturaC.getDocenteList().getSize() + 1);
             cargarTabla();
+            asignaturaC.getDocenteList().imprimir();
         }
     }//GEN-LAST:event_btnAgregarDocenteActionPerformed
 
@@ -162,33 +174,35 @@ public class FrmDocente extends javax.swing.JFrame {
     }//GEN-LAST:event_tblDocentesMouseClicked
 
     private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
-        Integer i = JOptionPane.showConfirmDialog(this, "¿Esta seguro de que quiere eliminar el arbol?");
-        if(i == JOptionPane.OK_OPTION){
+        Integer i = JOptionPane.showConfirmDialog(this, "¿Esta seguro de que quiere eliminar al docente?");
+        if (i == JOptionPane.OK_OPTION) {
             try {
-                docentes.eliminar(tblDocentes.getSelectedRow());
+                asignaturaC.getDocenteList().eliminar(tblDocentes.getSelectedRow());
             } catch (Exception e) {
             }
         }
     }//GEN-LAST:event_btnEliminarDocenteActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
-        try {
-            diaDocente = new DialogDocente(this, true, docentes.obtener(tblDocentes.getSelectedRow()));
-            diaDocente.setVisible(true);
-            Docente d = diaDocente.crearDocente();
-            docentes.modificar(d, tblDocentes.getSelectedRow());
-            cargarTabla();
-        } catch (Exception e) {
+        Integer i = JOptionPane.showConfirmDialog(this, "¿Esta seguro de que quiere modificar al docente?");
+        if (i == JOptionPane.OK_OPTION) {
+            try {
+                diaDocente = new DialogDocente(this, true, asignaturaC.getDocenteList().obtener(tblDocentes.getSelectedRow()));
+                diaDocente.setVisible(true);
+                cargarTabla();
+            } catch (Exception e) {
+            }
         }
-        
+
+
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    public ListaEnlazada<Docente> getDocentes() {
-        return docentes;
+    public AsignaturaController getAsignaturaC() {
+        return asignaturaC;
     }
 
-    public void setDocentes(ListaEnlazada<Docente> docentes) {
-        this.docentes = docentes;
+    public void setAsignaturaC(AsignaturaController asignaturaC) {
+        this.asignaturaC = asignaturaC;
     }
 
     /**
