@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package vista.Utilidades;
 
 import com.google.gson.Gson;
@@ -246,6 +241,19 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+     
+     public static void modificarDocente(Docente docente, Integer posicion) throws PosicionNoEncontradaException {
+        ListaEnlazada<Docente> lista = listarDocentes();
+        lista.modificarPosicion(docente, posicion);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("docentes.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 
     /**
      * Metodo para modicar la asignatura dentro de un archivo JSON
@@ -298,6 +306,19 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+    
+    public static void guardarDocente(Docente Docente) {
+        ListaEnlazada<Docente> lista = listarDocentes();
+        lista.insertar(Docente);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("docentes.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 
     /**
      * Metodo para guardar ciclo dentro de un archivo JSON
@@ -343,6 +364,28 @@ public class Utilidades {
         }
     }
 
+    public static ListaEnlazada<Docente> listarDocentes() {
+        ListaEnlazada<Docente> lista = new ListaEnlazada<>();
+        String json = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("docentes.json"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                json += linea;
+            }
+            br.close();
+//            Persona[] arrayLista = new Gson().fromJson(json, Persona[].class);
+            Type tipoLista = new TypeToken<ListaEnlazada<Docente>>() {
+            }.getType();
+//            System.out.println("Tipolist " + tipoLista);
+//            List a = stringToArray(json, Persona[].class);
+            lista = new Gson().fromJson(json, tipoLista);
+
+        } catch (Exception e) {
+            System.out.println("Error en utilidades del metodo listar: " + e);
+        }
+        return lista;
+    }
     
     public static ListaEnlazada<Cursa> listarCursas() {
         ListaEnlazada<Cursa> lista = new ListaEnlazada<>();
@@ -581,5 +624,17 @@ public class Utilidades {
         }
     }
     
+     public static void eliminarDocente(Integer posicionDocente) throws ListaVaciaException, PosicionNoEncontradaException {
+        ListaEnlazada<Docente> lista = listarDocentes();
+        lista.eliminar(posicionDocente);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("docentes.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 
 }

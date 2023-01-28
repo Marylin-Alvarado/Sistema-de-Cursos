@@ -1,49 +1,53 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package vista;
 
 import controlador.AsignaturaController;
-import controlador.listas.ListaEnlazada;
 import javax.swing.JOptionPane;
 import modelo.Docente;
 import vista.Tabla.ModeloTablaDocente;
+import vista.Utilidades.Utilidades;
 
 /**
  *
- * @author Marylin
+ * @author David Campoverde
  */
-public class FrmDocente extends javax.swing.JFrame {
-//    private ListaEnlazada<Docente> docentes = new ListaEnlazada<>();
-
+public class FrmDocentes extends javax.swing.JFrame {
     private AsignaturaController asignaturaC = new AsignaturaController();
     private DialogDocente diaDocente;
     private ModeloTablaDocente mtd = new ModeloTablaDocente();
 
+    
     /**
-     * Creates new form FrmDocente
+     * Creates new form FrmDocentes
      */
-    public FrmDocente() {
+    public FrmDocentes() {
         initComponents();
+        cargarDatos();
         cargarTabla();
         setLocationRelativeTo(this);
     }
 
-    public FrmDocente(AsignaturaController ac) {
+    public FrmDocentes(AsignaturaController ac) {
         this.asignaturaC = ac;
         initComponents();
+        cargarDatos();
         cargarTabla();
         setLocationRelativeTo(this);
     }
-
+    
     public void cargarTabla() {
         if (asignaturaC.getDocenteList().getSize() != null) {
             mtd.setDocentes(asignaturaC.getDocenteList());
             tblDocentes.setModel(mtd);
             tblDocentes.updateUI();
         }
+    }
+    
+    public void cargarDatos(){
+        asignaturaC.setDocenteList(Utilidades.listarDocentes());
     }
 
     /**
@@ -56,6 +60,7 @@ public class FrmDocente extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tblDocentes = new javax.swing.JTable();
         btnAgregarDocente = new javax.swing.JButton();
@@ -64,7 +69,7 @@ public class FrmDocente extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Docente"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Docentes"));
 
         tblDocentes.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -107,50 +112,61 @@ public class FrmDocente extends javax.swing.JFrame {
             }
         });
 
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(btnAgregarDocente)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnEditar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarDocente))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(65, 65, 65)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(27, 27, 27)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAgregarDocente)
+                    .addComponent(btnEliminarDocente)
+                    .addComponent(btnEditar))
+                .addContainerGap(46, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 842, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(btnAgregarDocente)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminarDocente)))
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 260, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAgregarDocente)
-                    .addComponent(btnEliminarDocente)
-                    .addComponent(btnEditar))
-                .addContainerGap(33, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -164,7 +180,7 @@ public class FrmDocente extends javax.swing.JFrame {
             asignaturaC.getDocenteList().insertar(d);
             d.setIdDocente(asignaturaC.getDocenteList().getSize() + 1);
             cargarTabla();
-            asignaturaC.getDocenteList().imprimir();
+            Utilidades.guardarDocente(d);
         }
     }//GEN-LAST:event_btnAgregarDocenteActionPerformed
 
@@ -178,6 +194,8 @@ public class FrmDocente extends javax.swing.JFrame {
         if (i == JOptionPane.OK_OPTION) {
             try {
                 asignaturaC.getDocenteList().eliminar(tblDocentes.getSelectedRow());
+                Utilidades.eliminarDocente(tblDocentes.getSelectedRow());
+                cargarTabla();
             } catch (Exception e) {
             }
         }
@@ -189,22 +207,21 @@ public class FrmDocente extends javax.swing.JFrame {
             try {
                 diaDocente = new DialogDocente(this, true, asignaturaC.getDocenteList().obtener(tblDocentes.getSelectedRow()));
                 diaDocente.setVisible(true);
+                Utilidades.modificarDocente(diaDocente.getDocente(), tblDocentes.getSelectedRow());
                 cargarTabla();
             } catch (Exception e) {
             }
         }
-
-
     }//GEN-LAST:event_btnEditarActionPerformed
 
-    public AsignaturaController getAsignaturaC() {
+     public AsignaturaController getAsignaturaC() {
         return asignaturaC;
     }
 
     public void setAsignaturaC(AsignaturaController asignaturaC) {
         this.asignaturaC = asignaturaC;
     }
-
+    
     /**
      * @param args the command line arguments
      */
@@ -222,29 +239,32 @@ public class FrmDocente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmDocente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmDocente().setVisible(true);
+                new FrmDocentes().setVisible(true);
             }
         });
     }
-
+    
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarDocente;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminarDocente;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTable tblDocentes;
     // End of variables declaration//GEN-END:variables
