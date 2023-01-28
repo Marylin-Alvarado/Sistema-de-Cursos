@@ -134,7 +134,12 @@ public class Utilidades {
         }
         return cbx;
     }
-        
+    /**
+     * Metodo para cargar Alumnos en un archivo JSON
+     * @param cbx
+     * @param alumnos
+     * @return 
+     */   
     public static JComboBox cargarAlumnos(JComboBox cbx, ListaEnlazada alumnos) {
         cbx.removeAllItems();
         for (int i = 0; i < alumnos.getSize(); i++) {
@@ -178,7 +183,10 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-    
+    /**
+     * Metodo para guardar cursa dentro de un archivo JSON
+     * @param cursa 
+     */
     public static void guardarCursas(Cursa cursa) {
         ListaEnlazada<Cursa> lista = listarCursas();
         lista.insertar(cursa);
@@ -192,6 +200,10 @@ public class Utilidades {
         }
     }
     
+    /**
+     * Metodo para guardar Cuentas en un archivo JSON
+     * @param cuenta 
+     */
     public static void guardarCuentas(Cuenta cuenta) {
         ListaEnlazada<Cuenta> lista = listarCuentas();
         lista.insertar(cuenta);
@@ -213,6 +225,22 @@ public class Utilidades {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(lista);
         try ( PrintWriter pw = new PrintWriter(new File("matriculas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    /**
+     * Metodo para guardar alumno dentro de un archivo JSON
+     * @param alumno 
+     */
+     public static void guardarAlumno(Alumno alumno) {
+        ListaEnlazada<Alumno> lista = listarAlumnos();
+        lista.insertar(alumno);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("alumnos.json"))) {
             pw.write(jsonString);
         } catch (Exception e) {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
@@ -246,6 +274,25 @@ public class Utilidades {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(lista);
         try ( PrintWriter pw = new PrintWriter(new File("ciclos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    /**
+     * Metodo para modificar Alumno dentro de un archivo JSON
+     * @param alumno
+     * @param posicion
+     * @throws PosicionNoEncontradaException 
+     */
+    
+    public static void modificarAlumno(Alumno alumno, Integer posicion) throws PosicionNoEncontradaException {
+        ListaEnlazada<Alumno> lista = listarAlumnos();
+        lista.modificarPosicion(alumno, posicion);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("alumnos.json"))) {
             pw.write(jsonString);
         } catch (Exception e) {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
@@ -418,6 +465,10 @@ public class Utilidades {
         }
         return lista;
     }
+    /**
+     * Metodo para listar Alumnos en un archivo JSON
+     * @return 
+     */
     
     public static ListaEnlazada<Alumno> listarAlumnos() {
         ListaEnlazada<Alumno> lista = new ListaEnlazada<>();
@@ -516,4 +567,19 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+    
+     public static void eliminarAlumno(Integer posicionAlumno) throws ListaVaciaException, PosicionNoEncontradaException {
+        ListaEnlazada<Alumno> lista = listarAlumnos();
+        lista.eliminar(posicionAlumno);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("alumnos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    
+
 }
