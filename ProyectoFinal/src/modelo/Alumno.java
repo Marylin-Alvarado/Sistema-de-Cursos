@@ -52,10 +52,19 @@ public class Alumno extends Persona {
         this.asistencia = asistencia;
     }
 
+    
+    public void generarContrasenia(){
+        
+    }
+    
+    
+    
     @Override
     public String toString() {
         return getNombres() + " " + getApellidos();
     }
+    
+    
     
     
 }

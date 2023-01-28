@@ -23,6 +23,7 @@ import javax.swing.JComboBox;
 import modelo.Alumno;
 import modelo.Asignatura;
 import modelo.Ciclo;
+import modelo.Cuenta;
 import modelo.Cursa;
 import modelo.Docente;
 import modelo.Matricula;
@@ -30,6 +31,7 @@ import modelo.Periodo;
 import modelo.enums.Estado;
 import modelo.enums.Generos;
 import modelo.enums.Meses;
+import modelo.enums.TipoIdentificacion;
 import modelo.enums.Unidades;
 
 /**
@@ -50,6 +52,14 @@ public class Utilidades {
         cbx.removeAllItems();
         for (Generos genero : Generos.values()) {
             cbx.addItem(genero);
+        }
+        return cbx;
+    }
+    
+    public static JComboBox cargarTipoIdentificacion(JComboBox cbx){
+        cbx.removeAllItems();
+        for(TipoIdentificacion identifiacion : TipoIdentificacion.values()){
+            cbx.addItem(identifiacion);
         }
         return cbx;
     }
@@ -182,6 +192,20 @@ public class Utilidades {
         }
     }
     
+    public static void guardarCuentas(Cuenta cuenta) {
+        ListaEnlazada<Cuenta> lista = listarCuentas();
+        lista.insertar(cuenta);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("cuentas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    
+    
     public static void guardarMatricula (Matricula matricula) {
         ListaEnlazada<Matricula> lista = listarMatriculas();
         lista.insertar(matricula);
@@ -245,6 +269,19 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+    
+    public static void guardarAlumnos(Alumno alumno) {
+        ListaEnlazada<Alumno> lista = listarAlumnos();
+        lista.insertar(alumno);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("alumnos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 
     public static void guardarPeriodo(Periodo periodo) {
         ListaEnlazada<Periodo> lista = listarPeriodos();
@@ -283,6 +320,29 @@ public class Utilidades {
         return lista;
     }
     
+    
+    public static ListaEnlazada<Cuenta> listarCuentas() {
+        ListaEnlazada<Cuenta> lista = new ListaEnlazada<>();
+        String json = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("cuentas.json"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                json += linea;
+            }
+            br.close();
+//            Persona[] arrayLista = new Gson().fromJson(json, Persona[].class);
+            Type tipoLista = new TypeToken<ListaEnlazada<Cuenta>>() {
+            }.getType();
+//            System.out.println("Tipolist " + tipoLista);
+//            List a = stringToArray(json, Persona[].class);
+            lista = new Gson().fromJson(json, tipoLista);
+
+        } catch (Exception e) {
+            System.out.println("Error en utilidades del metodo listar: " + e);
+        }
+        return lista;
+    }
     /**
      * Metodo para obtener la lista de ciclo de un archivo JSON
      *

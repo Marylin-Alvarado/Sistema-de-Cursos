@@ -30,5 +30,14 @@ public class AlumnoController {
     public void setAlumno(Alumno alumno) {
         this.alumno = alumno;
     }
+    
+    public void generarUsuario(){
+        getAlumno().getCuenta().setUsuario(getAlumno().getNombres() + "." + getAlumno().getApellidos());
+    }
+    
+    public void generarContrasenia(){
+        getAlumno().getCuenta().setContrasenia(getAlumno().getNombres() + "-" + getAlumno().getApellidos() + "password" );
+    }
+    
    
 }

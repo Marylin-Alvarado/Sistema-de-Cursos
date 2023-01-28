@@ -72,7 +72,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="1910" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="1815" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -80,7 +80,7 @@
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
-              <Component id="jScrollPane1" pref="2495" max="32767" attributes="0"/>
+              <Component id="jScrollPane1" pref="2748" max="32767" attributes="0"/>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
@@ -103,84 +103,88 @@
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="-2" pref="388" max="-2" attributes="0"/>
-                              <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                              <Group type="102" attributes="0">
+                                  <EmptySpace min="-2" pref="388" max="-2" attributes="0"/>
+                                  <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jLabel6" min="-2" pref="350" max="-2" attributes="0"/>
+                                      <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
+                                      <Component id="jLabel8" alignment="0" min="-2" pref="362" max="-2" attributes="0"/>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" alignment="0" attributes="0">
+                                          <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace max="-2" attributes="0"/>
+                                          <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                          <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
+                                          <EmptySpace type="separate" max="-2" attributes="0"/>
+                                          <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jPanel3" alignment="0" min="-2" pref="457" max="-2" attributes="0"/>
+                                      <Component id="jPanel11" alignment="0" min="-2" pref="457" max="-2" attributes="0"/>
+                                  </Group>
+                                  <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
+                                  <Group type="103" groupAlignment="0" attributes="0">
+                                      <Component id="jPanel9" min="-2" pref="433" max="-2" attributes="0"/>
+                                      <Group type="102" attributes="0">
+                                          <Component id="jPanel5" min="-2" pref="454" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                                          <Component id="jPanel7" min="-2" pref="432" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
+                              </Group>
+                              <Group type="102" alignment="0" attributes="0">
+                                  <EmptySpace max="-2" attributes="0"/>
+                                  <Component id="jScrollPane2" max="32767" attributes="0"/>
+                              </Group>
                           </Group>
                           <Group type="102" alignment="0" attributes="0">
                               <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace min="-2" pref="24" max="-2" attributes="0"/>
                               <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel3" min="-2" pref="457" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="33" max="-2" attributes="0"/>
-                              <Component id="jPanel5" min="-2" pref="454" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
-                              <Component id="jPanel7" min="-2" pref="432" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="28" max="-2" attributes="0"/>
-                              <Component id="jPanel9" min="-2" pref="433" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jPanel11" min="-2" pref="457" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="jLabel6" min="-2" pref="350" max="-2" attributes="0"/>
-                                  <Component id="jLabel7" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jLabel8" alignment="0" min="-2" pref="362" max="-2" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel10" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel11" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" alignment="0" attributes="0">
-                                      <Component id="jLabel12" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace max="-2" attributes="0"/>
-                                      <Component id="jLabel13" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                              <EmptySpace min="-2" pref="92" max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel16" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                      <Component id="jLabel17" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                                  <Group type="102" attributes="0">
-                                      <Component id="jLabel14" min="-2" max="-2" attributes="0"/>
-                                      <EmptySpace type="separate" max="-2" attributes="0"/>
-                                      <Component id="jLabel15" min="-2" max="-2" attributes="0"/>
-                                  </Group>
-                              </Group>
-                          </Group>
-                          <Group type="102" alignment="0" attributes="0">
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Component id="jScrollPane2" min="-2" pref="1802" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
-                      <EmptySpace pref="179" max="32767" attributes="0"/>
+                      <EmptySpace pref="640" max="32767" attributes="0"/>
                   </Group>
               </Group>
             </DimensionLayout>
@@ -191,21 +195,21 @@
                       <Component id="jLabel1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="51" max="-2" attributes="0"/>
                       <Component id="jLabel2" min="-2" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Component id="jScrollPane2" min="-2" pref="466" max="-2" attributes="0"/>
-                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                      <Group type="103" groupAlignment="1" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="separate" max="-2" attributes="0"/>
-                              <Component id="jPanel3" min="-2" pref="412" max="-2" attributes="0"/>
-                          </Group>
-                          <Component id="jPanel5" min="-2" pref="412" max="-2" attributes="0"/>
-                          <Component id="jPanel7" min="-2" pref="412" max="-2" attributes="0"/>
-                          <Component id="jPanel9" min="-2" pref="412" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
+                      <Component id="jScrollPane2" min="-2" pref="576" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
+                      <Component id="jLabel3" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="88" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel3" alignment="1" min="-2" pref="412" max="-2" attributes="0"/>
+                          <Component id="jPanel5" alignment="1" min="-2" pref="412" max="-2" attributes="0"/>
+                          <Component id="jPanel7" alignment="1" min="-2" pref="412" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
-                      <Component id="jPanel11" min="-2" pref="412" max="-2" attributes="0"/>
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="jPanel11" min="-2" pref="412" max="-2" attributes="0"/>
+                          <Component id="jPanel9" min="-2" pref="412" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace type="separate" max="-2" attributes="0"/>
                       <Component id="jLabel4" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="-2" pref="29" max="-2" attributes="0"/>
@@ -274,7 +278,7 @@
                       <Font name="Monospaced" size="14" style="1"/>
                     </Property>
                     <Property name="rows" type="int" value="5"/>
-                    <Property name="text" type="java.lang.String" value="Formar profesionales en el campo de la salud con s&#xf3;lidas bases cient&#xed;ficas y t&#xe9;cnicas, de acuerdo a la pertinencia social y valores; generando y aplicando conocimientos cient&#xed;fico-t&#xe9;cnicos e innovadores relacionados con &#xa;el proceso salud/enfermedad, que aporten a la ciencia y a la soluci&#xf3;n de la problem&#xe1;tica del entorno.&#xa;&#xa;En consecuencia, promover el respeto, la promoci&#xf3;n y difusi&#xf3;n de los saberes y pr&#xe1;cticas culturales en salud; de acuerdo a los servicios especializados de atenci&#xf3;n de salud/enfermedad con calidad, pertinencia y equidad; &#xa;y, a la gesti&#xf3;n participativa con personal comprometido institucional y socialmente.&#xa;&#xa;Ser reconocida a nivel nacional e internacional con altos niveles de excelencia y compromiso, constituy&#xe9;ndose en un referente fundamental para el desarrollo humano sustentable de la regi&#xf3;n y del pa&#xed;s; desde la formaci&#xf3;n &#xa;de talentos humanos. A trav&#xe9;s de conocimientos cient&#xed;ficos y servicios en el campo de la salud, en concordancia con los saberes y pr&#xe1;cticas ancestrales.&#xa;&#xa;Durante toda su trayectoria esta Unidad Acad&#xe9;mico Administrativa, se ha caracterizado por mantener v&#xed;nculos con la comunidad como resultado de lo cual proporciona a la ciudadan&#xed;a servicios especializados en el &#xe1;mbito de &#xa;su competencia.&#xa;&#xa;As&#xed; mismo, la investigaci&#xf3;n se ha constituido en un soporte esencial durante los procesos de formaci&#xf3;n acad&#xe9;mica de los profesionales y la investigaci&#xf3;n generativa se encuentra entregando sus primeros resultados a trav&#xe9;s&#xa; de proyectos tales como: Recuperaci&#xf3;n Hist&#xf3;rica del Patrimonio Cultural de Salud en La Regi&#xf3;n Sur del Ecuador y Norte del Per&#xfa;, Soberan&#xed;a y Seguridad Alimentaria.&#xa;&#xa;Consultas: &#xa;&#xa;Secretar&#xed;a del decanato: secretaria.fsh@unl.edu.ec&#xa;&#xa;Tel&#xe9;fono: 07 257 1379  ext 101 &#xf3; 102&#xa;&#xa;Atenci&#xf3;n: Lunes a viernes de 8:00 a 12:30 | 15:00 a 18:30"/>
+                    <Property name="text" type="java.lang.String" value="Formar profesionales en el campo de la salud con s&#xf3;lidas bases cient&#xed;ficas y t&#xe9;cnicas, de acuerdo a la pertinencia social y valores; generando &#xa;y aplicando conocimientos cient&#xed;fico-t&#xe9;cnicos e innovadores relacionados con el proceso salud/enfermedad, que aporten a la ciencia y a la &#xa;soluci&#xf3;n de la problem&#xe1;tica del entorno.&#xa;&#xa;En consecuencia, promover el respeto, la promoci&#xf3;n y difusi&#xf3;n de los saberes y pr&#xe1;cticas culturales en salud; de acuerdo a los servicios &#xa;especializados de atenci&#xf3;n de salud/enfermedad con calidad, pertinencia y equidad; y, a la gesti&#xf3;n participativa con personal comprometido &#xa;institucional y socialmente.&#xa;&#xa;Ser reconocida a nivel nacional e internacional con altos niveles de excelencia y compromiso, constituy&#xe9;ndose en un referente fundamental &#xa;para el desarrollo humano sustentable de la regi&#xf3;n y del pa&#xed;s; desde la formaci&#xf3;n de talentos humanos. A trav&#xe9;s de conocimientos cient&#xed;ficos&#xa; y servicios en el campo de la salud, en concordancia con los saberes y pr&#xe1;cticas ancestrales.&#xa;&#xa;Durante toda su trayectoria esta Unidad Acad&#xe9;mico Administrativa, se ha caracterizado por mantener v&#xed;nculos con la comunidad como resultado&#xa; de lo cual proporciona a la ciudadan&#xed;a servicios especializados en el &#xe1;mbito de su competencia.&#xa;&#xa;As&#xed; mismo, la investigaci&#xf3;n se ha constituido en un soporte esencial durante los procesos de formaci&#xf3;n acad&#xe9;mica de los profesionales y la &#xa;investigaci&#xf3;n generativa se encuentra entregando sus primeros resultados a trav&#xe9;s  de proyectos tales como: Recuperaci&#xf3;n Hist&#xf3;rica del &#xa;Patrimonio Cultural de Salud en La Regi&#xf3;n Sur del Ecuador y Norte del Per&#xfa;, Soberan&#xed;a y Seguridad Alimentaria.&#xa;&#xa;Consultas: &#xa;&#xa;Secretar&#xed;a del decanato: secretaria.fsh@unl.edu.ec&#xa;&#xa;Tel&#xe9;fono: 07 257 1379  ext 101 &#xf3; 102&#xa;&#xa;Atenci&#xf3;n: Lunes a viernes de 8:00 a 12:30 | 15:00 a 18:30"/>
                   </Properties>
                 </Component>
               </SubComponents>
