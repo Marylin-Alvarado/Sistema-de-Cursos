@@ -41,7 +41,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
     }
      public void CargarCombos() {
     // Utilidades.cargarUnidades(cbxUnidad);
-    // Utilidades.cargarDocentes(cbxDocente, Utilidades.listar("docentes"));
+     Utilidades.cargarDocentes(cbxDocente, Utilidades.listarDocentes());
     }
      
     public void cargarTabla() {
@@ -103,8 +103,6 @@ public class FrmAsignatura extends javax.swing.JDialog {
         cbxUnidad.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "I", "II", "III", "IV" }));
 
         jLabel5.setText("Docente:");
-
-        cbxDocente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "HacerloEscalable" }));
 
         jLabel6.setText("Número de horas:");
 
@@ -168,7 +166,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
                             .addGroup(jPanel2Layout.createSequentialGroup()
                                 .addComponent(jLabel5)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(cbxDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addComponent(cbxDocente, javax.swing.GroupLayout.PREFERRED_SIZE, 184, javax.swing.GroupLayout.PREFERRED_SIZE))))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addGap(181, 181, 181)
                         .addComponent(btnGuardar)
@@ -178,7 +176,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
                         .addComponent(btnEliminar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnCargar)))
-                .addContainerGap(126, Short.MAX_VALUE))
+                .addContainerGap(58, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -251,16 +249,15 @@ public class FrmAsignatura extends javax.swing.JDialog {
             .addGroup(panel1Layout.createSequentialGroup()
                 .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panel1Layout.createSequentialGroup()
+                        .addGap(299, 299, 299)
+                        .addComponent(jLabel1))
+                    .addGroup(panel1Layout.createSequentialGroup()
                         .addGap(37, 37, 37)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(panel1Layout.createSequentialGroup()
-                        .addGap(299, 299, 299)
-                        .addComponent(jLabel1)))
-                .addContainerGap(37, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(104, 104, 104))
+                        .addGap(90, 90, 90)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 538, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(44, Short.MAX_VALUE))
         );
         panel1Layout.setVerticalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -374,7 +371,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
         aC.getAsignatura().setNombre(txtNombre.getText());
         aC.getAsignatura().setParalelo(((String) cbxParalelo.getSelectedItem()).charAt(0));
         aC.getAsignatura().setUnidad((String) cbxUnidad.getSelectedItem());
-        aC.getAsignatura().setDocente(new Docente());
+        aC.getAsignatura().setDocente((Docente) cbxDocente.getSelectedItem());
         aC.getAsignatura().setNumeroHoras(Integer.parseInt(txtNumeroHoras.getText()));
         if (!txtNombre.getText().isEmpty() || !txtNumeroHoras.getText().isEmpty()) {
             aC.getAsignatura().setId(Utilidades.listarAsignaturas().getSize() + 1);
