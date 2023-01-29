@@ -34,5 +34,12 @@ public class DocentesController {
         this.docenteList = docenteList;
     }
     
+    public void generarUsuario(){
+        getDocente().getCuenta().setUsuario(getDocente().getNombres() + "." + getDocente().getApellidos());
+    }
+    
+    public void generarContrasenia(){
+        getDocente().getCuenta().setContrasenia(getDocente().getNombres() + "-" + getDocente().getApellidos() + "password" );
+    }
     
 }

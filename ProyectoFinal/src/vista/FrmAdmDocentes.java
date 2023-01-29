@@ -16,7 +16,7 @@ import vista.Utilidades.Utilidades;
  *
  * @author David Campoverde
  */
-public class FrmDocentes extends javax.swing.JFrame {
+public class FrmAdmDocentes extends javax.swing.JFrame {
 
     private AsignaturaController asignaturaC = new AsignaturaController();
     private DialogDocente diaDocente;
@@ -26,14 +26,14 @@ public class FrmDocentes extends javax.swing.JFrame {
     /**
      * Creates new form FrmDocentes
      */
-    public FrmDocentes() {
+    public FrmAdmDocentes() {
         initComponents();
         cargarDatos();
         cargarTablas();
         setLocationRelativeTo(this);
     }
 
-    public FrmDocentes(AsignaturaController ac) {
+    public FrmAdmDocentes(AsignaturaController ac) {
         this.asignaturaC = ac;
         initComponents();
         cargarDatos();
@@ -85,6 +85,7 @@ public class FrmDocentes extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAsignaturas = new javax.swing.JTable();
         btnAsignatura = new javax.swing.JButton();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -188,6 +189,13 @@ public class FrmDocentes extends javax.swing.JFrame {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnRegresar.setText("REGRESAR");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -195,6 +203,7 @@ public class FrmDocentes extends javax.swing.JFrame {
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnRegresar)
                     .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(jPanel2Layout.createSequentialGroup()
                             .addComponent(btnAgregarDocente)
@@ -209,7 +218,9 @@ public class FrmDocentes extends javax.swing.JFrame {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(65, 65, 65)
+                .addGap(25, 25, 25)
+                .addComponent(btnRegresar)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 233, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(27, 27, 27)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -320,6 +331,12 @@ public class FrmDocentes extends javax.swing.JFrame {
         btnAsignatura.setEnabled(true);
     }//GEN-LAST:event_tblAsignaturasMouseClicked
 
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        DialogAdministradorInicio inicio = new DialogAdministradorInicio();
+        inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
+
     public AsignaturaController getAsignaturaC() {
         return asignaturaC;
     }
@@ -345,21 +362,23 @@ public class FrmDocentes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FrmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FrmAdmDocentes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new FrmDocentes().setVisible(true);
+                new FrmAdmDocentes().setVisible(true);
             }
         });
     }
@@ -370,6 +389,7 @@ public class FrmDocentes extends javax.swing.JFrame {
     private javax.swing.JButton btnAsignatura;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminarDocente;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

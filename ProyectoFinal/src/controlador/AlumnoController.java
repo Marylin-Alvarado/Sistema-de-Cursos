@@ -39,5 +39,5 @@ public class AlumnoController {
         getAlumno().getCuenta().setContrasenia(getAlumno().getNombres() + "-" + getAlumno().getApellidos() + "password" );
     }
     
-   
+    
 }

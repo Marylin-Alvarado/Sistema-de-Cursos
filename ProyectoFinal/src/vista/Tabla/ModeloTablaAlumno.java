@@ -14,82 +14,61 @@ import modelo.Alumno;
  * @author DEEPIN
  */
 public class ModeloTablaAlumno extends AbstractTableModel {
-
-    private ListaEnlazada<Alumno> lista = new ListaEnlazada<>();
-
-    public ListaEnlazada<Alumno> getLista() {
-        return lista;
-    }
-
-    public void setLista(ListaEnlazada<Alumno> lista) {
-        this.lista = lista;
+    private ListaEnlazada<Alumno> alumnos = new ListaEnlazada<>();
+    
+    @Override
+    public int getRowCount() {
+        return alumnos.getSize();
     }
 
     @Override
     public int getColumnCount() {
-        return 8;
+        return 6;
     }
-
-    @Override
-    public int getRowCount() {
-        return lista.getSize();
-    }
-
-    @Override
+    
+     @Override
     public String getColumnName(int column) {
         switch (column) {
-            case 0:
-                return "Nro";
-            case 1:
-                return "Usuario";
-            case 2:
-                return "Identificacion";
-            case 3:
-                return "Nombre";
-            case 4:
-                return "Direccion";
-            case 5:
-                return "Correo";
-            case 6:
-                return "Matricula";
-            case 7:
-                return "Asistencia";
-            case 8:
-                return "Ciclo";
+            case 0: return "ID";
+            case 1: return "Nombres";
+            case 2: return "Apellidos";
+            case 3: return "Identificacion";
+            case 4: return "Direccion";
+            case 5: return "Telefono";
+            case 6: return "Fecha nacimiento";
             default:
                 return null;
         }
     }
-
+    
     @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         Alumno a = null;
         try {
-            a = lista.obtener(rowIndex);
+            a = alumnos.obtener(rowIndex);
         } catch (Exception e) {
+            System.out.println("Error en getValueAt : " + e);
         }
         switch (columnIndex) {
-            case 0:
-                return (rowIndex + 1);
-            case 1:
-                return (a != null) ? a.getCuenta().toString() : "NO DEFINIDO";
-            case 2:
-                return (a != null) ? a.getIdentificacion().toString() : "NO DEFINIDO";
-            case 3:
-                return (a != null) ? (a.getApellidos() + " " + a.getNombres()) : "NO DEFINIDO";
-            case 4:
-                return (a != null) ? a.getDireccion() : "NO DEFINIDO";
-            case 5:
-                return (a != null) ? a.getCorreo() : "NO DEFINIDO";
-            case 6:
-                return (a != null) ? a.getMatriculas() : "NO DEFINIDO";
-            case 7: 
-                return (a != null) ? a.getAsistencia() : "NO DEFINIDO";
-            
-            default:
-            
-                return null;
-        }
+            case 0: return (rowIndex + 1);
+            case 1: return (a != null) ? a.getNombres() : "No definido";
+            case 2: return (a != null) ? a.getApellidos() : "No definido";
+            case 3: return (a != null) ? a.getIdentificacion() : "No definido";
+            case 4: return (a != null) ? a.getDireccion() : "No definido";
+            case 5: return (a != null) ? a.getTelefono() : "No definido";
+            case 6: return (a != null) ? a.getFechaNacimiento() : "No definido";
+            default: return null;
+        }    
     }
 
+    public ListaEnlazada<Alumno> getAlumnos() {
+        return alumnos;
+    }
+
+    public void setAlumnos(ListaEnlazada<Alumno> alumnos) {
+        this.alumnos = alumnos;
+    }
+    
+    
+    
 }

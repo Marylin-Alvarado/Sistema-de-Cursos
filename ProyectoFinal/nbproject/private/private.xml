@@ -3,15 +3,21 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmPerfilDocente.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmsPrincipal.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/PerfilEstudiante.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmMateria.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmAsignatura.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmDocentes.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogDocente.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmInicio.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogAsignatura.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdministracionEmpresa.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmAsignatura.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmCuenta.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogAsignatura.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmAlumno.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmAdministrador.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmDocentes.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmCarrera.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/Tabla/ModeloTablaAsignatura.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmEstidiante.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogAdministradorInicio.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmDocente.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmLogin.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmAsistencia.java</file>
+            <file>file:/D:/WorkSpace/UNL/TercerCiclo/ProyectoFinalEstructura/Sistema-de-Cursos/ProyectoFinal/src/modelo/Cuenta.java</file>
         </group>
     </open-files>
 </project-private>

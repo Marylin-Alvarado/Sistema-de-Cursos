@@ -42,7 +42,12 @@ public class Malla {
         this.regimen = regimen;
     }
 
- 
+    @Override
+    public String toString() {
+        return regimen ;
+    }
+
+    
     
     
     

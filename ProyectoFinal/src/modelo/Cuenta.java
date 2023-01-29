@@ -12,6 +12,7 @@ package modelo;
 public class Cuenta {
     private Integer id;
     private String usuario;
+    private String tipoUser;
     private String contrasenia;
     private Boolean estado;
     private Persona persona;
@@ -55,6 +56,16 @@ public class Cuenta {
     public void setPersona(Persona persona) {
         this.persona = persona;
     }
+
+    public String getTipoUser() {
+        return tipoUser;
+    }
+
+    public void setTipoUser(String tipoUser) {
+        this.tipoUser = tipoUser;
+    }
+    
+    
     
     
 }

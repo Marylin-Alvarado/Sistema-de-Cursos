@@ -17,15 +17,19 @@ import java.util.logging.Logger;
 import javax.swing.JComboBox;
 import modelo.Alumno;
 import modelo.Asignatura;
+import modelo.Carrera;
 import modelo.Ciclo;
 import modelo.Cuenta;
 import modelo.Cursa;
 import modelo.Docente;
+import modelo.Malla;
 import modelo.Matricula;
 import modelo.Periodo;
+import modelo.Persona;
 import modelo.enums.Estado;
 import modelo.enums.Generos;
 import modelo.enums.Meses;
+import modelo.enums.Seccion;
 import modelo.enums.TipoIdentificacion;
 import modelo.enums.Unidades;
 
@@ -34,7 +38,14 @@ import modelo.enums.Unidades;
  * @author David Campoverde
  */
 public class Utilidades {
-
+    
+    public static void generarUsuario(Persona persona){
+        persona.getCuenta().setUsuario(persona.getNombres()+"."+persona.getApellidos());
+    }
+    
+    public static void generarContrasenia(Persona persona){
+        persona.getCuenta().setContrasenia(persona.getIdentificacion());
+    }
     // Aqui se van a implementar los metodos de guardar y listar
     /**
      * Metodo para cargar los generos que se encuentran en un enum dentro de un
@@ -76,6 +87,33 @@ public class Utilidades {
             cbx.addItem(estado);
         }
         return cbx;
+    }
+    
+    public static JComboBox cargarSecciones(JComboBox cbx){
+        cbx.removeAllItems();
+        for (Seccion seccion : Seccion.values()){
+            cbx.addItem(seccion);
+        }
+        return cbx;
+    }
+    
+    public static Seccion getComboSecciones(JComboBox cbx){
+        return (Seccion) cbx.getSelectedItem();
+    }
+    
+    public static JComboBox cargarMallas(JComboBox cbx, ListaEnlazada<Malla> malla) {
+        cbx.removeAllItems();
+        for(int i = 0; i < malla.getSize(); i++){
+            try {
+                cbx.addItem(malla.obtener(i));
+            } catch (Exception e) {
+            }
+        }
+        return cbx;
+    }
+    
+    public static Malla getComboMallas(JComboBox cbx){
+        return (Malla) cbx.getSelectedItem();
     }
 
     public static JComboBox cargarMeses(JComboBox cbx) {
@@ -640,5 +678,73 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+     
+     public static void guardarMalla(Malla malla) {
+        ListaEnlazada<Malla> lista = listarMallas();
+        lista.insertar(malla);
 
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("mallas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+     
+    public static ListaEnlazada<Malla> listarMallas() {
+        ListaEnlazada<Malla> lista = new ListaEnlazada<>();
+        String json = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("mallas.json"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                json += linea;
+            }
+            br.close();
+            Type tipoLista = new TypeToken<ListaEnlazada<Malla>>() {
+            }.getType();
+            lista = new Gson().fromJson(json, tipoLista);
+
+        } catch (Exception e) {
+            System.out.println("Error en utilidades del metodo listar: " + e);
+        }
+        return lista;
+    }
+     
+    public static void guardarCarrera(Carrera carrera) {
+        ListaEnlazada<Carrera> lista = listarCarreras();
+        lista.insertar(carrera);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("carreras.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    
+    public static ListaEnlazada<Carrera> listarCarreras() {
+        ListaEnlazada<Carrera> lista = new ListaEnlazada<>();
+        String json = "";
+        try {
+            BufferedReader br = new BufferedReader(new FileReader("carreras.json"));
+            String linea;
+            while ((linea = br.readLine()) != null) {
+                json += linea;
+            }
+            br.close();
+            Type tipoLista = new TypeToken<ListaEnlazada<Carrera>>() {
+            }.getType();
+            lista = new Gson().fromJson(json, tipoLista);
+
+        } catch (Exception e) {
+            System.out.println("Error en utilidades del metodo listar: " + e);
+        }
+        return lista;
+    }
+    
+    
+    
 }

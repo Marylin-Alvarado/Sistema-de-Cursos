@@ -234,14 +234,14 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
 
     private void lblAdministradorDocentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorDocentesMouseClicked
         // TODO add your handling code here:
-        DialogoAdmDocente dal = new DialogoAdmDocente();
+        FrmAdmDocentes dal = new FrmAdmDocentes();
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorDocentesMouseClicked
 
     private void lblAdministradorAlumnosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorAlumnosMouseClicked
         // TODO add your handling code here:
-        DialogoAdmAlumno dal = new DialogoAdmAlumno();
+        FrmAdminAlumnos dal = new FrmAdminAlumnos();
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorAlumnosMouseClicked
@@ -255,7 +255,7 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
 
     private void lblAdministradorCarrerasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorCarrerasMouseClicked
         // TODO add your handling code here:
-        DialogoAdmCarrera dal = new DialogoAdmCarrera();
+        FrmAdmCarrera dal = new FrmAdmCarrera();
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorCarrerasMouseClicked

@@ -5,6 +5,7 @@
 package controlador.Utilidades;
 
 import java.lang.reflect.Field;
+import modelo.Persona;
 
 /**
  *
@@ -49,5 +50,4 @@ public class Utilidades {
         }
         return atributo;
     }
-    
 }
