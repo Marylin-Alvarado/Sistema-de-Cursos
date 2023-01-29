@@ -1,7 +1,6 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JDialog.java to edit this template
  */
 package vista;
 
@@ -9,36 +8,39 @@ import controlador.CicloController;
 import controlador.listas.excepciones.ListaNullException;
 import controlador.listas.excepciones.ListaVaciaException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;
+import java.awt.Graphics;
+import java.awt.Image;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import modelo.Asignatura;
-import modelo.Ciclo;
 import vista.Tabla.ModeloTablaAsignatura;
 import vista.Tabla.ModeloTablaCiclo;
 import vista.Utilidades.Utilidades;
 
 /**
  *
- * @author Marylin
+ * @author TecnoeXtrem
  */
-public class DialogoCiclo extends javax.swing.JDialog {
-    
+public class DialogCiclo extends javax.swing.JDialog {
+    private FondoPanel fondo = new FondoPanel(); 
     private CicloController cC = new CicloController();
     private ModeloTablaCiclo mtc = new ModeloTablaCiclo();
     private ModeloTablaAsignatura mta = new ModeloTablaAsignatura();
     private Integer indiceCiclo;
-
     /**
-     * Creates new form DialogoCiclos
+     * Creates new form aaa
      */
-    public DialogoCiclo(java.awt.Frame parent, boolean modal) {
+    public DialogCiclo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setContentPane(fondo);
         initComponents();
         cargarTablaCiclo();
     }
     
-     public void cargarTablaAsignaturas() {
+    public void cargarTablaAsignaturas() {
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
         tblAsignaturasCiclos.setModel(mta);
         tblAsignaturasCiclos.updateUI();
@@ -49,7 +51,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
         tblAsignaturasCiclos.setModel(mtc);
         tblAsignaturasCiclos.updateUI();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -59,9 +61,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jPanel1 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
         btnAgregarAsignatura = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         btnSelecionar = new javax.swing.JButton();
@@ -77,10 +77,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
         tblAsignaturasCiclos = new javax.swing.JTable();
         jScrollPane2 = new javax.swing.JScrollPane();
         tblAsignatura = new javax.swing.JTable();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setText("Ciclo");
 
         btnAgregarAsignatura.setText("+");
         btnAgregarAsignatura.setEnabled(false);
@@ -152,36 +151,31 @@ public class DialogoCiclo extends javax.swing.JDialog {
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnCrear)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)))
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(161, 161, 161)
-                        .addComponent(jLabel1))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(btnCrear)
-                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel2)
-                                .addComponent(jLabel3)))
+                        .addGap(27, 27, 27)
                         .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel2Layout.createSequentialGroup()
-                                .addGap(27, 27, 27)
-                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(jPanel2Layout.createSequentialGroup()
-                                        .addComponent(btnSelecionar)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(btnAgregarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(btnEliminarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(btnSelecionar)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(btnAgregarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnModificarCiclo)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnMostrar)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnEliminarCiclo)))))
+                                .addComponent(btnEliminarAsignatura, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnModificarCiclo)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnMostrar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(btnEliminarCiclo)))
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -191,9 +185,7 @@ public class DialogoCiclo extends javax.swing.JDialog {
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jLabel1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(34, 34, 34)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
                     .addComponent(txtNombreCiclo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -251,48 +243,41 @@ public class DialogoCiclo extends javax.swing.JDialog {
         });
         jScrollPane2.setViewportView(tblAsignatura);
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(180, 180, 180)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        jLabel4.setFont(new java.awt.Font("Segoe UI", 3, 24)); // NOI18N
+        jLabel4.setText("Ciclo");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 402, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(143, 143, 143))
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 358, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(320, 320, 320)
+                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addComponent(jLabel4)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(41, 41, 41)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(21, 21, 21))
         );
 
         pack();
@@ -303,9 +288,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
             // TODO add your handling code here:
             registrarAsignatura();
         } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaNullException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnAgregarAsignaturaActionPerformed
 
@@ -333,9 +318,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
         try {
             cargarTablaAsignaturaCiclo();
         } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaNullException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliminarAsignaturaActionPerformed
 
@@ -349,9 +334,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
                 cargarTablaAsignaturas();
                 indiceCiclo = null;
             } catch (PosicionNoEncontradaException ex) {
-                Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
             } catch (ListaNullException ex) {
-                Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+                Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
             }
 
         }
@@ -365,9 +350,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
             txtNombreCiclo.setText(cC.getCiclo().getNombre());
             btnModificarCiclo.setEnabled(true);
         } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaNullException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
@@ -376,9 +361,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
             // TODO add your handling code here:
             eliminarCiclo();
         } catch (ListaVaciaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_btnEliminarCicloActionPerformed
 
@@ -390,17 +375,17 @@ public class DialogoCiclo extends javax.swing.JDialog {
         // TODO add your handling code here:
         btnEliminarAsignatura.setEnabled(true);
     }//GEN-LAST:event_tblAsignaturaMouseClicked
-
+   
     public void eliminaAsignatura(){
         try {
             // TODO add your handling code here:
             Utilidades.eliminarAsignaturaCiclo(indiceCiclo, tblAsignatura.getSelectedRow());
         } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaVaciaException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         } catch (ListaNullException ex) {
-            Logger.getLogger(DialogoCiclo.class.getName()).log(Level.SEVERE, null, ex);
+            Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
     public void eliminarCiclo() throws ListaVaciaException, PosicionNoEncontradaException{
@@ -471,6 +456,18 @@ public class DialogoCiclo extends javax.swing.JDialog {
 //            cC.getCiclo().setAsignaturas(asignaturas);
         }
     }
+    
+    class FondoPanel extends JPanel{
+        private Image image;
+        
+        @Override
+        public void  paint(Graphics g){
+            image = new ImageIcon(getClass().getResource("../img/fondoBlanco.jpg")).getImage();
+            g.drawImage(image, 0, 0, getWidth(), getHeight(), this);
+            setOpaque(false);
+            super.paint(g);
+        }
+    }
     /**
      * @param args the command line arguments
      */
@@ -488,21 +485,23 @@ public class DialogoCiclo extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(DialogoCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(DialogoCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(DialogoCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(DialogoCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(DialogCiclo.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
+        //</editor-fold>
         //</editor-fold>
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                DialogoCiclo dialog = new DialogoCiclo(new javax.swing.JFrame(), true);
+                DialogCiclo dialog = new DialogCiclo(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -523,10 +522,9 @@ public class DialogoCiclo extends javax.swing.JDialog {
     private javax.swing.JButton btnModificarCiclo;
     private javax.swing.JButton btnMostrar;
     private javax.swing.JButton btnSelecionar;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;

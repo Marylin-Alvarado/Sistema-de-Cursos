@@ -24,6 +24,7 @@ import vista.Utilidades.Utilidades;
  *
  * @author Marylin
  */
+
 public class FrmAsignatura extends javax.swing.JDialog {
     
     private AsignaturaController aC = new AsignaturaController();

@@ -34,12 +34,22 @@
             "unidad": "II",
             "docente": {},
             "numeroHoras": 10
+          },
+          "siguiente": {
+            "dato": {
+              "id": 5,
+              "nombre": "Filosofia",
+              "paralelo": "A",
+              "unidad": "IV",
+              "docente": {},
+              "numeroHoras": 100
+            }
           }
         }
       }
     }
   },
-  "size": 4,
+  "size": 5,
   "ascendente": 1,
   "descendente": 2
 }
