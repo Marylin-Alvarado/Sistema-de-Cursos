@@ -21,16 +21,16 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     public DialogoAdmLogin(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        setLocationRelativeTo(this);
+        setLocationRelativeTo(null);
 
     }
     
     private void iniciar_sesion(){
-        if(txtUsuario.getText().trim().isEmpty() || new String(pwfClave.getPassword()).trim().isEmpty()){
+         if(txtUsuario.getText().trim().isEmpty() || new String(pwfClave.getPassword()).trim().isEmpty()){
             JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
         }else{
-            this.dispose();
-            //new DialogoAdmsPrincipal.
+            this.setVisible(false);
+//            new DialogoAdmsPrincipal.setVisible(true);
         }
             
     }
@@ -83,6 +83,11 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
         jLabel5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/equipo.png"))); // NOI18N
 
         jButton2.setText("Cancelar");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -173,8 +178,15 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        DialogAdministradorInicio adm = new DialogAdministradorInicio();
+        adm.setVisible(true);
+        this.dispose();
         iniciar_sesion();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton2ActionPerformed
 
     /**
      * @param args the command line arguments
