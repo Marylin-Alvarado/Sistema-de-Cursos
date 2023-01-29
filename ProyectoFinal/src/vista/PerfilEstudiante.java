@@ -31,6 +31,7 @@ public class PerfilEstudiante extends javax.swing.JDialog {
      */
     public PerfilEstudiante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         cargarCombos();

@@ -41,6 +41,8 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
         lblAdministradorAsistencias = new javax.swing.JLabel();
         lblAdministradorCuentas = new javax.swing.JLabel();
         lblAdministradorAdministradores = new javax.swing.JLabel();
+        lblAdministradorCuentas1 = new javax.swing.JLabel();
+        lblAdministradorAsignaturas1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -116,10 +118,29 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
             }
         });
 
+        lblAdministradorCuentas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdministradorCuentas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconoCuentas.png"))); // NOI18N
+        lblAdministradorCuentas1.setText("ADMINISTRAR CICLOS");
+        lblAdministradorCuentas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAdministradorCuentas1MouseClicked(evt);
+            }
+        });
+
+        lblAdministradorAsignaturas1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdministradorAsignaturas1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconoAsignaturas.png"))); // NOI18N
+        lblAdministradorAsignaturas1.setText("ADMINISTRAR MATRICULAS");
+        lblAdministradorAsignaturas1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAdministradorAsignaturas1MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(lblAdministradorCuentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,20 +150,25 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
                     .addComponent(lblAdministradorAsignaturas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(btnRegresar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblAdministradorAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAdministradorCuentas, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAdministradorAdministradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAdministradorAdministradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdministradorCuentas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdministradorAsignaturas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
                 .addComponent(lblAdministradorAdministradores)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(lblAdministradorCuentas)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(lblAdministradorCarreras)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAdministradorCuentas1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblAdministradorCuentas)
+                .addGap(18, 18, 18)
+                .addComponent(lblAdministradorAsignaturas1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
                 .addComponent(lblAdministradorAsignaturas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAdministradorDocentes)
@@ -222,7 +248,7 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
 
     private void lblAdministradorAsignaturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorAsignaturasMouseClicked
         // TODO add your handling code here:
-        DialogoAdmAsignatura dal = new DialogoAdmAsignatura();
+        FrmAsignatura dal = new FrmAsignatura(null, true);
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorAsignaturasMouseClicked
@@ -233,6 +259,20 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorCarrerasMouseClicked
+
+    private void lblAdministradorCuentas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorCuentas1MouseClicked
+        // TODO add your handling code here:
+        DialogCiclo diaCiclo = new DialogCiclo(null, true);
+        diaCiclo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblAdministradorCuentas1MouseClicked
+
+    private void lblAdministradorAsignaturas1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorAsignaturas1MouseClicked
+        // TODO add your handling code here:
+        DialogMatriculas diaMatriculas = new DialogMatriculas(this, true);
+        diaMatriculas.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblAdministradorAsignaturas1MouseClicked
 
     /**
      * @param args the command line arguments
@@ -276,9 +316,11 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
     private javax.swing.JLabel lblAdministradorAdministradores;
     public static javax.swing.JLabel lblAdministradorAlumnos;
     public static javax.swing.JLabel lblAdministradorAsignaturas;
+    public static javax.swing.JLabel lblAdministradorAsignaturas1;
     private javax.swing.JLabel lblAdministradorAsistencias;
     public static javax.swing.JLabel lblAdministradorCarreras;
     private javax.swing.JLabel lblAdministradorCuentas;
+    private javax.swing.JLabel lblAdministradorCuentas1;
     public static javax.swing.JLabel lblAdministradorDocentes;
     // End of variables declaration//GEN-END:variables
 }

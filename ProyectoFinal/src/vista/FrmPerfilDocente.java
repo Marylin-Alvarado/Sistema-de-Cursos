@@ -34,6 +34,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
     
     public FrmPerfilDocente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         try {

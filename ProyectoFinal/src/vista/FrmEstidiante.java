@@ -36,6 +36,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
      */
     public FrmEstidiante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         cargarCombos();

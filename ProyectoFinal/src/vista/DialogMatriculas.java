@@ -37,6 +37,7 @@ public class DialogMatriculas extends javax.swing.JDialog {
      */
     public DialogMatriculas(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         initComponents();
         cargarCombos();
     }
@@ -98,6 +99,7 @@ public class DialogMatriculas extends javax.swing.JDialog {
         jLabel3 = new javax.swing.JLabel();
         cbxAlumos = new javax.swing.JComboBox<>();
         jLabel4 = new javax.swing.JLabel();
+        btnRegresar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -184,17 +186,31 @@ public class DialogMatriculas extends javax.swing.JDialog {
 
         jLabel4.setText("Alumno: ");
 
+        btnRegresar.setText("Regresar");
+        btnRegresar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnRegresarActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout panel1Layout = new javax.swing.GroupLayout(panel1);
         panel1.setLayout(panel1Layout);
         panel1Layout.setHorizontalGroup(
             panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panel1Layout.createSequentialGroup()
-                .addGap(183, 183, 183)
-                .addComponent(jLabel1)
-                .addContainerGap(241, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panel1Layout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 263, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panel1Layout.createSequentialGroup()
+                        .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addGap(183, 183, 183)
+                                .addComponent(jLabel1))
+                            .addGroup(panel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnRegresar)))
+                        .addGap(0, 282, Short.MAX_VALUE)))
                 .addContainerGap())
             .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel1Layout.createSequentialGroup()
@@ -250,7 +266,8 @@ public class DialogMatriculas extends javax.swing.JDialog {
                 .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(94, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 72, Short.MAX_VALUE)
+                .addComponent(btnRegresar))
             .addGroup(panel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                 .addGroup(panel1Layout.createSequentialGroup()
                     .addGap(32, 32, 32)
@@ -341,6 +358,13 @@ public class DialogMatriculas extends javax.swing.JDialog {
     private void cbxAlumosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAlumosActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAlumosActionPerformed
+
+    private void btnRegresarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnRegresarActionPerformed
+        // TODO add your handling code here:
+        DialogAdministradorInicio inicio = new DialogAdministradorInicio();
+        inicio.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnRegresarActionPerformed
    
     /**
      * Metodo para crear y guardar una matrcula en el repositorio local, con extension Json
@@ -445,6 +469,7 @@ public class DialogMatriculas extends javax.swing.JDialog {
     private javax.swing.JButton btnMostrar1;
     private javax.swing.JButton btnMostrar2;
     private javax.swing.JButton btnMostrarMatriculas;
+    private javax.swing.JButton btnRegresar;
     private javax.swing.JComboBox<String> cbxAlumos;
     private javax.swing.JComboBox<String> cbxEstadoMatricula;
     private javax.swing.JComboBox<String> cbxPeriodo;
