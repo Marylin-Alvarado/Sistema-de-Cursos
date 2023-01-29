@@ -6,7 +6,9 @@ package vista;
 
 import controlador.AsignaturaController;
 import javax.swing.JOptionPane;
+import modelo.Asignatura;
 import modelo.Docente;
+import vista.Tabla.ModeloTablaAsignatura;
 import vista.Tabla.ModeloTablaDocente;
 import vista.Utilidades.Utilidades;
 
@@ -15,18 +17,19 @@ import vista.Utilidades.Utilidades;
  * @author David Campoverde
  */
 public class FrmDocentes extends javax.swing.JFrame {
+
     private AsignaturaController asignaturaC = new AsignaturaController();
     private DialogDocente diaDocente;
     private ModeloTablaDocente mtd = new ModeloTablaDocente();
+    private ModeloTablaAsignatura mtasig = new ModeloTablaAsignatura();
 
-    
     /**
      * Creates new form FrmDocentes
      */
     public FrmDocentes() {
         initComponents();
         cargarDatos();
-        cargarTabla();
+        cargarTablas();
         setLocationRelativeTo(this);
     }
 
@@ -34,20 +37,32 @@ public class FrmDocentes extends javax.swing.JFrame {
         this.asignaturaC = ac;
         initComponents();
         cargarDatos();
-        cargarTabla();
+        cargarTablas();
         setLocationRelativeTo(this);
     }
-    
-    public void cargarTabla() {
+
+    public void cargarTablas() {
+        cargarTablaDocente();
+        cargarTablaAsignaturas();
+    }
+
+    public void cargarTablaDocente() {
         if (asignaturaC.getDocenteList().getSize() != null) {
             mtd.setDocentes(asignaturaC.getDocenteList());
             tblDocentes.setModel(mtd);
             tblDocentes.updateUI();
         }
     }
-    
-    public void cargarDatos(){
+
+    public void cargarTablaAsignaturas() {
+        mtasig.setListaAsignaturas(Utilidades.listarAsignaturas());
+        tblAsignaturas.setModel(mtasig);
+        tblAsignaturas.updateUI();
+    }
+
+    public void cargarDatos() {
         asignaturaC.setDocenteList(Utilidades.listarDocentes());
+        tblAsignaturas.setEnabled(false);
     }
 
     /**
@@ -66,6 +81,10 @@ public class FrmDocentes extends javax.swing.JFrame {
         btnAgregarDocente = new javax.swing.JButton();
         btnEliminarDocente = new javax.swing.JButton();
         btnEditar = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tblAsignaturas = new javax.swing.JTable();
+        btnAsignatura = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -85,6 +104,9 @@ public class FrmDocentes extends javax.swing.JFrame {
         tblDocentes.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tblDocentesMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                tblDocentesMouseEntered(evt);
             }
         });
         jScrollPane1.setViewportView(tblDocentes);
@@ -112,20 +134,76 @@ public class FrmDocentes extends javax.swing.JFrame {
             }
         });
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder("Asignaturas"));
+
+        tblAsignaturas.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        tblAsignaturas.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tblAsignaturasMouseClicked(evt);
+            }
+        });
+        jScrollPane2.setViewportView(tblAsignaturas);
+
+        btnAsignatura.setText("Asignar Asignatura");
+        btnAsignatura.setEnabled(false);
+        btnAsignatura.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnAsignaturaMouseClicked(evt);
+            }
+        });
+        btnAsignatura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsignaturaActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(21, 21, 21)
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnAsignatura)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 605, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addGap(14, 14, 14)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(btnAsignatura)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(35, 35, 35)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addComponent(btnAgregarDocente)
-                        .addGap(18, 18, 18)
-                        .addComponent(btnEditar)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(btnEliminarDocente))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addGroup(jPanel2Layout.createSequentialGroup()
+                            .addComponent(btnAgregarDocente)
+                            .addGap(18, 18, 18)
+                            .addComponent(btnEditar)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnEliminarDocente))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 661, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(42, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -138,7 +216,9 @@ public class FrmDocentes extends javax.swing.JFrame {
                     .addComponent(btnAgregarDocente)
                     .addComponent(btnEliminarDocente)
                     .addComponent(btnEditar))
-                .addContainerGap(46, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(230, 230, 230))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -154,8 +234,8 @@ public class FrmDocentes extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 651, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(18, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -178,8 +258,8 @@ public class FrmDocentes extends javax.swing.JFrame {
         Docente d = diaDocente.getDocente();
         if (d != null) {
             asignaturaC.getDocenteList().insertar(d);
-            d.setIdDocente(asignaturaC.getDocenteList().getSize() + 1);
-            cargarTabla();
+            d.setIdDocente(asignaturaC.getDocenteList().getSize());
+            cargarTablaDocente();
             Utilidades.guardarDocente(d);
         }
     }//GEN-LAST:event_btnAgregarDocenteActionPerformed
@@ -187,6 +267,7 @@ public class FrmDocentes extends javax.swing.JFrame {
     private void tblDocentesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocentesMouseClicked
         btnEliminarDocente.setEnabled(true);
         btnEditar.setEnabled(true);
+        tblAsignaturas.setEnabled(true);
     }//GEN-LAST:event_tblDocentesMouseClicked
 
     private void btnEliminarDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarDocenteActionPerformed
@@ -195,7 +276,7 @@ public class FrmDocentes extends javax.swing.JFrame {
             try {
                 asignaturaC.getDocenteList().eliminar(tblDocentes.getSelectedRow());
                 Utilidades.eliminarDocente(tblDocentes.getSelectedRow());
-                cargarTabla();
+                cargarTablaDocente();
             } catch (Exception e) {
             }
         }
@@ -208,20 +289,45 @@ public class FrmDocentes extends javax.swing.JFrame {
                 diaDocente = new DialogDocente(this, true, asignaturaC.getDocenteList().obtener(tblDocentes.getSelectedRow()));
                 diaDocente.setVisible(true);
                 Utilidades.modificarDocente(diaDocente.getDocente(), tblDocentes.getSelectedRow());
-                cargarTabla();
+                cargarTablaDocente();
             } catch (Exception e) {
             }
         }
     }//GEN-LAST:event_btnEditarActionPerformed
 
-     public AsignaturaController getAsignaturaC() {
+    private void tblDocentesMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblDocentesMouseEntered
+        // TODO add your handling code here:
+    }//GEN-LAST:event_tblDocentesMouseEntered
+
+    private void btnAsignaturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsignaturaActionPerformed
+        try {
+            Docente d = asignaturaC.getDocenteList().obtener(tblDocentes.getSelectedRow());
+            Asignatura a = Utilidades.listarAsignaturas().obtener(tblAsignaturas.getSelectedRow());
+            d.getAsignaturas().insertar(a);
+            Utilidades.modificarDocente(d, tblDocentes.getSelectedRow());
+            JOptionPane.showMessageDialog(this, "Asignatura asignada correctamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
+            btnAsignatura.setEnabled(false);
+
+        } catch (Exception e) {
+        }
+    }//GEN-LAST:event_btnAsignaturaActionPerformed
+
+    private void btnAsignaturaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAsignaturaMouseClicked
+
+    }//GEN-LAST:event_btnAsignaturaMouseClicked
+
+    private void tblAsignaturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tblAsignaturasMouseClicked
+        btnAsignatura.setEnabled(true);
+    }//GEN-LAST:event_tblAsignaturasMouseClicked
+
+    public AsignaturaController getAsignaturaC() {
         return asignaturaC;
     }
 
     public void setAsignaturaC(AsignaturaController asignaturaC) {
         this.asignaturaC = asignaturaC;
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -257,15 +363,19 @@ public class FrmDocentes extends javax.swing.JFrame {
             }
         });
     }
-    
-    
+
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAgregarDocente;
+    private javax.swing.JButton btnAsignatura;
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnEliminarDocente;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTable tblAsignaturas;
     private javax.swing.JTable tblDocentes;
     // End of variables declaration//GEN-END:variables
 }

@@ -1,33 +1,85 @@
 {
   "cabecera": {
     "dato": {
-      "idDocente": 2,
+      "idDocente": 1,
       "tituloTercerNivel": "Licenciatura",
       "tituloCuartoNivel": "PHD",
-      "aniosExpDocente": 5,
-      "aniosExpLaboral": 7,
-      "nombres": "David",
-      "apellidos": "Campoverde",
-      "identificacion": "1105983041",
+      "aniosExpDocente": 4,
+      "aniosExpLaboral": 4,
+      "asignaturas": {
+        "cabecera": {
+          "dato": {
+            "id": 2,
+            "nombre": "Lenguage y Literatura",
+            "paralelo": "A",
+            "unidad": "I",
+            "docente": {},
+            "numeroHoras": 30
+          },
+          "siguiente": {
+            "dato": {
+              "id": 4,
+              "nombre": "Ciencias",
+              "paralelo": "C",
+              "unidad": "II",
+              "docente": {},
+              "numeroHoras": 10
+            }
+          }
+        },
+        "size": 2,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "nombres": "Luis Angel",
+      "apellidos": "Diaz",
+      "identificacion": "11225403251",
       "direccion": "Mexico y Brasil",
-      "telefono": "0999349427",
+      "telefono": "0992311542",
       "ciudad": "Loja",
-      "fechaNacimiento": "25/03/2004"
+      "fechaNacimiento": "09/05/1998",
+      "genero": "MASCULINO"
     },
     "siguiente": {
       "dato": {
-        "idDocente": 3,
-        "tituloTercerNivel": "Licenciatura",
-        "tituloCuartoNivel": "PHD",
+        "idDocente": 2,
+        "tituloTercerNivel": "Licenciatura ",
+        "tituloCuartoNivel": "Mgs",
         "aniosExpDocente": 10,
-        "aniosExpLaboral": 15,
-        "nombres": "Valentina Alexandra",
-        "apellidos": "Armijos Salcedo",
-        "identificacion": "1100452485",
-        "direccion": "Bolivar y Lourdes",
-        "telefono": "0955214775",
+        "aniosExpLaboral": 12,
+        "asignaturas": {
+          "cabecera": {
+            "dato": {
+              "id": 1,
+              "nombre": "Mate",
+              "paralelo": "A",
+              "unidad": "I",
+              "docente": {},
+              "numeroHoras": 10
+            },
+            "siguiente": {
+              "dato": {
+                "id": 4,
+                "nombre": "Ciencias",
+                "paralelo": "C",
+                "unidad": "II",
+                "docente": {},
+                "numeroHoras": 10
+              }
+            }
+          },
+          "size": 2,
+          "ascendente": 1,
+          "descendente": 2
+        },
+        "nombres": "Maria Belen",
+        "apellidos": "Arteaga",
+        "identificacion": "09521152365",
+        "direccion": "Bolivar y Mercadillo",
+        "telefono": "0992215236",
         "ciudad": "Loja",
-        "fechaNacimiento": "20/10/1990"
+        "fechaNacimiento": "09/12/1985",
+        "genero": "FEMENINO"
       }
     }
   },

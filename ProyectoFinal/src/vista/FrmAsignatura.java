@@ -36,11 +36,12 @@ public class FrmAsignatura extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         CargarCombos();
+        setLocationRelativeTo(this);
         
     }
      public void CargarCombos() {
     // Utilidades.cargarUnidades(cbxUnidad);
-    // Utilidades.cargarDocentes(cbxDocente, Utilidades.listar("docentes"));
+     Utilidades.cargarDocentes(cbxDocente, Utilidades.listarDocentes());
     }
      
     public void cargarTabla() {
