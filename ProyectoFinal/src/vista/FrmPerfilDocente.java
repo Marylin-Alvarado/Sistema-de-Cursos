@@ -31,6 +31,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
     /**
      * Creates new form FrmPerfilDocente
      */
+    
     public FrmPerfilDocente(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         this.setContentPane(fondo);
@@ -47,7 +48,12 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         }
 
     }
-
+    /**
+     * Metodo para cargar los datos del docente, recibe como objeto al docente que ingres al sistema
+     * @param parent
+     * @param modal
+     * @param docente 
+     */
     public FrmPerfilDocente(java.awt.Frame parent, boolean modal, Docente docente) {
         super(parent, modal);
         this.setContentPane(fondo);
@@ -57,10 +63,16 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         cargarCombos();
     }
 
+    /**
+     * Metodo para cargar los combos del systema por medio de los metodos que existen en untilidades
+     */
     public void cargarCombos() {
         Utilidades.cargarComboGenero(cbxGenero);
     }
 
+    /**
+     * Metodo para cargar la informacion del docente que ingreso en el Dialog presente
+     */
     public void cargarDocente() {
         if (this.dC.getDocente() != null) {
             lblNombresApellidos.setText(this.dC.getDocente().getNombres() + " " + this.dC.getDocente().getApellidos());
@@ -78,6 +90,13 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
             txtTitulo4toNivel.setText(this.dC.getDocente().getTituloCuartoNivel());
             txtAniosExperienciaLaboral.setText(String.valueOf(this.dC.getDocente().getAniosExpLaboral()));
             txtAniosExperienciaDocente.setText(String.valueOf(this.dC.getDocente().getAniosExpDocente()));
+            try {
+                Utilidades.cargarAsignaturas(cbxMaterias, Utilidades.listarDocentes().obtener(0).getAsignaturas());
+            } catch (PosicionNoEncontradaException ex) {
+                Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ListaNullException ex) {
+                Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
         } else {
             JOptionPane.showMessageDialog(null, "Datos incompletos");
         }
@@ -124,6 +143,8 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         txtAniosExperienciaLaboral = new javax.swing.JTextField();
         jLabel22 = new javax.swing.JLabel();
         txtAniosExperienciaDocente = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        cbxMaterias = new javax.swing.JComboBox<>();
         jPanel2 = new javax.swing.JPanel();
         btnEditar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
@@ -256,6 +277,9 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
             }
         });
 
+        jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
+        jLabel10.setText("Materias");
+
         javax.swing.GroupLayout cbxTipoIdentifLayout = new javax.swing.GroupLayout(cbxTipoIdentif);
         cbxTipoIdentif.setLayout(cbxTipoIdentifLayout);
         cbxTipoIdentifLayout.setHorizontalGroup(
@@ -263,40 +287,47 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
             .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
-                            .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel9))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                            .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
-                            .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
+                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                 .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
-                                    .addComponent(jLabel2)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
-                                        .addComponent(jLabel5)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtIdentificacion))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGap(10, 10, 10)))
+                                    .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
+                                            .addComponent(jLabel2)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(txtNombres, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
+                                                .addComponent(jLabel5)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtIdentificacion))
+                                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
+                                                .addComponent(jLabel4)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                                .addComponent(txtApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addGap(10, 10, 10))
+                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, cbxTipoIdentifLayout.createSequentialGroup()
+                                    .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel9))
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                    .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(txtTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
+                                .addComponent(jLabel7)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtTipoIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
+                            .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
+                                .addComponent(jLabel8)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31))
                     .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
-                        .addComponent(jLabel7)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtTipoIdentificacion, javax.swing.GroupLayout.DEFAULT_SIZE, 196, Short.MAX_VALUE))
-                    .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
-                        .addComponent(jLabel8)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(txtDireccion, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(31, 31, 31)
+                        .addComponent(jLabel10)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbxMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
@@ -377,7 +408,10 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                         .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel9, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(cbxMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
                         .addGap(4, 4, 4)
                         .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -398,8 +432,8 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtAniosExperienciaDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addContainerGap(40, Short.MAX_VALUE))))
+                            .addComponent(txtAniosExperienciaDocente, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(117, Short.MAX_VALUE))
         );
 
         jPanel2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
@@ -465,7 +499,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                 .addComponent(cbxTipoIdentif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(92, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -627,7 +661,9 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
     private javax.swing.JComboBox<String> cbxGenero;
+    private javax.swing.JComboBox<String> cbxMaterias;
     private javax.swing.JPanel cbxTipoIdentif;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel17;

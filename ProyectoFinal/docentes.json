@@ -1,0 +1,53 @@
+{
+  "cabecera": {
+    "dato": {
+      "idDocente": 1,
+      "tituloTercerNivel": "Ingeniera",
+      "tituloCuartoNivel": "Doctora",
+      "aniosExpDocente": 1,
+      "aniosExpLaboral": 2,
+      "asignaturas": {
+        "cabecera": {
+          "dato": {
+            "id": 1,
+            "nombre": "Historia",
+            "paralelo": "A",
+            "unidad": "I",
+            "docente": {
+              "idDocente": 2,
+              "tituloTercerNivel": "Licenciatura",
+              "tituloCuartoNivel": "PHD",
+              "aniosExpDocente": 5,
+              "aniosExpLaboral": 7,
+              "nombres": "Davidd",
+              "apellidos": "Campoverde",
+              "identificacion": "1105983041",
+              "direccion": "Mexico y Brasil",
+              "telefono": "0999349427",
+              "ciudad": "Loja",
+              "fechaNacimiento": "25/03/2004",
+              "genero": "MASCULINO",
+              "correo": ""
+            },
+            "numeroHoras": 12
+          }
+        },
+        "size": 1,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "nombres": "Chenoa",
+      "apellidos": "Cabrera",
+      "identificacion": "1929121011",
+      "direccion": "Loja",
+      "telefono": "098212121",
+      "ciudad": "Loja",
+      "fechaNacimiento": "12/12/2003",
+      "genero": "MASCULINO",
+      "correo": ""
+    }
+  },
+  "size": 1,
+  "ascendente": 1,
+  "descendente": 2
+}

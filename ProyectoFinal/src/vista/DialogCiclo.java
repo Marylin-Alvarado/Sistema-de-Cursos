@@ -39,12 +39,18 @@ public class DialogCiclo extends javax.swing.JDialog {
         initComponents();
         cargarTablaCiclo();
     }
-    
+    /**
+     * Metodo para cargar las asignaturas en la tabla del Dialog
+     */
     public void cargarTablaAsignaturas() {
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
         tblAsignaturasCiclos.setModel(mta);
         tblAsignaturasCiclos.updateUI();
     }
+    
+    /**
+     * Metodo para cargar los ciclos disponibles en el presente Dialog
+     */
 
     public void cargarTablaCiclo() {
         mtc.setListaCiclo(Utilidades.listarCiclos());
@@ -376,6 +382,9 @@ public class DialogCiclo extends javax.swing.JDialog {
         btnEliminarAsignatura.setEnabled(true);
     }//GEN-LAST:event_tblAsignaturaMouseClicked
    
+    /**
+     * Metdo para eiminar la asignatura que le corresoinde al ciclo escojido
+     */
     public void eliminaAsignatura(){
         try {
             // TODO add your handling code here:
@@ -388,6 +397,11 @@ public class DialogCiclo extends javax.swing.JDialog {
             Logger.getLogger(DialogCiclo.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
+    /**
+     * Metodo para eliminar el ciclo escojido
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
+     */
     public void eliminarCiclo() throws ListaVaciaException, PosicionNoEncontradaException{
         if(indiceCiclo != null){
             Utilidades.eliminarCiclo(indiceCiclo);
@@ -402,7 +416,11 @@ public class DialogCiclo extends javax.swing.JDialog {
             }
         }
     }
-    
+    /**
+     * Metodo para carcar los datos de los ciclos en la tabla
+     * @throws PosicionNoEncontradaException
+     * @throws ListaNullException 
+     */
      public void cargarTablaAsignaturaCiclo() throws PosicionNoEncontradaException, ListaNullException {
         int fila = tblAsignaturasCiclos.getSelectedRow();
         if (fila >= 0) {
@@ -417,6 +435,10 @@ public class DialogCiclo extends javax.swing.JDialog {
             tblAsignatura.updateUI();
         }
     }
+     
+     /**
+      * Metodo para guardar los datos de un nuevo cilo en formato json
+      */
 
     public void crearCiclo() {
         if (txtNombreCiclo.getText().isEmpty() || cC.getAsignaturaList().getSize() == 0) {
@@ -431,6 +453,11 @@ public class DialogCiclo extends javax.swing.JDialog {
 
         }
     }
+    /**
+     * Metodo para guardar la asignatura dentro del ciclo
+     * @throws PosicionNoEncontradaException
+     * @throws ListaNullException 
+     */
     
      public void registrarAsignatura() throws PosicionNoEncontradaException, ListaNullException {
         Asignatura asignatura = new Asignatura();
@@ -447,6 +474,11 @@ public class DialogCiclo extends javax.swing.JDialog {
             }
         }
     }
+     /**
+      * Metodo para elimiiaro agregar asignaturas dentro del ciclo seleccionado
+      * @throws PosicionNoEncontradaException
+      * @throws ListaNullException 
+      */
 
     public void modificarListaAsignaturas() throws PosicionNoEncontradaException, ListaNullException {
         int fila = tblAsignaturasCiclos.getSelectedRow();
@@ -456,7 +488,9 @@ public class DialogCiclo extends javax.swing.JDialog {
 //            cC.getCiclo().setAsignaturas(asignaturas);
         }
     }
-    
+    /**
+     * Metodo para cargar el fonde del Dialog 
+     */
     class FondoPanel extends JPanel{
         private Image image;
         

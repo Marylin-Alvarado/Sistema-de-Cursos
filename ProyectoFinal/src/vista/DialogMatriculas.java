@@ -40,19 +40,30 @@ public class DialogMatriculas extends javax.swing.JDialog {
         initComponents();
         cargarCombos();
     }
+    
+    /**
+     * Metodo para cargar los comboBox con la informacion deseada
+     * La informacion se extrae de enums o archivos JSON
+     */
 
     public void cargarCombos() {
         Utilidades.cargarEstados(cbxEstadoMatricula);
         Utilidades.cargarAlumnos(cbxAlumos, Utilidades.listarAlumnos());
         Utilidades.cargarPeriodos(cbxPeriodo, Utilidades.listarPeriodos());
     }
-
+    
+    /**
+     * Metodo para cargar la tabla con las Asignaturas dispoinibles en el archivo local json
+     */
     public void cargatTablaAsignaturas() {
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
         tblPrincipal.setModel(mta);
         tblPrincipal.updateUI();
     }
 
+    /**
+     * Metodo para cargar la tabla con las matriculas disponibles en el archivo local Json
+     */
     public void cargarTablaMatriculas(){
         mtm.setMatriculaList(Utilidades.listarMatriculas());
         tblPrincipal.setModel(mta);
@@ -331,6 +342,11 @@ public class DialogMatriculas extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAlumosActionPerformed
    
+    /**
+     * Metodo para crear y guardar una matrcula en el repositorio local, con extension Json
+     * @throws PosicionNoEncontradaException
+     * @throws ListaNullException 
+     */
      public void crearMatricula() throws PosicionNoEncontradaException, ListaNullException {
         if (mC.getMatricula().getCursa().getSize() == 0) {
             JOptionPane.showMessageDialog(null, "Datos incompletos");
@@ -353,7 +369,11 @@ public class DialogMatriculas extends javax.swing.JDialog {
         }
 
     }
-
+     
+     /**
+      * Metodo para registrar la asignatura presente en la matricula del estudiante,
+      * ademas de la creacion del cursa para que ambos puedan tener relacion
+      */
     public void registrarAsignatura() {
         Asignatura asignatura = new Asignatura();
         Cursa cursa = new Cursa();
