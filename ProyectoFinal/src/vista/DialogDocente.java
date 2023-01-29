@@ -8,6 +8,7 @@ package vista;
 import controlador.listas.ListaEnlazada;
 import java.awt.Color;
 import javax.swing.JOptionPane;
+import modelo.Cuenta;
 import modelo.Docente;
 import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
@@ -111,6 +112,17 @@ public class DialogDocente extends java.awt.Dialog {
             txtFechaNacimientoDocente.setText("");
             txtFechaNacimientoDocente.setForeground(Color.black);
         }
+    }
+    
+    public void generarCuenta(Docente docente) {
+        Cuenta c = new Cuenta();
+        c.setEstado(false);
+        c.setTipoUser("Docente");
+        c.setId(Utilidades.listarCuentas().getSize() + 1);
+        docente.setCuenta(c);
+        Utilidades.generarUsuario(docente);
+        Utilidades.generarContrasenia(docente);
+        Utilidades.guardarCuentas(c);
     }
 
     /**
@@ -351,6 +363,7 @@ public class DialogDocente extends java.awt.Dialog {
         if (docente == null) {
             this.docente = crearDocente();
             if (docente.getNombres() != null || docente.getApellidos() != null || docente.getFechaNacimiento() != null) {
+                generarCuenta(docente);
                 JOptionPane.showMessageDialog(this, "Docente ingresado correctamente", "Exito", JOptionPane.INFORMATION_MESSAGE);
                 this.dispose();
             }

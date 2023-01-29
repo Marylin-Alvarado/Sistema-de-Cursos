@@ -1,0 +1,38 @@
+{
+  "cabecera": {
+    "dato": {
+      "id": 1,
+      "carreras": {
+        "size": 0,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "regimen": "2009 - 2019"
+    },
+    "siguiente": {
+      "dato": {
+        "id": 2,
+        "carreras": {
+          "size": 0,
+          "ascendente": 1,
+          "descendente": 2
+        },
+        "regimen": "2015 - 2025"
+      },
+      "siguiente": {
+        "dato": {
+          "id": 3,
+          "carreras": {
+            "size": 0,
+            "ascendente": 1,
+            "descendente": 2
+          },
+          "regimen": "2020 - 2030"
+        }
+      }
+    }
+  },
+  "size": 3,
+  "ascendente": 1,
+  "descendente": 2
+}
