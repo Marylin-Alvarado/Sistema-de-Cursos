@@ -51,6 +51,10 @@ public class Utilidades {
         return cbx;
     }
     
+    public static Generos getComboGenero(JComboBox cbx) {
+        return (Generos) cbx.getSelectedItem();
+    }
+    
     public static JComboBox cargarTipoIdentificacion(JComboBox cbx){
         cbx.removeAllItems();
         for(TipoIdentificacion identifiacion : TipoIdentificacion.values()){

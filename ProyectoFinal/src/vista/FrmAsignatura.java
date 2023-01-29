@@ -37,6 +37,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
         super(parent, modal);
         initComponents();
         CargarCombos();
+        setLocationRelativeTo(this);
         
     }
      public void CargarCombos() {

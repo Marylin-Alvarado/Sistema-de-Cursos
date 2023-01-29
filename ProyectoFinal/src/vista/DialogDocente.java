@@ -5,6 +5,8 @@
  */
 package vista;
 
+import controlador.listas.ListaEnlazada;
+import java.awt.Color;
 import javax.swing.JOptionPane;
 import modelo.Docente;
 import modelo.enums.Generos;
@@ -56,11 +58,12 @@ public class DialogDocente extends java.awt.Dialog {
             d.setTelefono(txtTelefonoDocente.getText());
             d.setCiudad(txtCiudadDocente.getText());
             d.setFechaNacimiento(txtFechaNacimientoDocente.getText());
-            //d.setGenero(Utilidades.getComboGenero(cbxGeneroDocente));
+            d.setGenero(Utilidades.getComboGenero(cbxGeneroDocente));
             d.setTituloTercerNivel(txtTTercerNivelDocente.getText());
             d.setTituloCuartoNivel(txtTTCuartoNivelDocente.getText());
             d.setAniosExpDocente(Integer.parseInt(txtAniosExpDocente.getText()));
             d.setAniosExpLaboral(Integer.parseInt(txtAniosExpLaboralDocente.getText()));
+            d.setAsignaturas(new ListaEnlazada<>());
         }
         return d;
 
@@ -101,6 +104,13 @@ public class DialogDocente extends java.awt.Dialog {
         txtTTCuartoNivelDocente.setText(docente.getTituloCuartoNivel());
         txtAniosExpDocente.setText(docente.getAniosExpDocente().toString());
         txtAniosExpLaboralDocente.setText(docente.getAniosExpLaboral().toString());
+    }
+    
+    public void cargarCampoFecha(){
+        if(txtFechaNacimientoDocente.getText().equals("dd/mm/aaaa")){
+            txtFechaNacimientoDocente.setText("");
+            txtFechaNacimientoDocente.setForeground(Color.black);
+        }
     }
 
     /**
@@ -178,6 +188,20 @@ public class DialogDocente extends java.awt.Dialog {
         jLabel11.setText("Experencia de Docente");
 
         jLabel12.setText("Experencia Laboral");
+
+        txtFechaNacimientoDocente.setForeground(new java.awt.Color(153, 153, 153));
+        txtFechaNacimientoDocente.setText("dd/mm/aaaa");
+        txtFechaNacimientoDocente.setToolTipText("");
+        txtFechaNacimientoDocente.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                txtFechaNacimientoDocenteMousePressed(evt);
+            }
+        });
+        txtFechaNacimientoDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtFechaNacimientoDocenteActionPerformed(evt);
+            }
+        });
 
         cbxGeneroDocente.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
@@ -336,6 +360,14 @@ public class DialogDocente extends java.awt.Dialog {
             this.dispose();
         }
     }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void txtFechaNacimientoDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtFechaNacimientoDocenteActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtFechaNacimientoDocenteActionPerformed
+
+    private void txtFechaNacimientoDocenteMousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtFechaNacimientoDocenteMousePressed
+        cargarCampoFecha();
+    }//GEN-LAST:event_txtFechaNacimientoDocenteMousePressed
 
     /**
      * @param args the command line arguments
