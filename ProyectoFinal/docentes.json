@@ -1,0 +1,34 @@
+{
+  "cabecera": {
+    "dato": {
+      "idDocente": 1,
+      "tituloTercerNivel": "Licenciatura",
+      "tituloCuartoNivel": "Mgs",
+      "aniosExpDocente": 8,
+      "aniosExpLaboral": 8,
+      "asignaturas": {
+        "size": 0,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "nombres": "Marco ",
+      "apellidos": "Astudillo",
+      "identificacion": "1105547812",
+      "direccion": "Bolviar y Lourdes",
+      "telefono": "0966584752",
+      "ciudad": "Loja",
+      "fechaNacimiento": "03/03/1980",
+      "genero": "MASCULINO",
+      "cuenta": {
+        "id": 1,
+        "usuario": "Marco .Astudillo",
+        "tipoUser": "Docente",
+        "contrasenia": "1105547812",
+        "estado": false
+      }
+    }
+  },
+  "size": 1,
+  "ascendente": 1,
+  "descendente": 2
+}

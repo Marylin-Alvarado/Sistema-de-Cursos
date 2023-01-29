@@ -8,6 +8,11 @@ package vista;
 import java.util.Date;
 import javax.swing.JOptionPane;
 import modelo.Docente;
+<<<<<<< Updated upstream:Curso/src/vista/DialogDocente.java
+=======
+import modelo.Persona;
+import modelo.enums.Generos;
+>>>>>>> Stashed changes:ProyectoFinal/src/vista/DialogDocente.java
 import vista.Utilidades.Utilidades;
 
 /**
@@ -52,6 +57,65 @@ public class DialogDocente extends java.awt.Dialog {
 
     }
 
+<<<<<<< Updated upstream:Curso/src/vista/DialogDocente.java
+=======
+    public void modificarDocente() {
+        if (txtNombresDocente.getText().isEmpty() || txtApellidosDocente.getText().isEmpty()
+                || txtIdentificacionDocente.getText().isEmpty() || txtDireccionDocente.getText().isEmpty()
+                || txtTelefonoDocente.getText().isEmpty() || txtFechaNacimientoDocente.getText().isEmpty()
+                || txtAniosExpDocente.getText().isEmpty() || txtAniosExpLaboralDocente.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Rellene todos los campos", "Error", JOptionPane.ERROR_MESSAGE);
+        } else {
+            docente.setNombres(txtNombresDocente.getText());
+            docente.setApellidos(txtApellidosDocente.getText());
+            docente.setIdentificacion(txtIdentificacionDocente.getText());
+            docente.setDireccion(txtDireccionDocente.getText());
+            docente.setTelefono(txtTelefonoDocente.getText());
+            docente.setCiudad(txtCiudadDocente.getText());
+            docente.setFechaNacimiento(txtFechaNacimientoDocente.getText());
+            docente.setGenero((Generos) cbxGeneroDocente.getSelectedItem());
+            docente.setTituloTercerNivel(txtTTercerNivelDocente.getText());
+            docente.setTituloCuartoNivel(txtTTCuartoNivelDocente.getText());
+            docente.setAniosExpDocente(Integer.parseInt(txtAniosExpDocente.getText()));
+            docente.setAniosExpLaboral(Integer.parseInt(txtAniosExpLaboralDocente.getText()));
+        }
+    }
+
+    public void cargarDatos() {
+        txtNombresDocente.setText(docente.getNombres());
+        txtApellidosDocente.setText(docente.getApellidos());
+        txtIdentificacionDocente.setText(docente.getIdentificacion());
+        txtDireccionDocente.setText(docente.getDireccion());
+        txtTelefonoDocente.setText(docente.getTelefono());
+        txtCiudadDocente.setText(docente.getCiudad());
+        txtFechaNacimientoDocente.setText(docente.getFechaNacimiento());
+        cbxGeneroDocente.setSelectedItem(docente.getGenero());
+        txtTTercerNivelDocente.setText(docente.getTituloTercerNivel());
+        txtTTCuartoNivelDocente.setText(docente.getTituloCuartoNivel());
+        txtAniosExpDocente.setText(docente.getAniosExpDocente().toString());
+        txtAniosExpLaboralDocente.setText(docente.getAniosExpLaboral().toString());
+    }
+    
+    public void cargarCampoFecha(){
+        if(txtFechaNacimientoDocente.getText().equals("dd/mm/aaaa")){
+            txtFechaNacimientoDocente.setText("");
+            txtFechaNacimientoDocente.setForeground(Color.black);
+        }
+    }
+    
+    public void generarCuenta(Docente docente) {
+        Cuenta c = new Cuenta();
+        c.setEstado(false);
+        c.setTipoUser("Docente");
+        c.setId(Utilidades.listarCuentas().getSize() + 1);
+        docente.setCuenta(c);
+        Utilidades.generarUsuario(docente);
+        Utilidades.generarContrasenia(docente);
+        Utilidades.guardarCuentas(c);
+//        c.setPersona(docente);
+    }
+
+>>>>>>> Stashed changes:ProyectoFinal/src/vista/DialogDocente.java
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always

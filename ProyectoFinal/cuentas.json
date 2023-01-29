@@ -1,0 +1,23 @@
+{
+  "cabecera": {
+    "dato": {
+      "id": 1,
+      "usuario": "Marco .Astudillo",
+      "tipoUser": "Docente",
+      "contrasenia": "1105547812",
+      "estado": false
+    },
+    "siguiente": {
+      "dato": {
+        "id": 2,
+        "usuario": "David.Campoverde",
+        "tipoUser": "Alumno",
+        "contrasenia": "1105983041",
+        "estado": false
+      }
+    }
+  },
+  "size": 2,
+  "ascendente": 1,
+  "descendente": 2
+}
