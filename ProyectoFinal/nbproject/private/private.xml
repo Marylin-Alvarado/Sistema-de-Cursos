@@ -4,14 +4,12 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmPerfilDocente.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmsPrincipal.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogAdministradorInicio.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmLogin.java</file>
             <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/PerfilEstudiante.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmMateria.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogoAdmAsignatura.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmDocentes.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmEstidiante.java</file>
             <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogDocente.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmInicio.java</file>
-            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/DialogAsignatura.java</file>
+            <file>file:/C:/Users/TecnoeXtrem/Desktop/Escritorio/Universidad/3er%20ciclo/Estructura%20de%20Datos/PROYECTOCICLO3/Sistema-de-Cursos/ProyectoFinal/src/vista/FrmDocentes.java</file>
         </group>
     </open-files>
 </project-private>

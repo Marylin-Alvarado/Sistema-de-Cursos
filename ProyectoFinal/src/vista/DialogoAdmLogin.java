@@ -5,16 +5,25 @@
  */
 package vista;
 
-
+import controlador.AlumnoController;
+import controlador.DocentesController;
+import controlador.listas.excepciones.ListaNullException;
+import controlador.listas.excepciones.PosicionNoEncontradaException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import vista.DialogoAdmsPrincipal;
+import vista.Utilidades.Utilidades;
 
 /**
  *
  * @author Marylin
  */
 public class DialogoAdmLogin extends javax.swing.JDialog {
-    
+
+    private DocentesController dC = new DocentesController();
+    private AlumnoController aC = new AlumnoController();
+
     /**
      * Creates new form DialogoLogin
      */
@@ -24,15 +33,15 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
         setLocationRelativeTo(null);
 
     }
-    
-    private void iniciar_sesion(){
-         if(txtUsuario.getText().trim().isEmpty() || new String(pwfClave.getPassword()).trim().isEmpty()){
+
+    private void iniciar_sesion() {
+        if (txtUsuario.getText().trim().isEmpty() || new String(pwfClave.getPassword()).trim().isEmpty()) {
             JOptionPane.showMessageDialog(null, "Ingrese los datos", "Error", JOptionPane.ERROR_MESSAGE);
-        }else{
+        } else {
             this.setVisible(false);
 //            new DialogoAdmsPrincipal.setVisible(true);
         }
-            
+
     }
 
     /**
@@ -52,7 +61,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
         pwfClave = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         jLabel6 = new javax.swing.JLabel();
-        jComboBox1 = new javax.swing.JComboBox<>();
+        cbxUsuario = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -65,7 +74,11 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
 
         jLabel4.setText("Clave:");
 
-        pwfClave.setText("jPasswordField1");
+        pwfClave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pwfClaveActionPerformed(evt);
+            }
+        });
 
         jButton1.setText("Ingresar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -76,7 +89,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
 
         jLabel6.setText("Usuario:");
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Docente", "Estudiante" }));
+        cbxUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Docente", "Estudiante" }));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.jpg"))); // NOI18N
 
@@ -114,7 +127,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                                             .addComponent(jLabel3)
                                             .addComponent(jLabel6))
                                         .addGap(40, 40, 40)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                        .addComponent(cbxUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(144, 144, 144)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -141,7 +154,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
-                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(cbxUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
@@ -178,15 +191,67 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        DialogAdministradorInicio adm = new DialogAdministradorInicio();
-        adm.setVisible(true);
-        this.dispose();
-        iniciar_sesion();
+        if (cbxUsuario.getSelectedIndex() == 0) {
+            if (txtUsuario.getText().equalsIgnoreCase("admin") && pwfClave.getText().equals("admin")) {
+                DialogAdministradorInicio adm = new DialogAdministradorInicio();
+                adm.setVisible(true);
+                this.dispose();
+                iniciar_sesion();
+            } else {
+                JOptionPane.showMessageDialog(null, "Datos incorrectos");
+            }
+
+        }
+        if (cbxUsuario.getSelectedIndex() == 1) {
+            aC.setAlumnoList(Utilidades.listarAlumnos());
+            for (int i = 0; i < aC.getAlumnoList().getSize(); i++) {
+                try {
+                    if (aC.getAlumnoList().obtener(i).getCuenta().getUsuario().equals(txtUsuario.getText())
+                            && aC.getAlumnoList().obtener(i).getCuenta().getContrasenia().equals(pwfClave.getPassword())) {
+//                        FrmEstidiante frmEstudiante = new FrmEstidiante(null, true, aC.getAlumnoList().obtener(i));
+                        FrmEstidiante frmEstudiante = new FrmEstidiante(null, true);
+                        frmEstudiante.setVisible(true);
+                        this.dispose();
+                        break;
+                    }
+                } catch (PosicionNoEncontradaException ex) {
+                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ListaNullException ex) {
+                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+
+            }
+        }
+        if (cbxUsuario.getSelectedIndex() == 2) {
+            dC.setDocenteList(Utilidades.listarDocentes());
+            for (int i = 0; i < dC.getDocenteList().getSize(); i++) {
+                try {
+                    if (dC.getDocenteList().obtener(i).getCuenta().getUsuario().equals(txtUsuario.getText())
+                            && dC.getDocenteList().obtener(i).getCuenta().getContrasenia().equals(pwfClave.getPassword())) {
+                        FrmPerfilDocente frmPerfilDocente = new FrmPerfilDocente(null, true, dC.getDocenteList().obtener(i));
+//                        FrmPerfilDocente frmPerfilDocente = new FrmPerfilDocente(null, true);
+                        frmPerfilDocente.setVisible(true);
+                        this.dispose();
+                        break;
+                    }
+                } catch (PosicionNoEncontradaException ex) {
+                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (ListaNullException ex) {
+                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+            JOptionPane.showMessageDialog(null, "Datos incorrectos");
+        }
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void pwfClaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pwfClaveActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pwfClaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -232,9 +297,9 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JComboBox<String> cbxUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
-    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;

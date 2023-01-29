@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.Alumno;
 import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
 
@@ -33,6 +34,15 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         super(parent, modal);
         this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
+        initComponents();
+        cargarCombos();
+    }
+    
+    public PerfilEstudiante(java.awt.Frame parent, boolean modal, Alumno alumno) {
+        super(parent, modal);
+        this.setLocationRelativeTo(null);
+        this.setContentPane(fondo);
+        aC.setAlumno(alumno);
         initComponents();
         cargarCombos();
     }

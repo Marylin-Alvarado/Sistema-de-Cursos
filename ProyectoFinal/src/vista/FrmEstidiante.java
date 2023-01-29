@@ -14,6 +14,7 @@ import java.util.logging.Logger;
 import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import modelo.Alumno;
 import modelo.Asignatura;
 import vista.Tabla.ModeloTablaCompanieroEstudiante;
 import vista.Tabla.ModeloTablaMatriculas;
@@ -38,6 +39,15 @@ public class FrmEstidiante extends javax.swing.JDialog {
         super(parent, modal);
         this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
+        initComponents();
+        cargarCombos();
+        cargarTabla();
+    }
+    public FrmEstidiante(java.awt.Frame parent, boolean modal, Alumno alumno) {
+        super(parent, modal);
+        this.setLocationRelativeTo(null);
+        this.setContentPane(fondo);
+        aC.setAlumno(alumno);
         initComponents();
         cargarCombos();
         cargarTabla();
@@ -320,7 +330,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
 
     private void txtPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilActionPerformed
         // TODO add your handling code here:
-        new PerfilEstudiante(null, true).setVisible(true);
+        new PerfilEstudiante(null, true, aC.getAlumno()).setVisible(true);
     }//GEN-LAST:event_txtPerfilActionPerformed
 
     public void buscarTarea() throws Exception {
