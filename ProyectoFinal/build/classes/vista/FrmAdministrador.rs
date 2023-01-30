@@ -1,0 +1,2 @@
+vistas.FrmAdministrador
+vistas.FrmAdministrador$1
