@@ -111,6 +111,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
         txtBuscarTarea = new javax.swing.JTextField();
         btnBuscar = new javax.swing.JButton();
         txtPerfil = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
 
         jList1.setModel(new javax.swing.AbstractListModel<String>() {
             String[] strings = { "Item 1", "Item 2", "Item 3", "Item 4", "Item 5" };
@@ -239,6 +240,13 @@ public class FrmEstidiante extends javax.swing.JDialog {
             }
         });
 
+        jButton1.setText("Salir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -265,13 +273,15 @@ public class FrmEstidiante extends javax.swing.JDialog {
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(37, 37, 37)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
                         .addComponent(lblNombreEstudiatnte, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtPerfil)))
+                        .addComponent(txtPerfil))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(37, 37, 37)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jButton1)
+                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -295,7 +305,9 @@ public class FrmEstidiante extends javax.swing.JDialog {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(121, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addComponent(jButton1)
+                .addGap(20, 20, 20))
         );
 
         pack();
@@ -336,9 +348,18 @@ public class FrmEstidiante extends javax.swing.JDialog {
     private void txtPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilActionPerformed
         // TODO add your handling code here:
         PerfilEstudiante pE = new PerfilEstudiante(null, true, aC.getAlumno());
+        this.setVisible(false);
         pE.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_txtPerfilActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        DialogoAdmLogin diaLogin = new DialogoAdmLogin(null, true);
+        this.setVisible(false);
+        diaLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     public void buscarTarea() throws Exception {
         String tareaBuscar = txtBuscarTarea.getText();
@@ -417,6 +438,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
     private javax.swing.JButton btnMatriculas;
     private javax.swing.JButton btnParticipantes;
     private javax.swing.JComboBox<String> cbxAsignaturas;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;

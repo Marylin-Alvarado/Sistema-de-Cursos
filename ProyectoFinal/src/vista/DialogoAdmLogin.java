@@ -200,6 +200,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                             for (int j = 0; j < aC.getAlumnoList().getSize(); j++) {
                                 if (aC.getAlumnoList().obtener(j).getCuenta().getId() == cC.getCuentaList().obtener(i).getId()) {
                                     FrmEstidiante frmEstudiante = new FrmEstidiante(null, true, aC.getAlumnoList().obtener(j));
+                                    this.setVisible(false);
                                     frmEstudiante.setVisible(true);
                                     this.dispose();
                                     break;
@@ -210,6 +211,7 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                             for (int j = 0; j < dC.getDocenteList().getSize(); j++) {
                                 if (dC.getDocenteList().obtener(j).getCuenta().getId() == cC.getCuentaList().obtener(i).getId()) {
                                     FrmPerfilDocente frmDocente = new FrmPerfilDocente(null, true, dC.getDocenteList().obtener(j));
+                                    this.setVisible(false);
                                     frmDocente.setVisible(true);
                                     this.dispose();
                                     break;

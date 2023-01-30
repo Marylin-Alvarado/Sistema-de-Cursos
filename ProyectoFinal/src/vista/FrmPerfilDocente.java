@@ -57,6 +57,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
      */
     public FrmPerfilDocente(java.awt.Frame parent, boolean modal, Docente docente) {
         super(parent, modal);
+        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         this.dC.setDocente(docente);
@@ -149,6 +150,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         jPanel2 = new javax.swing.JPanel();
         btnEditar = new javax.swing.JButton();
         btnGuardar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -327,8 +329,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                     .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
                         .addComponent(jLabel10)
                         .addGap(18, 18, 18)
-                        .addComponent(cbxMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addComponent(cbxMaterias, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
@@ -472,6 +473,13 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                 .addComponent(btnGuardar, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        btnSalir.setText("Salir");
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -482,7 +490,9 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
                         .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(cbxTipoIdentif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(229, 229, 229)
+                        .addGap(20, 20, 20)
+                        .addComponent(btnSalir)
+                        .addGap(134, 134, 134)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
@@ -495,11 +505,14 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addComponent(lblNombresApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(cbxTipoIdentif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnSalir)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblNombresApellidos, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cbxTipoIdentif, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(15, Short.MAX_VALUE))
         );
 
@@ -602,6 +615,14 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         }
 
     }//GEN-LAST:event_btnGuardarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        DialogoAdmLogin diaLogin = new DialogoAdmLogin(null, true);
+        this.setVisible(false);
+        diaLogin.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
     class FondoPanel extends JPanel {
 
         private Image image;
@@ -661,6 +682,7 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnEditar;
     private javax.swing.JButton btnGuardar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JComboBox<String> cbxGenero;
     private javax.swing.JComboBox<String> cbxMaterias;
     private javax.swing.JPanel cbxTipoIdentif;
