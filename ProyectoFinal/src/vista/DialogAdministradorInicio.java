@@ -233,7 +233,7 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
 
     private void lblAdministradorCuentasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorCuentasMouseClicked
         // TODO add your handling code here:
-        DialogoAdmCuenta dal = new DialogoAdmCuenta();
+        FrmAdmCuentas dal = new FrmAdmCuentas();
         dal.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_lblAdministradorCuentasMouseClicked

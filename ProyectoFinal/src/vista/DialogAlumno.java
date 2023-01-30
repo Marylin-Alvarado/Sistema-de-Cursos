@@ -33,6 +33,7 @@ public class DialogAlumno extends javax.swing.JDialog {
         this.alumno = alumno;
         initComponents();
         cargarCombo();
+        cargarDatos();
         setLocationRelativeTo(this);
     }
 
@@ -94,6 +95,17 @@ public class DialogAlumno extends javax.swing.JDialog {
         Utilidades.generarUsuario(alumno);
         Utilidades.generarContrasenia(alumno);
         Utilidades.guardarCuentas(c);
+    }
+    
+    public void cargarDatos(){
+        txtNombresAlumno.setText(alumno.getNombres());
+        txtApellidosAlumno.setText(alumno.getApellidos());
+        txtIdentificacionAlumno.setText(alumno.getIdentificacion());
+        txtDireccionAlumno.setText(alumno.getDireccion());
+        txtTelefonoAlumno.setText(alumno.getTelefono());
+        txtCiudadAlumno.setText(alumno.getCiudad());
+        txtFechaNacimientoAlumno.setText(alumno.getFechaNacimiento());
+        
     }
 
     public Alumno getAlumno() {
