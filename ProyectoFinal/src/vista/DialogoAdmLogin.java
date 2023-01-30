@@ -6,12 +6,15 @@
 package vista;
 
 import controlador.AlumnoController;
+import controlador.CuentaController;
 import controlador.DocentesController;
 import controlador.listas.excepciones.ListaNullException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import modelo.Cuenta;
+import modelo.enums.Estado;
 import vista.DialogoAdmsPrincipal;
 import vista.Utilidades.Utilidades;
 
@@ -21,6 +24,7 @@ import vista.Utilidades.Utilidades;
  */
 public class DialogoAdmLogin extends javax.swing.JDialog {
 
+    private CuentaController cC = new CuentaController();
     private DocentesController dC = new DocentesController();
     private AlumnoController aC = new AlumnoController();
 
@@ -60,8 +64,6 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
         txtUsuario = new javax.swing.JTextField();
         pwfClave = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
-        jLabel6 = new javax.swing.JLabel();
-        cbxUsuario = new javax.swing.JComboBox<>();
         jLabel7 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jButton2 = new javax.swing.JButton();
@@ -74,6 +76,9 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
 
         jLabel4.setText("Clave:");
 
+        txtUsuario.setText("Admin");
+
+        pwfClave.setText("Admin");
         pwfClave.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 pwfClaveActionPerformed(evt);
@@ -86,10 +91,6 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
-
-        jLabel6.setText("Usuario:");
-
-        cbxUsuario.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Administrador", "Docente", "Estudiante" }));
 
         jLabel7.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/fondo.jpg"))); // NOI18N
 
@@ -114,34 +115,28 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(36, 36, 36)
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel4)
-                                        .addGap(52, 52, 52)
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(pwfClave, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                    .addGroup(jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                            .addComponent(jLabel3)
-                                            .addComponent(jLabel6))
-                                        .addGap(40, 40, 40)
-                                        .addComponent(cbxUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGap(144, 144, 144)
                                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(131, 131, 131)
+                                .addGap(170, 170, 170)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(97, 97, 97)
                                 .addComponent(jButton1)
                                 .addGap(18, 18, 18)
                                 .addComponent(jButton2)))
                         .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(170, 170, 170)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4))
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pwfClave, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 178, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(111, 111, 111))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -151,23 +146,19 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 29, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(cbxUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(42, 42, 42)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 45, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
                     .addComponent(txtUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(40, 40, 40)
+                .addGap(21, 21, 21)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(pwfClave, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel4))
-                .addGap(54, 54, 54)
+                .addGap(30, 30, 30)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(jButton2))
-                .addGap(59, 59, 59))
+                .addGap(153, 153, 153))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -191,57 +182,53 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        if (cbxUsuario.getSelectedIndex() == 0) {
-            if (txtUsuario.getText().equalsIgnoreCase("admin") && pwfClave.getText().equals("admin")) {
-                DialogAdministradorInicio adm = new DialogAdministradorInicio();
-                adm.setVisible(true);
-                this.dispose();
-                iniciar_sesion();
-            } else {
-                JOptionPane.showMessageDialog(null, "Datos incorrectos");
-            }
+        cC.setCuentaList(Utilidades.listarCuentas());
+        aC.setAlumnoList(Utilidades.listarAlumnos());
+        dC.setDocenteList(Utilidades.listarDocentes());
 
-        }
-        if (cbxUsuario.getSelectedIndex() == 1) {
-            aC.setAlumnoList(Utilidades.listarAlumnos());
-            for (int i = 0; i < aC.getAlumnoList().getSize(); i++) {
+        if (txtUsuario.getText().equals("Admin") && pwfClave.getText().equals("Admin")) {
+            DialogAdministradorInicio diaAdminIncio = new DialogAdministradorInicio();
+            diaAdminIncio.setVisible(true);
+            this.dispose();
+        } else {
+
+            for (int i = 0; i < cC.getCuentaList().getSize(); i++) {
                 try {
-                    if (aC.getAlumnoList().obtener(i).getCuenta().getUsuario().equals(txtUsuario.getText())
-                            && aC.getAlumnoList().obtener(i).getCuenta().getContrasenia().equals(pwfClave.getPassword())) {
-//                        FrmEstidiante frmEstudiante = new FrmEstidiante(null, true, aC.getAlumnoList().obtener(i));
-                        FrmEstidiante frmEstudiante = new FrmEstidiante(null, true);
-                        frmEstudiante.setVisible(true);
-                        this.dispose();
-                        break;
+                    if (cC.getCuentaList().obtener(i).getUsuario().equals(txtUsuario.getText())
+                            && cC.getCuentaList().obtener(i).getContrasenia().equals(pwfClave.getText())) {
+                        if (cC.getCuentaList().obtener(i).getTipoUser().equals("Alumno")) {
+                            for (int j = 0; j < aC.getAlumnoList().getSize(); j++) {
+                                if (aC.getAlumnoList().obtener(j).getCuenta().getId() == cC.getCuentaList().obtener(i).getId()) {
+                                    FrmEstidiante frmEstudiante = new FrmEstidiante(null, true, aC.getAlumnoList().obtener(j));
+                                    frmEstudiante.setVisible(true);
+                                    this.dispose();
+                                    break;
+                                }
+                            }
+
+                        } else {
+                            for (int j = 0; j < dC.getDocenteList().getSize(); j++) {
+                                if (dC.getDocenteList().obtener(j).getCuenta().getId() == cC.getCuentaList().obtener(i).getId()) {
+                                    FrmPerfilDocente frmDocente = new FrmPerfilDocente(null, true, dC.getDocenteList().obtener(j));
+                                    frmDocente.setVisible(true);
+                                    this.dispose();
+                                    break;
+                                }
+                            }
+                        }
+
+                    }
+                    if (i == cC.getCuentaList().getSize() - 1) {
+                        JOptionPane.showMessageDialog(null, "Usuario incorrecto");
                     }
                 } catch (PosicionNoEncontradaException ex) {
                     Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
                 } catch (ListaNullException ex) {
                     Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
                 }
+            }
+        }
 
-            }
-        }
-        if (cbxUsuario.getSelectedIndex() == 2) {
-            dC.setDocenteList(Utilidades.listarDocentes());
-            for (int i = 0; i < dC.getDocenteList().getSize(); i++) {
-                try {
-                    if (dC.getDocenteList().obtener(i).getCuenta().getUsuario().equals(txtUsuario.getText())
-                            && dC.getDocenteList().obtener(i).getCuenta().getContrasenia().equals(pwfClave.getPassword())) {
-                        FrmPerfilDocente frmPerfilDocente = new FrmPerfilDocente(null, true, dC.getDocenteList().obtener(i));
-//                        FrmPerfilDocente frmPerfilDocente = new FrmPerfilDocente(null, true);
-                        frmPerfilDocente.setVisible(true);
-                        this.dispose();
-                        break;
-                    }
-                } catch (PosicionNoEncontradaException ex) {
-                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ListaNullException ex) {
-                    Logger.getLogger(DialogoAdmLogin.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-            JOptionPane.showMessageDialog(null, "Datos incorrectos");
-        }
 
     }//GEN-LAST:event_jButton1ActionPerformed
 
@@ -297,14 +284,12 @@ public class DialogoAdmLogin extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> cbxUsuario;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPasswordField pwfClave;

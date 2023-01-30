@@ -126,6 +126,11 @@ public class DialogMatriculas extends javax.swing.JDialog {
         lblNumeroMaterias.setText("Materias");
 
         btnModificar.setText("Modificar");
+        btnModificar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnModificarActionPerformed(evt);
+            }
+        });
 
         btnMostrar.setText("Mostrar");
         btnMostrar.addActionListener(new java.awt.event.ActionListener() {
@@ -135,6 +140,11 @@ public class DialogMatriculas extends javax.swing.JDialog {
         });
 
         btnEliminar.setText("Eliminar");
+        btnEliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnEliminarActionPerformed(evt);
+            }
+        });
 
         btnMostrar1.setText("+");
         btnMostrar1.addActionListener(new java.awt.event.ActionListener() {
@@ -365,6 +375,14 @@ public class DialogMatriculas extends javax.swing.JDialog {
         inicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+
+    private void btnModificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnModificarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnModificarActionPerformed
+
+    private void btnEliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEliminarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnEliminarActionPerformed
    
     /**
      * Metodo para crear y guardar una matrcula en el repositorio local, con extension Json

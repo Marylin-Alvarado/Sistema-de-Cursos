@@ -296,6 +296,19 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+     
+     public static void modificarPeriodo(Periodo periodo, Integer posicion) throws PosicionNoEncontradaException {
+        ListaEnlazada<Periodo> lista = listarPeriodos();
+        lista.modificarPosicion(periodo, posicion);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("periodos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
 
     /**
      * Metodo para modicar la asignatura dentro de un archivo JSON
@@ -652,7 +665,18 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-    
+    public static void eliminarPeriodo(Integer posicionPeriodo) throws ListaVaciaException, PosicionNoEncontradaException {
+        ListaEnlazada<Periodo> lista = listarPeriodos();
+        lista.eliminar(posicionPeriodo);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("periodos.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
      public static void eliminarAlumno(Integer posicionAlumno) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Alumno> lista = listarAlumnos();
         lista.eliminar(posicionAlumno);

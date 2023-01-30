@@ -26,9 +26,14 @@
         "contrasenia": "0788542621",
         "estado": false
       }
+    },
+    "siguiente": {
+      "dato": {
+        "idDocente": 2
+      }
     }
   },
-  "size": 1,
+  "size": 2,
   "ascendente": 1,
   "descendente": 2
 }

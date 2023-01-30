@@ -67,6 +67,7 @@
                       <Component id="lblAdministradorAdministradores" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblAdministradorCuentas1" alignment="1" max="32767" attributes="0"/>
                       <Component id="lblAdministradorAsignaturas1" alignment="1" max="32767" attributes="0"/>
+                      <Component id="lblAdministradorAsignaturas2" alignment="0" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -85,7 +86,9 @@
                   <Component id="lblAdministradorCuentas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="separate" max="-2" attributes="0"/>
                   <Component id="lblAdministradorAsignaturas1" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace pref="15" max="32767" attributes="0"/>
+                  <EmptySpace type="separate" max="-2" attributes="0"/>
+                  <Component id="lblAdministradorAsignaturas2" min="-2" max="-2" attributes="0"/>
+                  <EmptySpace pref="24" max="32767" attributes="0"/>
                   <Component id="lblAdministradorAsignaturas" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblAdministradorDocentes" min="-2" max="-2" attributes="0"/>
@@ -227,6 +230,21 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAdministradorAsignaturas1MouseClicked"/>
+          </Events>
+          <AuxValues>
+            <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>
+          </AuxValues>
+        </Component>
+        <Component class="javax.swing.JLabel" name="lblAdministradorAsignaturas2">
+          <Properties>
+            <Property name="horizontalAlignment" type="int" value="0"/>
+            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+              <Image iconType="3" name="/img/IconoAsignaturas.png"/>
+            </Property>
+            <Property name="text" type="java.lang.String" value="ADMINISTRAR PERIODOS"/>
+          </Properties>
+          <Events>
+            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAdministradorAsignaturas2MouseClicked"/>
           </Events>
           <AuxValues>
             <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="9"/>

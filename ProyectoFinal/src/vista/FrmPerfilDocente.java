@@ -37,16 +37,16 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
-        try {
-            dC.setDocente(Utilidades.listarDocentes().obtener(0));
-            dC.setDocenteList(Utilidades.listarDocentes());
-            cargarDocente();
-            cargarCombos();
-        } catch (PosicionNoEncontradaException ex) {
-            Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
-        } catch (ListaNullException ex) {
-            Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            dC.setDocente(Utilidades.listarDocentes().obtener(0));
+//            dC.setDocenteList(Utilidades.listarDocentes());
+//            cargarDocente();
+//            cargarCombos();
+//        } catch (PosicionNoEncontradaException ex) {
+//            Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
+//        } catch (ListaNullException ex) {
+//            Logger.getLogger(FrmPerfilDocente.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
     }
     /**
@@ -85,8 +85,8 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
             txtTelefono.setText(this.dC.getDocente().getTelefono());
             txtCiudad.setText(this.dC.getDocente().getCiudad());
             txtCorreo.setText(this.dC.getDocente().getCorreo());
-//            txtCorreoInstitucional.setText(this.dC.getDocente().getCuenta().getUsuario());
-//            txtContraseniaInstitucional.setText(this.dC.getDocente().getCuenta().getContrasenia());
+            txtCorreoInstitucional.setText(this.dC.getDocente().getCuenta().getUsuario());
+            txtContraseniaInstitucional.setText(this.dC.getDocente().getCuenta().getContrasenia());
             txtTitulo3erNivel.setText(this.dC.getDocente().getTituloTercerNivel());
             txtTitulo4toNivel.setText(this.dC.getDocente().getTituloCuartoNivel());
             txtAniosExperienciaLaboral.setText(String.valueOf(this.dC.getDocente().getAniosExpLaboral()));

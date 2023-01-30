@@ -45,10 +45,30 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         aC.setAlumno(alumno);
         initComponents();
         cargarCombos();
+        cargarAlumno();
     }
 
     public void cargarCombos() {
         Utilidades.cargarComboGenero(cbxGenero);
+    }
+    public void cargarAlumno() {
+        if (this.aC.getAlumno() != null) {
+            lblNombresApellidos.setText(this.aC.getAlumno().getNombres() + " " + this.aC.getAlumno().getApellidos());
+            txtNombres.setText(this.aC.getAlumno().getNombres());
+            txtApellidos.setText(this.aC.getAlumno().getApellidos());
+            txtIdentificacion.setText(this.aC.getAlumno().getIdentificacion());
+            txtTipoIdentificacion.setText(String.valueOf(this.aC.getAlumno().getTipoIdentificacion()));
+            txtDireccion.setText(this.aC.getAlumno().getDireccion());
+            txtTelefono.setText(this.aC.getAlumno().getTelefono());
+            txtCiudad.setText(this.aC.getAlumno().getCiudad());
+            txtCorreo.setText(this.aC.getAlumno().getCorreo());
+            txtCorreoInstitucional.setText(this.aC.getAlumno().getCuenta().getUsuario());
+            txtContraseniaInstitucional.setText(this.aC.getAlumno().getCuenta().getContrasenia());
+//            txtNumeroMaterias.setText(String.valueOf(this.aC.getAlumno().getMatriculas().getSize()));
+            
+        } else {
+            JOptionPane.showMessageDialog(null, "Datos incompletos");
+        }
     }
 
     /**

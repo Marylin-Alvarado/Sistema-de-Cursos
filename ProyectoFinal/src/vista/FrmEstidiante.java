@@ -41,7 +41,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
         this.setContentPane(fondo);
         initComponents();
         cargarCombos();
-        cargarTabla();
+//        cargarTabla();
     }
     public FrmEstidiante(java.awt.Frame parent, boolean modal, Alumno alumno) {
         super(parent, modal);
@@ -50,12 +50,15 @@ public class FrmEstidiante extends javax.swing.JDialog {
         aC.setAlumno(alumno);
         initComponents();
         cargarCombos();
-        cargarTabla();
+        cargarEstudiante();
     }
 
-    public void cargarTabla() {
-        tblInicial.updateUI();
+    public void cargarEstudiante(){
+        lblNombreEstudiatnte.setText(aC.getAlumno().getNombres() + " " + aC.getAlumno().getApellidos() );
     }
+//    public void cargarTabla() {
+//        tblInicial.updateUI();
+//    }
 
     /**
      * Metodo para cargar los comboBox del Dialog por medio de las utilidades del proyecto
@@ -66,12 +69,12 @@ public class FrmEstidiante extends javax.swing.JDialog {
     /**
      * Metodo para cargar la tabla con las matriculas realizadas
      */
-    public void cargarTablaMatriculas() {
-//        mtm.setMatriculaList(Utilidades.listarMatriculas());
-//        mC.setMatriculaList(Utilidades.listarMatriculas());
-        tblInicial.setModel(mtm);
-        tblInicial.updateUI();
-    }
+//    public void cargarTablaMatriculas() {
+////        mtm.setMatriculaList(Utilidades.listarMatriculas());
+////        mC.setMatriculaList(Utilidades.listarMatriculas());
+//        tblInicial.setModel(mtm);
+//        tblInicial.updateUI();
+//    }
 
     public void cargarTablaCompanieros() {
 //        mtce.setAlumnoList(Utilidades.listarAlumnos());
@@ -275,9 +278,11 @@ public class FrmEstidiante extends javax.swing.JDialog {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(15, 15, 15)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(lblNombreEstudiatnte, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtPerfil))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(5, 5, 5)
+                        .addComponent(txtPerfil, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -311,7 +316,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
 
     private void btnMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatriculasActionPerformed
         // TODO add your handling code here:
-        cargarTablaMatriculas();
+//        cargarTablaMatriculas();
     }//GEN-LAST:event_btnMatriculasActionPerformed
 
     private void btnParticipantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParticipantesActionPerformed
@@ -330,7 +335,9 @@ public class FrmEstidiante extends javax.swing.JDialog {
 
     private void txtPerfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPerfilActionPerformed
         // TODO add your handling code here:
-        new PerfilEstudiante(null, true, aC.getAlumno()).setVisible(true);
+        PerfilEstudiante pE = new PerfilEstudiante(null, true, aC.getAlumno());
+        pE.setVisible(true);
+        this.dispose();
     }//GEN-LAST:event_txtPerfilActionPerformed
 
     public void buscarTarea() throws Exception {

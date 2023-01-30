@@ -43,6 +43,7 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
         lblAdministradorAdministradores = new javax.swing.JLabel();
         lblAdministradorCuentas1 = new javax.swing.JLabel();
         lblAdministradorAsignaturas1 = new javax.swing.JLabel();
+        lblAdministradorAsignaturas2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -136,6 +137,15 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
             }
         });
 
+        lblAdministradorAsignaturas2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblAdministradorAsignaturas2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/IconoAsignaturas.png"))); // NOI18N
+        lblAdministradorAsignaturas2.setText("ADMINISTRAR PERIODOS");
+        lblAdministradorAsignaturas2.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                lblAdministradorAsignaturas2MouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -152,7 +162,8 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
                     .addComponent(lblAdministradorAsistencias, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblAdministradorAdministradores, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(lblAdministradorCuentas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(lblAdministradorAsignaturas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblAdministradorAsignaturas1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(lblAdministradorAsignaturas2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -168,7 +179,9 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
                 .addComponent(lblAdministradorCuentas)
                 .addGap(18, 18, 18)
                 .addComponent(lblAdministradorAsignaturas1)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 15, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addComponent(lblAdministradorAsignaturas2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
                 .addComponent(lblAdministradorAsignaturas)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(lblAdministradorDocentes)
@@ -274,6 +287,13 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_lblAdministradorAsignaturas1MouseClicked
 
+    private void lblAdministradorAsignaturas2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_lblAdministradorAsignaturas2MouseClicked
+        // TODO add your handling code here:
+        DialogPeriodo diaPeriodo = new DialogPeriodo(null, true);
+        diaPeriodo.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_lblAdministradorAsignaturas2MouseClicked
+
     /**
      * @param args the command line arguments
      */
@@ -317,6 +337,7 @@ public class DialogAdministradorInicio extends javax.swing.JFrame {
     public static javax.swing.JLabel lblAdministradorAlumnos;
     public static javax.swing.JLabel lblAdministradorAsignaturas;
     public static javax.swing.JLabel lblAdministradorAsignaturas1;
+    public static javax.swing.JLabel lblAdministradorAsignaturas2;
     private javax.swing.JLabel lblAdministradorAsistencias;
     public static javax.swing.JLabel lblAdministradorCarreras;
     private javax.swing.JLabel lblAdministradorCuentas;
