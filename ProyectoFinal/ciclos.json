@@ -1,0 +1,159 @@
+{
+  "cabecera": {
+    "dato": {
+      "id": 1,
+      "nombre": "1er Ciclo",
+      "asignaturas": {
+        "cabecera": {
+          "dato": {
+            "id": 1,
+            "nombre": "Mate",
+            "paralelo": "A",
+            "unidad": "I",
+            "docente": {},
+            "numeroHoras": 10
+          },
+          "siguiente": {
+            "dato": {
+              "id": 2,
+              "nombre": "Lenguage y Literatura",
+              "paralelo": "A",
+              "unidad": "I",
+              "docente": {},
+              "numeroHoras": 30
+            },
+            "siguiente": {
+              "dato": {
+                "id": 2,
+                "nombre": "Lenguage y Literatura",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 30
+              }
+            }
+          }
+        },
+        "size": 3,
+        "ascendente": 1,
+        "descendente": 2
+      }
+    },
+    "siguiente": {
+      "dato": {
+        "id": 2,
+        "nombre": "2do Ciclo",
+        "asignaturas": {
+          "cabecera": {
+            "dato": {
+              "id": 1,
+              "nombre": "Mate",
+              "paralelo": "A",
+              "unidad": "I",
+              "docente": {},
+              "numeroHoras": 10
+            },
+            "siguiente": {
+              "dato": {
+                "id": 2,
+                "nombre": "Lenguage y Literatura",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 30
+              }
+            }
+          },
+          "size": 2,
+          "ascendente": 1,
+          "descendente": 2
+        }
+      },
+      "siguiente": {
+        "dato": {
+          "id": 3,
+          "nombre": "3er Ciclo",
+          "asignaturas": {
+            "cabecera": {
+              "dato": {
+                "id": 1,
+                "nombre": "Mate",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 10
+              },
+              "siguiente": {
+                "dato": {
+                  "id": 2,
+                  "nombre": "Lenguage y Literatura",
+                  "paralelo": "A",
+                  "unidad": "I",
+                  "docente": {},
+                  "numeroHoras": 30
+                },
+                "siguiente": {
+                  "dato": {
+                    "id": 3,
+                    "nombre": "Historia",
+                    "paralelo": "A",
+                    "unidad": "I",
+                    "docente": {},
+                    "numeroHoras": 30
+                  }
+                }
+              }
+            },
+            "size": 3,
+            "ascendente": 1,
+            "descendente": 2
+          }
+        },
+        "siguiente": {
+          "dato": {
+            "id": 4,
+            "nombre": "4toCiclo",
+            "asignaturas": {
+              "cabecera": {
+                "dato": {
+                  "id": 1,
+                  "nombre": "Mate",
+                  "paralelo": "A",
+                  "unidad": "I",
+                  "docente": {},
+                  "numeroHoras": 10
+                },
+                "siguiente": {
+                  "dato": {
+                    "id": 2,
+                    "nombre": "Lenguage y Literatura",
+                    "paralelo": "A",
+                    "unidad": "I",
+                    "docente": {},
+                    "numeroHoras": 30
+                  },
+                  "siguiente": {
+                    "dato": {
+                      "id": 3,
+                      "nombre": "Historia",
+                      "paralelo": "A",
+                      "unidad": "I",
+                      "docente": {},
+                      "numeroHoras": 30
+                    }
+                  }
+                }
+              },
+              "size": 3,
+              "ascendente": 1,
+              "descendente": 2
+            }
+          }
+        }
+      }
+    }
+  },
+  "size": 4,
+  "ascendente": 1,
+  "descendente": 2
+}

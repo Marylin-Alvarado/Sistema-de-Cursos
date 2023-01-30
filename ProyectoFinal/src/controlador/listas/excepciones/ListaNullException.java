@@ -6,7 +6,7 @@ package controlador.listas.excepciones;
 
 /**
  *
- * @author SONY VAIO
+ * @author David Campoverde
  */
 public class ListaNullException extends Exception {
     public ListaNullException(String msg){

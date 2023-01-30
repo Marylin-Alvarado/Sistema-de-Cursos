@@ -1,0 +1,39 @@
+{
+  "cabecera": {
+    "dato": {
+      "idDocente": 1,
+      "tituloTercerNivel": "Licenciatura",
+      "tituloCuartoNivel": "PHD",
+      "aniosExpDocente": 8,
+      "aniosExpLaboral": 8,
+      "asignaturas": {
+        "size": 0,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "nombres": "Carlos",
+      "apellidos": "Astudillo",
+      "identificacion": "0788542621",
+      "direccion": "Bolivar y Lourdes",
+      "telefono": "0995215124",
+      "ciudad": "Loja",
+      "fechaNacimiento": "03/03/1985",
+      "genero": "MASCULINO",
+      "cuenta": {
+        "id": 1,
+        "usuario": "Carlos.Astudillo",
+        "tipoUser": "Docente",
+        "contrasenia": "0788542621",
+        "estado": false
+      }
+    },
+    "siguiente": {
+      "dato": {
+        "idDocente": 2
+      }
+    }
+  },
+  "size": 2,
+  "ascendente": 1,
+  "descendente": 2
+}

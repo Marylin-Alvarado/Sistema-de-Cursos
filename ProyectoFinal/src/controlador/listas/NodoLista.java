@@ -7,7 +7,7 @@ package controlador.listas;
 
 /**
  *
- * @author SONY VAIO
+ * @author Marylin Alvarado
  */
 public class NodoLista<E> {
     private E dato;

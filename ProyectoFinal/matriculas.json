@@ -1,0 +1,91 @@
+{
+  "cabecera": {
+    "dato": {
+      "idMatricula": 1,
+      "fechaEmision": "Jan 27, 2023, 5:45:15 AM",
+      "periodo": {
+        "idPeriodo": 1,
+        "mesInicio": "ENERO",
+        "mesFin": "ENERO",
+        "especificacion": "111"
+      },
+      "alumno": {},
+      "cursa": {
+        "cabecera": {
+          "dato": {
+            "asignatura": {
+              "id": 1,
+              "nombre": "Mate",
+              "paralelo": "A",
+              "unidad": "I",
+              "docente": {},
+              "numeroHoras": 10
+            },
+            "horasAsistidas": 0,
+            "notaFinal": {},
+            "porcentajeHorasAsistidas": 0,
+            "estadoAsignatura": "REPROBADA"
+          },
+          "siguiente": {
+            "dato": {
+              "asignatura": {
+                "id": 2,
+                "nombre": "Lenguage y Literatura",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 30
+              },
+              "horasAsistidas": 0,
+              "notaFinal": {},
+              "porcentajeHorasAsistidas": 0,
+              "estadoAsignatura": "REPROBADA"
+            }
+          }
+        },
+        "size": 2,
+        "ascendente": 1,
+        "descendente": 2
+      },
+      "promedioGeneral": 0.0
+    },
+    "siguiente": {
+      "dato": {
+        "idMatricula": 2,
+        "fechaEmision": "Jan 27, 2023, 5:50:39 AM",
+        "periodo": {
+          "idPeriodo": 1,
+          "mesInicio": "ENERO",
+          "mesFin": "ENERO",
+          "especificacion": "111"
+        },
+        "alumno": {},
+        "cursa": {
+          "cabecera": {
+            "dato": {
+              "asignatura": {
+                "id": 1,
+                "nombre": "Mate",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 10
+              },
+              "horasAsistidas": 0,
+              "notaFinal": {},
+              "porcentajeHorasAsistidas": 0,
+              "estadoAsignatura": "REPROBADA"
+            }
+          },
+          "size": 1,
+          "ascendente": 1,
+          "descendente": 2
+        },
+        "promedioGeneral": 0.0
+      }
+    }
+  },
+  "size": 2,
+  "ascendente": 1,
+  "descendente": 2
+}

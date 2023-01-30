@@ -7,35 +7,68 @@ package controlador;
 
 import controlador.listas.ListaEnlazada;
 import modelo.Cursa;
+import modelo.Nota;
+import modelo.enums.Estado;
 
 /**
  *
  * @author David Campoverde
  */
 public class CursaController {
-    private ListaEnlazada<Cursa> cursa;
+    
+    private ListaEnlazada<Cursa> cursaList = new ListaEnlazada<>();
+    private Cursa cursa;
     
     public CursaController(){
-        cursa = new ListaEnlazada<>();
+        cursaList = new ListaEnlazada<>();
     }
     
+    /**
+     * Método para calcular el porcentaje de horas asistidas en una asignatura de una determinada matrícula
+     */
     public void porcentajeHorasAsistidas(){
-        for(int i = 0; i <= cursa.getSize();i++){
+        for(int i = 0; i <= cursaList.getSize();i++){
             try {
-                Cursa cursaAux = cursa.obtener(i);
+                Cursa cursaAux = cursaList.obtener(i);
                 cursaAux.setPorcentajeHorasAsistidas((cursaAux.getHorasAsistidas() * 100) / cursaAux.getAsignatura().getNumeroHoras());
             } catch (Exception e) {
             }
         }
-//        cursa.setPorcentajeHorasAsistidas((cursa.getHorasAsistidas() * 100) / cursa.getAsignatura().getNumeroHoras());
+    }
+    
+    /**
+     * Método para calcular la nota final de una matrícula en determinada asignatura
+     */
+    public void calcularNotaFinal(){
+        for(int i = 0; i <= cursaList.getSize();i++){
+            try {
+                Cursa cursaAux = cursaList.obtener(i);
+                Nota nota = cursaAux.getNotaFinal();
+                nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f)+(nota.getTrabajoE() * 0.25f)+(nota.getAprendizajeA() *0.2f)+(nota.getEvaluacion() * 0.35f));
+                determinarEstadoAsignatura(cursaAux);
+            } catch (Exception e) {
+            }
+        }
+    }
+    
+    /**
+     * Método para determinar, en base la nota final, si una matrícula aprobó o no determinada asignatura
+     * @param cursa 
+     */
+    private void determinarEstadoAsignatura(Cursa cursa){
+        if (cursa.getNotaFinal().getNotaTotal() >= 7){
+            cursa.setEstadoAsignatura(Estado.APROBADA);
+        }else{
+            cursa.setEstadoAsignatura(Estado.REPROBADA);
+        }
     }
 
-    public ListaEnlazada<Cursa> getCursa() {
-        return cursa;
+    public ListaEnlazada<Cursa> getCursaList() {
+        return cursaList;
     }
 
-    public void setCursa(ListaEnlazada<Cursa> cursa) {
-        this.cursa = cursa;
+    public void setCursaList(ListaEnlazada<Cursa> cursaList) {
+        this.cursaList = cursaList;
     }
     
     

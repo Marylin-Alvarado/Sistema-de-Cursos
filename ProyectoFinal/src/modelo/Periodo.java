@@ -8,7 +8,7 @@ import modelo.enums.Meses;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public class Periodo {
     private Integer idPeriodo;
@@ -50,6 +50,11 @@ public class Periodo {
 
     public void setEspecificacion(String especificacion) {
         this.especificacion = especificacion;
+    }
+
+    @Override
+    public String toString() {
+        return getMesInicio() + "-" + getMesFin();
     }
     
     

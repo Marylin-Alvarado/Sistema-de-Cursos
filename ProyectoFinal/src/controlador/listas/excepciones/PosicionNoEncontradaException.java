@@ -6,7 +6,7 @@ package controlador.listas.excepciones;
 
 /**
  *
- * @author SONY VAIO
+ * @author Jhair Agila
  */
 public class PosicionNoEncontradaException extends Exception{
     public PosicionNoEncontradaException(String msg){

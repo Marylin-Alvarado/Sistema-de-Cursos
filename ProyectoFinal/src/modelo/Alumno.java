@@ -15,6 +15,7 @@ public class Alumno extends Persona {
     private Integer numMaterias;
     private String asistencia;
     private ListaEnlazada<Matricula> matriculas;
+    
     public Alumno(){
         
     }
@@ -35,8 +36,6 @@ public class Alumno extends Persona {
         this.matriculas = matriculas;
     }
 
-    
-
     public Integer getNumMaterias() {
         return numMaterias;
     }
@@ -52,6 +51,20 @@ public class Alumno extends Persona {
     public void setAsistencia(String asistencia) {
         this.asistencia = asistencia;
     }
+
+    
+    public void generarContrasenia(){
+        
+    }
+    
+    
+    
+    @Override
+    public String toString() {
+        return getNombres() + " " + getApellidos();
+    }
+    
+    
     
     
 }

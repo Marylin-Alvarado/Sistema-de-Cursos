@@ -1,0 +1,25 @@
+{
+  "cabecera": {
+    "dato": {
+      "id": 1,
+      "nombres": "David",
+      "apellidos": "Campoverde",
+      "identificacion": "1105983041",
+      "direccion": "Mexico y Brasil",
+      "telefono": "0999349427",
+      "ciudad": "Loja",
+      "fechaNacimiento": "25/03/2004",
+      "genero": "MASCULINO",
+      "cuenta": {
+        "id": 2,
+        "usuario": "David.Campoverde",
+        "tipoUser": "Alumno",
+        "contrasenia": "1105983041",
+        "estado": false
+      }
+    }
+  },
+  "size": 1,
+  "ascendente": 1,
+  "descendente": 2
+}

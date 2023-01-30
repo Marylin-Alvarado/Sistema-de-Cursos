@@ -8,7 +8,7 @@ import controlador.listas.ListaEnlazada;
 
 /**
  *
- * @author SONY VAIO
+ * @author Marylin Alvarado
  */
 public class Malla {
     private Integer id;
@@ -41,6 +41,13 @@ public class Malla {
     public void setRegimen(String regimen) {
         this.regimen = regimen;
     }
+
+    @Override
+    public String toString() {
+        return regimen ;
+    }
+
+    
     
     
     
