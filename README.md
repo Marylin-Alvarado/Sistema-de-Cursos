@@ -1,4 +1,8 @@
+#Rutina para ejecutar el proyecto
+<p> Debe ejecutar el archivo DialogsAdmPrincipal.java. En la misma puede observar la oferta de la universidad, para usar el login existen tres tipos. Admininistrador: User: Admin y Contraseña: Admin y para ingresar a los diferentes perfiles se debe ingresar con la cuenta que posee cada entidad (docente y alumno) las cuentas se pueden visualizar en cuentas.json
+</p>
 # Sistema-de-Cursos
+
 <p>El sistema debe permitir al administrador realizar el control del sistema.</p>
 <p>El sistema debe permitir que la malla realice un CRUD de carreras. </p>
 <p>El sistema debe permitir el CRUD de estudiantes.</p>
