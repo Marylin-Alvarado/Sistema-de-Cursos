@@ -30,11 +30,46 @@
                 "unidad": "I",
                 "docente": {},
                 "numeroHoras": 30
+              },
+              "siguiente": {
+                "dato": {
+                  "id": 1,
+                  "nombre": "Historia",
+                  "paralelo": "A",
+                  "unidad": "I",
+                  "docente": {
+                    "idDocente": 2,
+                    "tituloTercerNivel": "Licenciatura",
+                    "tituloCuartoNivel": "PHD",
+                    "aniosExpDocente": 5,
+                    "aniosExpLaboral": 7,
+                    "nombres": "Davidd",
+                    "apellidos": "Campoverde",
+                    "identificacion": "1105983041",
+                    "direccion": "Mexico y Brasil",
+                    "telefono": "0999349427",
+                    "ciudad": "Loja",
+                    "fechaNacimiento": "25/03/2004",
+                    "genero": "MASCULINO",
+                    "correo": ""
+                  },
+                  "numeroHoras": 12
+                },
+                "siguiente": {
+                  "dato": {
+                    "id": 1,
+                    "nombre": "Mate",
+                    "paralelo": "A",
+                    "unidad": "I",
+                    "docente": {},
+                    "numeroHoras": 10
+                  }
+                }
               }
             }
           }
         },
-        "size": 3,
+        "size": 5,
         "ascendente": 1,
         "descendente": 2
       }

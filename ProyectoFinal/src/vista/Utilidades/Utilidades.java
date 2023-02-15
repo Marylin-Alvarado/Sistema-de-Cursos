@@ -144,6 +144,12 @@ public class Utilidades {
         }
         return cbx;
     }
+    /**
+     * Metodo para cargar la clase Periodo dentro del index de un JComboBox
+     * @param cbx
+     * @param periodos
+     * @return 
+     */
     public static JComboBox cargarPeriodos(JComboBox cbx, ListaEnlazada<Periodo> periodos) {
         cbx.removeAllItems();
         for (int i = 0; i < periodos.getSize(); i++) {
@@ -158,7 +164,14 @@ public class Utilidades {
         return cbx;
     }
 
-        public static JComboBox cargarCiclos(JComboBox cbx, ListaEnlazada<Ciclo> ciclos) {
+    /**
+     * Metodo para cargar una lista de ciclos que estan almacenados en nuestro repositorio local
+     * dentro de un JComboBox
+     * @param cbx
+     * @param ciclos
+     * @return 
+     */
+    public static JComboBox cargarCiclos(JComboBox cbx, ListaEnlazada<Ciclo> ciclos) {
         cbx.removeAllItems();
         for (int i = 0; i < ciclos.getSize(); i++) {
             try {
@@ -190,7 +203,14 @@ public class Utilidades {
         }
         return cbx;
     }
+    
 
+    /**
+     * Metodo para cargar la lista de asignaturas dentro de un JComboBox
+     * @param cbx
+     * @param asignaturas
+     * @return 
+     */
     public static JComboBox cargarAsignaturas(JComboBox cbx, ListaEnlazada asignaturas) {
         cbx.removeAllItems();
         for (int i = 0; i < asignaturas.getSize(); i++) {
@@ -254,7 +274,10 @@ public class Utilidades {
         }
     }
     
-    
+    /**
+     * Metodo para guardar una matricula dentro de un archivo JSON 
+     * @param matricula 
+     */
     public static void guardarMatricula (Matricula matricula) {
         ListaEnlazada<Matricula> lista = listarMatriculas();
         lista.insertar(matricula);
@@ -297,6 +320,12 @@ public class Utilidades {
         }
     }
      
+     /**
+      * Metodo para modificar un objeto de la clase periodo creado anteriormente
+      * @param periodo
+      * @param posicion
+      * @throws PosicionNoEncontradaException 
+      */
      public static void modificarPeriodo(Periodo periodo, Integer posicion) throws PosicionNoEncontradaException {
         ListaEnlazada<Periodo> lista = listarPeriodos();
         lista.modificarPosicion(periodo, posicion);
@@ -330,6 +359,12 @@ public class Utilidades {
         }
     }
 
+    /**
+     * Metodo para modificar un objeto de la clase Ciclo 
+     * @param ciclo
+     * @param posicion
+     * @throws PosicionNoEncontradaException 
+     */
     public static void modificarCiclo(Ciclo ciclo, Integer posicion) throws PosicionNoEncontradaException {
         ListaEnlazada<Ciclo> lista = listarCiclos();
         lista.modificarPosicion(ciclo, posicion);
@@ -406,6 +441,10 @@ public class Utilidades {
         }
     }
 
+    /**
+     * Metodo para guardar un objeto de la clase Periodo en un archivo JSON
+     * @param periodo 
+     */
     public static void guardarPeriodo(Periodo periodo) {
         ListaEnlazada<Periodo> lista = listarPeriodos();
         lista.insertar(periodo);
@@ -442,6 +481,11 @@ public class Utilidades {
         return lista;
     }
     
+    /**
+     * Metodo para obtener la lista de cursas de un determinado estudiante desde un archivo
+     * JSON
+     * @return 
+     */
     public static ListaEnlazada<Cursa> listarCursas() {
         ListaEnlazada<Cursa> lista = new ListaEnlazada<>();
         String json = "";
@@ -465,7 +509,10 @@ public class Utilidades {
         return lista;
     }
     
-    
+    /**
+     * Metodo para obtener la lista de cuentas desde un archivo JSON
+     * @return 
+     */
     public static ListaEnlazada<Cuenta> listarCuentas() {
         ListaEnlazada<Cuenta> lista = new ListaEnlazada<>();
         String json = "";
@@ -516,6 +563,10 @@ public class Utilidades {
         return lista;
     }
     
+    /**
+     * Metodo para obtener la lista de Matriculas desde un archivo JSON 
+     * @return 
+     */
     public static ListaEnlazada<Matricula> listarMatriculas() {
         ListaEnlazada<Matricula> lista = new ListaEnlazada<>();
         String json = "";
@@ -540,7 +591,10 @@ public class Utilidades {
     }
     
     
-    
+    /**
+     * Metodo para obtener la lista de periodos desde un archivo JSON
+     * @return 
+     */
     public static ListaEnlazada<Periodo> listarPeriodos() {
         ListaEnlazada<Periodo> lista = new ListaEnlazada<>();
         String json = "";
@@ -564,7 +618,7 @@ public class Utilidades {
         return lista;
     }
     /**
-     * Metodo para listar Alumnos en un archivo JSON
+     * Metodo para listar Alumnos de un archivo JSON
      * @return 
      */
     
@@ -623,6 +677,13 @@ public class Utilidades {
      * Eliinar Asignatura
      */
 
+    /**
+     * Metodo para eliminar un objeto de la clase Asignatura desde un archivo JSON
+     * tomando como parametro su indice de ubicacion
+     * @param posicion
+     * @throws PosicionNoEncontradaException
+     * @throws ListaVaciaException 
+     */
     public static void eliminarAsignatura(Integer posicion) throws PosicionNoEncontradaException, ListaVaciaException {
         ListaEnlazada<Asignatura> lista = listarAsignaturas();
         lista.eliminar(posicion);
@@ -636,6 +697,15 @@ public class Utilidades {
         }
     }
 
+    /**
+     * Metodo para eliminar un objeto de la clase Asigntura tomando como parametro el indice del objeto Ciclo 
+     * y la Asignatura haciendo referencia a un archivo local de formato JSON
+     * @param posicionCiclo
+     * @param posicionAsignatura
+     * @throws PosicionNoEncontradaException
+     * @throws ListaVaciaException
+     * @throws ListaNullException 
+     */
     public static void eliminarAsignaturaCiclo(Integer posicionCiclo, Integer posicionAsignatura) throws PosicionNoEncontradaException, ListaVaciaException, ListaNullException {
         ListaEnlazada<Ciclo> lista = listarCiclos();
         Ciclo ciclo = lista.obtener(posicionCiclo);
@@ -652,7 +722,13 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-
+    /**
+     * Metodo para eliminar un objeto de la clase Ciclo tomanto como parametro el indice del objeto 
+     * haciendo refrenferencia a un arcivo JSON
+     * @param posicionCiclo
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
+     */
     public static void eliminarCiclo(Integer posicionCiclo) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Ciclo> lista = listarCiclos();
         lista.eliminar(posicionCiclo);
@@ -665,6 +741,14 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+    
+    /**
+     * Metodo para eliminar un objeto de la clase Periodo tomando como parametro el indice del objeto
+     * haciendo referencia a un archivo JSON
+     * @param posicionPeriodo
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
+     */
     public static void eliminarPeriodo(Integer posicionPeriodo) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Periodo> lista = listarPeriodos();
         lista.eliminar(posicionPeriodo);
@@ -677,6 +761,14 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+    
+    /**
+     * Metodo para eliminar un objeto de la clase Alumno tomando como parametro el indice del objeto
+     * haciendo referencia a un archivo JSON
+     * @param posicionAlumno
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
+     */
      public static void eliminarAlumno(Integer posicionAlumno) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Alumno> lista = listarAlumnos();
         lista.eliminar(posicionAlumno);
@@ -697,6 +789,18 @@ public class Utilidades {
         Gson gson = new GsonBuilder().setPrettyPrinting().create();
         String jsonString = gson.toJson(lista);
         try ( PrintWriter pw = new PrintWriter(new File("docentes.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+     public static void eliminarMatricula(Integer posicionMatricula) throws ListaVaciaException, PosicionNoEncontradaException {
+        ListaEnlazada<Matricula> lista = listarMatriculas();
+        lista.eliminar(posicionMatricula);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("matriculas.json"))) {
             pw.write(jsonString);
         } catch (Exception e) {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
@@ -735,6 +839,7 @@ public class Utilidades {
         }
         return lista;
     }
+    
      
     public static void guardarCarrera(Carrera carrera) {
         ListaEnlazada<Carrera> lista = listarCarreras();

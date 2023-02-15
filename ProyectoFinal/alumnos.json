@@ -17,9 +17,19 @@
         "contrasenia": "1105983041",
         "estado": false
       }
+    },
+    "siguiente": {
+      "dato": {
+        "id": 2
+      },
+      "siguiente": {
+        "dato": {
+          "id": 3
+        }
+      }
     }
   },
-  "size": 1,
+  "size": 3,
   "ascendente": 1,
   "descendente": 2
 }

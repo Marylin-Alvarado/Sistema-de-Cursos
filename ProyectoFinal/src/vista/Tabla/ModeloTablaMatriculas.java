@@ -15,16 +15,7 @@ import modelo.Matricula;
  */
 public class ModeloTablaMatriculas extends AbstractTableModel {
 
-    private ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
-
-    public ListaEnlazada<Matricula> getMatriculaList() {
-        return matriculaList;
-    }
-
-    public void setMatriculaList(ListaEnlazada<Matricula> matriculaList) {
-        this.matriculaList = matriculaList;
-    }
-    
+    private ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();    
     
     @Override
     public int getRowCount() {
@@ -71,6 +62,18 @@ public class ModeloTablaMatriculas extends AbstractTableModel {
             default:
                 return null;
         }    
+    }
+    
+    /*
+    Getters and setters
+    */
+    
+    public ListaEnlazada<Matricula> getMatriculaList() {
+        return matriculaList;
+    }
+
+    public void setMatriculaList(ListaEnlazada<Matricula> matriculaList) {
+        this.matriculaList = matriculaList;
     }
     
 }

@@ -2,24 +2,56 @@
   "cabecera": {
     "dato": {
       "idMatricula": 1,
-      "fechaEmision": "Jan 27, 2023, 5:45:15 AM",
+      "fechaEmision": "Feb 13, 2023, 5:23:28 PM",
       "periodo": {
-        "idPeriodo": 1,
+        "idPeriodo": 2,
         "mesInicio": "ENERO",
-        "mesFin": "ENERO",
-        "especificacion": "111"
+        "mesFin": "ABRIL",
+        "especificacion": "232"
       },
-      "alumno": {},
+      "alumno": {
+        "id": 1,
+        "nombres": "David",
+        "apellidos": "Campoverde",
+        "identificacion": "1105983041",
+        "direccion": "Mexico y Brasil",
+        "telefono": "0999349427",
+        "ciudad": "Loja",
+        "fechaNacimiento": "25/03/2004",
+        "genero": "MASCULINO",
+        "cuenta": {
+          "id": 2,
+          "usuario": "David.Campoverde",
+          "tipoUser": "Alumno",
+          "contrasenia": "1105983041",
+          "estado": false
+        }
+      },
       "cursa": {
         "cabecera": {
           "dato": {
             "asignatura": {
               "id": 1,
-              "nombre": "Mate",
+              "nombre": "Historia",
               "paralelo": "A",
               "unidad": "I",
-              "docente": {},
-              "numeroHoras": 10
+              "docente": {
+                "idDocente": 2,
+                "tituloTercerNivel": "Licenciatura",
+                "tituloCuartoNivel": "PHD",
+                "aniosExpDocente": 5,
+                "aniosExpLaboral": 7,
+                "nombres": "Davidd",
+                "apellidos": "Campoverde",
+                "identificacion": "1105983041",
+                "direccion": "Mexico y Brasil",
+                "telefono": "0999349427",
+                "ciudad": "Loja",
+                "fechaNacimiento": "25/03/2004",
+                "genero": "MASCULINO",
+                "correo": ""
+              },
+              "numeroHoras": 12
             },
             "horasAsistidas": 0,
             "notaFinal": {},
@@ -30,11 +62,11 @@
             "dato": {
               "asignatura": {
                 "id": 2,
-                "nombre": "Lenguage y Literatura",
+                "nombre": "Filosofia",
                 "paralelo": "A",
                 "unidad": "I",
                 "docente": {},
-                "numeroHoras": 30
+                "numeroHoras": 80
               },
               "horasAsistidas": 0,
               "notaFinal": {},
@@ -48,44 +80,9 @@
         "descendente": 2
       },
       "promedioGeneral": 0.0
-    },
-    "siguiente": {
-      "dato": {
-        "idMatricula": 2,
-        "fechaEmision": "Jan 27, 2023, 5:50:39 AM",
-        "periodo": {
-          "idPeriodo": 1,
-          "mesInicio": "ENERO",
-          "mesFin": "ENERO",
-          "especificacion": "111"
-        },
-        "alumno": {},
-        "cursa": {
-          "cabecera": {
-            "dato": {
-              "asignatura": {
-                "id": 1,
-                "nombre": "Mate",
-                "paralelo": "A",
-                "unidad": "I",
-                "docente": {},
-                "numeroHoras": 10
-              },
-              "horasAsistidas": 0,
-              "notaFinal": {},
-              "porcentajeHorasAsistidas": 0,
-              "estadoAsignatura": "REPROBADA"
-            }
-          },
-          "size": 1,
-          "ascendente": 1,
-          "descendente": 2
-        },
-        "promedioGeneral": 0.0
-      }
     }
   },
-  "size": 2,
+  "size": 1,
   "ascendente": 1,
   "descendente": 2
 }

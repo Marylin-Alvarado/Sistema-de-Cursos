@@ -22,9 +22,19 @@
         "correo": ""
       },
       "numeroHoras": 12
+    },
+    "siguiente": {
+      "dato": {
+        "id": 2,
+        "nombre": "Filosofia",
+        "paralelo": "A",
+        "unidad": "I",
+        "docente": {},
+        "numeroHoras": 80
+      }
     }
   },
-  "size": 1,
+  "size": 2,
   "ascendente": 1,
   "descendente": 2
 }

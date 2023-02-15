@@ -361,7 +361,7 @@ public class FrmAsignatura extends javax.swing.JDialog {
 
     public void eliminarMateria() throws PosicionNoEncontradaException, ListaVaciaException{
         if(tblAsignatura.getSelectedRow() >= 0 ){
-            Utilidades.eliminarAsignatura(tblAsignatura.getSelectedRow());
+            Utilidades.eliminarMatricula(tblAsignatura.getSelectedRow());
             cargarTabla();
         }
     }
