@@ -211,11 +211,12 @@ public class Utilidades {
      * @param asignaturas
      * @return 
      */
-    public static JComboBox cargarAsignaturas(JComboBox cbx, ListaEnlazada asignaturas) {
+    public static JComboBox cargarAsignaturas(JComboBox cbx, ListaEnlazada<Asignatura> asignaturas) {
         cbx.removeAllItems();
         for (int i = 0; i < asignaturas.getSize(); i++) {
             try {
                 cbx.addItem(asignaturas.obtener(i));
+                System.out.println("materia " + asignaturas.obtener(i));
             } catch (PosicionNoEncontradaException | ListaNullException ex) {
                 Logger.getLogger(Utilidades.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -375,6 +376,18 @@ public class Utilidades {
             pw.write(jsonString);
         } catch (Exception e) {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
+        }
+    }
+    public static void modificarMatricula(Matricula matricula, Integer posicion) throws PosicionNoEncontradaException {
+        ListaEnlazada<Matricula> lista = listarMatriculas();
+        lista.modificarPosicion(matricula, posicion);
+
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String jsonString = gson.toJson(lista);
+        try ( PrintWriter pw = new PrintWriter(new File("matriculas.json"))) {
+            pw.write(jsonString);
+        } catch (Exception e) {
+            System.out.println("Error en el metodo de modificar en utilidades: " + e);
         }
     }
     /**

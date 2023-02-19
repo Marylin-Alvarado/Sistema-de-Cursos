@@ -5,8 +5,12 @@
 package vista;
 
 import controlador.AlumnoController;
+import controlador.AsignaturaController;
+import controlador.CursaController;
 import controlador.MatriculaController;
 import controlador.listas.ListaEnlazada;
+import controlador.listas.excepciones.ListaNullException;
+import controlador.listas.excepciones.PosicionNoEncontradaException;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.util.logging.Level;
@@ -16,6 +20,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Alumno;
 import modelo.Asignatura;
+import modelo.Matricula;
 import vista.Tabla.ModeloTablaCompanieroEstudiante;
 import vista.Tabla.ModeloTablaMatriculas;
 import vista.Utilidades.Utilidades;
@@ -31,56 +36,198 @@ public class FrmEstidiante extends javax.swing.JDialog {
     private ModeloTablaCompanieroEstudiante mtce = new ModeloTablaCompanieroEstudiante();
     private MatriculaController mC = new MatriculaController();
     private AlumnoController aC = new AlumnoController();
+    private AsignaturaController asigC = new AsignaturaController();
+    private CursaController cursaControler = new CursaController();
 
     /**
      * Creates new form FrmEstidiantee
      */
     public FrmEstidiante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         cargarCombos();
+        obtenerUltimaMatricula();
+        this.setLocationRelativeTo(this);
+
 //        cargarTabla();
     }
+
     public FrmEstidiante(java.awt.Frame parent, boolean modal, Alumno alumno) {
         super(parent, modal);
-        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         aC.setAlumno(alumno);
+        obtenerUltimaMatricula();
         initComponents();
         cargarCombos();
         cargarEstudiante();
+        this.setLocationRelativeTo(this);
     }
 
-    public void cargarEstudiante(){
-        lblNombreEstudiatnte.setText(aC.getAlumno().getNombres() + " " + aC.getAlumno().getApellidos() );
+    public void calcularNotaEstudiante() {
+        Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
+        try {
+            for (int i = 0; i < mC.getMatricula().getCursa().getSize(); i++) {
+                if (mC.getMatricula().getCursa().obtener(i).getAsignatura().getNombre() == a.getNombre()) {
+                    lblNotaFinal.setText(String.valueOf(mC.getMatricula().getCursa().obtener(i).getNotaFinal().getNotaTotal()));
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error en " + e);
+        }
+    }
+
+    public void cargarEstudiante() {
+        lblNombreEstudiatnte.setText(aC.getAlumno().getNombres() + " " + aC.getAlumno().getApellidos());
+        calcularNotaEstudiante();
     }
 //    public void cargarTabla() {
 //        tblInicial.updateUI();
 //    }
 
     /**
-     * Metodo para cargar los comboBox del Dialog por medio de las utilidades del proyecto
+     * Metodo para cargar los comboBox del Dialog por medio de las utilidades
+     * del proyecto
      */
     public void cargarCombos() {
-        Utilidades.cargarAsignaturas(cbxAsignaturas, Utilidades.listarAsignaturas());
+        obtenerAsignaturas();
+        Utilidades.cargarAsignaturas(cbxAsignaturas, asigC.getAsignatursList());
     }
+
+    public void obtenerAsignaturas() {
+        try {
+            System.out.println("Size de cursa " + mC.getMatricula().getCursa().getSize());
+            for (int i = 0; i < mC.getMatricula().getCursa().getSize(); i++) {
+                asigC.getAsignatursList().insertar(mC.getMatricula().getCursa().obtener(i).getAsignatura());
+            }
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public void obtenerUltimaMatricula() {
+        mC.setMatriculaList(Utilidades.listarMatriculas());
+        ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
+        try {
+            System.out.println("lista 1 : " + aC.getAlumno().getId());
+            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+                System.out.println("lista " + mC.getMatriculaList().obtener(i).getAlumno().getNombres());
+                if (mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()) {
+                    matriculaList.insertar(mC.getMatriculaList().obtener(i));
+                }
+
+            }
+            if (matriculaList.getSize() > 1) {
+                for (int i = 1; i < matriculaList.getSize(); i++) {
+                    if (matriculaList.obtener(i - 1).getFechaEmision().after(matriculaList.obtener(i).getFechaEmision())) {
+                        mC.setMatricula(matriculaList.obtener(i - 1));
+                    } else {
+                        mC.setMatricula(matriculaList.obtener(i));
+                    }
+                }
+            } else {
+                mC.setMatricula(matriculaList.obtener(0));
+            }
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
     /**
      * Metodo para cargar la tabla con las matriculas realizadas
      */
-//    public void cargarTablaMatriculas() {
-////        mtm.setMatriculaList(Utilidades.listarMatriculas());
-////        mC.setMatriculaList(Utilidades.listarMatriculas());
-//        tblInicial.setModel(mtm);
-//        tblInicial.updateUI();
-//    }
+    public void cargarTablaMatriculas() {
+        mC.setMatriculaList(Utilidades.listarMatriculas());
+        ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
+        for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+            try {
+                if (mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()) {
+                    matriculaList.insertar(mC.getMatriculaList().obtener(i));
+                }
+            } catch (PosicionNoEncontradaException ex) {
+                Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ListaNullException ex) {
+                Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+        if (matriculaList.getSize() > 0) {
+            mtm.setMatriculaList(matriculaList);
+        } else {
+            JOptionPane.showMessageDialog(null, "El alumno no tiene matriculas");
+        }
+        tblInicial.setModel(mtm);
+        tblInicial.updateUI();
+    }
 
     public void cargarTablaCompanieros() {
-//        mtce.setAlumnoList(Utilidades.listarAlumnos());
-//        aC.setAlumnoList(Utilidades.cargarAlumnos);
+        calcularAsignaturas();
+        mtce.setAlumnoList(aC.getAlumnoList());
+        aC.setAlumnoList(aC.getAlumnoList());
         tblInicial.setModel(mtce);
         tblInicial.updateUI();
+    }
+
+    public void calcularAsignaturas() {
+        mC.setMatriculaList(obtenerMatriculas());
+        System.out.println("Mc size " + mC.getMatriculaList().getSize());
+        Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
+        System.out.println("nombre " + a.getNombre());
+        try {
+
+            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+                for (int j = 0; j < mC.getMatriculaList().obtener(i).getCursa().getSize(); j++) {
+//                    System.out.println("FOR " + mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre());
+                    System.out.println("j " + j);
+                    if (a.getNombre().equals(mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre())) {
+                        aC.getAlumnoList().insertar(mC.getMatriculaList().obtener(i).getAlumno());
+                        System.out.println("Estudiante " + j);
+                    }
+                }
+            }
+            System.out.println("mC " + aC.getAlumnoList().getSize());
+
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public ListaEnlazada<Matricula> obtenerMatriculas() {
+        mC.setMatriculaList(Utilidades.listarMatriculas());
+        ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
+        Matricula matricula = null;
+        try {
+            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+                matricula = null;
+                for (int j = 0; j < mC.getMatriculaList().getSize(); j++) {
+                    if (mC.getMatriculaList().obtener(i).getAlumno().getId() == mC.getMatriculaList().obtener(j).getAlumno().getId()) {
+                        System.out.println("dentro de ifff");
+                        if (matricula == null) {
+                            matricula = new Matricula();
+                            matricula = mC.getMatriculaList().obtener(j);
+                        } else if (mC.getMatriculaList().obtener(j).getFechaEmision().after(matricula.getFechaEmision())) {
+                            matricula = mC.getMatriculaList().obtener(j);
+                        }
+                    }
+                }
+                matriculaList.insertar(matricula);
+            }
+            for (int i = 0; i < matriculaList.getSize(); i++) {
+                for (int j = 0; j < matriculaList.getSize(); j++) {
+                    if (matriculaList.obtener(i).getAlumno().getId() == matriculaList.obtener(j).getAlumno().getId() && i != j) {
+                        matriculaList.eliminar(j);
+                    }
+                }
+            }
+        } catch (Exception e) {
+            System.out.println("Error en obtenerMatriculas " + e);
+        }
+        return matriculaList;
     }
 
     /**
@@ -101,15 +248,11 @@ public class FrmEstidiante extends javax.swing.JDialog {
         jScrollPane3 = new javax.swing.JScrollPane();
         tblInicial = new javax.swing.JTable();
         jLabel5 = new javax.swing.JLabel();
-        txtNotaMateria = new javax.swing.JTextField();
+        lblNotaFinal = new javax.swing.JTextField();
         jPanel1 = new javax.swing.JPanel();
         btnParticipantes = new javax.swing.JButton();
         btnAsistencia = new javax.swing.JButton();
         btnMatriculas = new javax.swing.JButton();
-        jPanel2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
-        txtBuscarTarea = new javax.swing.JTextField();
-        btnBuscar = new javax.swing.JButton();
         txtPerfil = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
 
@@ -153,7 +296,7 @@ public class FrmEstidiante extends javax.swing.JDialog {
 
         jLabel5.setText("Nota: ");
 
-        txtNotaMateria.setEnabled(false);
+        lblNotaFinal.setEnabled(false);
 
         btnParticipantes.setText("Participantes");
         btnParticipantes.addActionListener(new java.awt.event.ActionListener() {
@@ -192,44 +335,14 @@ public class FrmEstidiante extends javax.swing.JDialog {
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnParticipantes)
-                    .addComponent(btnAsistencia)
-                    .addComponent(btnMatriculas))
-                .addContainerGap())
-        );
-
-        jLabel4.setText("Busqueda de tareas");
-
-        btnBuscar.setText("+");
-        btnBuscar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBuscarActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
-        jPanel2.setLayout(jPanel2Layout);
-        jPanel2Layout.setHorizontalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(txtBuscarTarea, javax.swing.GroupLayout.DEFAULT_SIZE, 171, Short.MAX_VALUE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap())
-        );
-        jPanel2Layout.setVerticalGroup(
-            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(13, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtBuscarTarea, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnParticipantes, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(btnAsistencia)
+                            .addComponent(btnMatriculas))))
                 .addContainerGap())
         );
 
@@ -256,21 +369,6 @@ public class FrmEstidiante extends javax.swing.JDialog {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(cbxAsignaturas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNotaMateria, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-            .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(184, 184, 184)
@@ -279,10 +377,23 @@ public class FrmEstidiante extends javax.swing.JDialog {
                         .addComponent(txtPerfil))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(37, 37, 37)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1)
-                            .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(40, Short.MAX_VALUE))
+                        .addComponent(jButton1)))
+                .addContainerGap(123, Short.MAX_VALUE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(cbxAsignaturas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNotaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -298,14 +409,12 @@ public class FrmEstidiante extends javax.swing.JDialog {
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cbxAsignaturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNotaMateria, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(lblNotaFinal, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 128, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 79, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 120, Short.MAX_VALUE)
                 .addComponent(jButton1)
                 .addGap(20, 20, 20))
         );
@@ -317,30 +426,42 @@ public class FrmEstidiante extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnAsistenciaActionPerformed
 
-    private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        try {
-            // TODO add your handling code here:
-            buscarTarea();
-        } catch (Exception ex) {
-            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }//GEN-LAST:event_btnBuscarActionPerformed
-
     private void btnMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMatriculasActionPerformed
         // TODO add your handling code here:
-//        cargarTablaMatriculas();
+        cargarTablaMatriculas();
     }//GEN-LAST:event_btnMatriculasActionPerformed
 
     private void btnParticipantesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnParticipantesActionPerformed
         // TODO add your handling code here:
+        aC.setAlumnoList(new ListaEnlazada<>());
         cargarTablaCompanieros();
     }//GEN-LAST:event_btnParticipantesActionPerformed
 
     private void cbxAsignaturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxAsignaturasMouseClicked
         // TODO add your handling code here:
 //        diriguirseMaterias();
+//        cambiarNota();
+        calcularNotaEstudiante();
     }//GEN-LAST:event_cbxAsignaturasMouseClicked
 
+//    public void cambiarNota() {
+//        Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
+//        try {
+//            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+//                for (int j = 0; j < mC.getMatriculaList().obtener(i).getCursa().getSize(); j++) {
+//                    cursaControler.setCursaList(mC.getMatriculaList().obtener(i).getCursa());
+//                    if (mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()
+//                            && a.getNombre().equals(mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre())) {
+////                        cursaControler.calcularNotaFinal();
+//                        System.out.println("Dentro de cambiar nota  " + mC.getMatriculaList().obtener(i).getAlumno() + " " + mC.getMatriculaList().obtener(i).getCursa().obtener(j).getNotaFinal().getNotaTotal());
+//                        lblNotaFinal.setText(String.valueOf(cursaControler.getCursaList().obtener(j).getNotaFinal().getNotaTotal()));
+//                    }
+//                }
+//            }
+//        } catch (Exception e) {
+//            System.out.println("Error en cambiarNota " + e);
+//        }
+//    }
     private void cbxAsignaturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAsignaturasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAsignaturasActionPerformed
@@ -360,15 +481,6 @@ public class FrmEstidiante extends javax.swing.JDialog {
         diaLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
-
-    public void buscarTarea() throws Exception {
-        String tareaBuscar = txtBuscarTarea.getText();
-        if (tareaBuscar != null) {
-            JOptionPane.showConfirmDialog(null, "No hay tarea a buscar");
-        } else {
-        }
-
-    }
 
     /**
      * Metodo para cargar el fondo de pantalla del JDialog
@@ -434,24 +546,20 @@ public class FrmEstidiante extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAsistencia;
-    private javax.swing.JButton btnBuscar;
     private javax.swing.JButton btnMatriculas;
     private javax.swing.JButton btnParticipantes;
     private javax.swing.JComboBox<String> cbxAsignaturas;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JSpinner jSpinner1;
     private javax.swing.JLabel lblNombreEstudiatnte;
+    private javax.swing.JTextField lblNotaFinal;
     private javax.swing.JTable tblInicial;
-    private javax.swing.JTextField txtBuscarTarea;
-    private javax.swing.JTextField txtNotaMateria;
     private javax.swing.JButton txtPerfil;
     // End of variables declaration//GEN-END:variables
 }

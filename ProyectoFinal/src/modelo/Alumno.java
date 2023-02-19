@@ -20,6 +20,10 @@ public class Alumno extends Persona {
         
     }
     
+    /**
+     *
+     * @return
+     */
     public Integer getIdAlumno() {
         return idAlumno;
     }
@@ -28,6 +32,10 @@ public class Alumno extends Persona {
         this.idAlumno = idAlumno;
     }
 
+    /**
+     *
+     * @return
+     */
     public ListaEnlazada<Matricula> getMatriculas() {
         return matriculas;
     }

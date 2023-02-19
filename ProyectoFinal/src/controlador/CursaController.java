@@ -40,19 +40,32 @@ public class CursaController {
     /**
      * Método para calcular la nota final de una matrícula en determinada
      * asignatura
+     *
+     * @param nota
      */
-    public void calcularNotaFinal() {
+    public void calcularNotaFinalPueba() {
         for (int i = 0; i <= cursaList.getSize(); i++) {
             try {
-//                Cursa cursaAux = cursaList.obtener(i);
-//                Nota nota = cursaAux.getNotaFinal();
-//                nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f) + (nota.getTrabajoE() * 0.25f) + (nota.getAprendizajeA() * 0.2f) + (nota.getEvaluacion() * 0.35f));
+                Cursa cursaAux = cursaList.obtener(i);
+                Nota nota = cursaAux.getNotaFinal();
+                nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f) + (nota.getTrabajoE() * 0.25f) + (nota.getAprendizajeA() * 0.2f) + (nota.getEvaluacion() * 0.35f));
                 cursaList.obtener(i).getNotaFinal().setNotaTotal((float) 7.0);
 
                 cursaList.obtener(i).setEstadoAsignatura(determinarEstadoAsignaturaObjeto(cursaList.obtener(i)));
-                
+
             } catch (Exception e) {
             }
+        }
+    }
+
+    public void calcularNotaFinal(Nota nota) {
+        try {
+            nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f) + (nota.getTrabajoE() * 0.25f) + (nota.getAprendizajeA() * 0.2f) + (nota.getEvaluacion() * 0.35f));
+            cursaList.obtener(0).setNotaFinal(nota);
+            cursaList.obtener(0).setEstadoAsignatura(determinarEstadoAsignaturaObjeto(cursaList.obtener(0)));
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
@@ -69,7 +82,7 @@ public class CursaController {
             cursa.setEstadoAsignatura(Estado.REPROBADA);
         }
     }
-    
+
     public Estado determinarEstadoAsignaturaObjeto(Cursa cursa) {
         if (cursa.getNotaFinal().getNotaTotal() >= 7) {
             return Estado.APROBADA;

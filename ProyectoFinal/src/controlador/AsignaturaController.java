@@ -7,10 +7,9 @@ package controlador;
 import controlador.listas.ListaEnlazada;
 import modelo.Asignatura;
 import modelo.Docente;
-import modelo.enums.Estado;
 
 /**
- *
+ * Controlador de Asignatura
  * @author TecnoeXtrem
  */
 public class AsignaturaController {

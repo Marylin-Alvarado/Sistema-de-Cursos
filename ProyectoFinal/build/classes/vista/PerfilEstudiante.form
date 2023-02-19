@@ -167,15 +167,9 @@
                           <Component id="txtCorreoInstitucional" min="-2" pref="197" max="-2" attributes="0"/>
                       </Group>
                       <Group type="102" alignment="1" attributes="0">
-                          <Group type="103" groupAlignment="1" attributes="0">
-                              <Component id="jLabel17" alignment="1" min="-2" max="-2" attributes="0"/>
-                              <Component id="jLabel19" alignment="1" min="-2" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="jLabel19" min="-2" max="-2" attributes="0"/>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="txtContraseniaInstitucional" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                              <Component id="txtNumeroMatriculas" alignment="0" min="-2" pref="197" max="-2" attributes="0"/>
-                          </Group>
+                          <Component id="txtContraseniaInstitucional" min="-2" pref="197" max="-2" attributes="0"/>
                       </Group>
                   </Group>
                   <EmptySpace pref="103" max="32767" attributes="0"/>
@@ -254,11 +248,6 @@
                               <Component id="txtContraseniaInstitucional" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="jLabel19" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="jLabel17" alignment="3" min="-2" pref="25" max="-2" attributes="0"/>
-                              <Component id="txtNumeroMatriculas" alignment="3" min="-2" max="-2" attributes="0"/>
-                          </Group>
                       </Group>
                   </Group>
                   <EmptySpace pref="16" max="32767" attributes="0"/>
@@ -281,14 +270,6 @@
               <Font name="Segoe UI Light" size="14" style="0"/>
             </Property>
             <Property name="text" type="java.lang.String" value="Telefono:"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JLabel" name="jLabel17">
-          <Properties>
-            <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-              <Font name="Segoe UI Light" size="14" style="0"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="Numero Matriculas"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel8">
@@ -443,14 +424,6 @@
           <Properties>
             <Property name="enabled" type="boolean" value="false"/>
           </Properties>
-        </Component>
-        <Component class="javax.swing.JTextField" name="txtNumeroMatriculas">
-          <Properties>
-            <Property name="enabled" type="boolean" value="false"/>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="txtNumeroMatriculasActionPerformed"/>
-          </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="jLabel10">
           <Properties>

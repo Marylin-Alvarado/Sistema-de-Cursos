@@ -98,12 +98,12 @@ public class DialogMatriculas extends javax.swing.JDialog {
             int matRep = 0;
 
             for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
-                if (mC.getMatriculaList().obtener(0).getAlumno().getIdAlumno() == mC.getMatricula().getAlumno().getIdAlumno()) {
+                if (mC.getMatriculaList().obtener(i).getAlumno().getIdAlumno() == mC.getMatricula().getAlumno().getIdAlumno()) {
 //                    verificarMatricula = true;
                     for (int j = 0; j < mC.getMatriculaList().obtener(i).getCursa().getSize()
                             && mC.getMatricula().getCursa().getSize() < 5; j++) {
                         cursaC.setCursaList(mC.getMatriculaList().obtener(i).getCursa());
-                        cursaC.calcularNotaFinal();
+//                        cursaC.calcularNotaFinal();
                         if (cursaC.getCursaList().obtener(j).getEstadoAsignatura() == Estado.REPROBADA) {
                             asignatura = cursaC.getCursaList().obtener(j).getAsignatura();
                             System.out.println("nombre > " + asignatura.getNombre());
@@ -139,7 +139,6 @@ public class DialogMatriculas extends javax.swing.JDialog {
                 mC.getMatricula().getCursa().insertar(cursa);
             }
             lblNumeroMateriasNuevas.setText("Numero de materias nuevas: " + (mC.getMatricula().getCursa().getSize() - matRep));
-
         } catch (Exception e) {
             System.out.println("Error en " + e);
         }
@@ -548,7 +547,8 @@ public class DialogMatriculas extends javax.swing.JDialog {
                 Utilidades.guardarCursas(mC.getMatricula().getCursa().obtener(i));
             }
 
-            mC.getMatricula().getCursa().vaciar();
+            mC.setMatricula(null);
+            mC.setMatriculaList(null);
 //        }
         }
     }

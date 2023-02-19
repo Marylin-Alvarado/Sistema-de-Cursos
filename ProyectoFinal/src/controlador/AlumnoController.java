@@ -8,7 +8,8 @@ import controlador.listas.ListaEnlazada;
 import modelo.Alumno;
 
 /**
- *
+ * Controlador de Alumno
+ * 
  * @author TecnoeXtrem
  */
 public class AlumnoController {

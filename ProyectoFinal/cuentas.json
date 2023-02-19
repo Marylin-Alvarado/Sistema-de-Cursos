@@ -14,10 +14,28 @@
         "tipoUser": "Alumno",
         "contrasenia": "1105983041",
         "estado": false
+      },
+      "siguiente": {
+        "dato": {
+          "id": 3,
+          "usuario": "Chenoa.Cabrera",
+          "tipoUser": "Alumno",
+          "contrasenia": "112120121",
+          "estado": false
+        },
+        "siguiente": {
+          "dato": {
+            "id": 4,
+            "usuario": "Cristian.Santin",
+            "tipoUser": "Alumno",
+            "contrasenia": "1011045678",
+            "estado": false
+          }
+        }
       }
     }
   },
-  "size": 2,
+  "size": 4,
   "ascendente": 1,
   "descendente": 2
 }

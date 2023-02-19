@@ -5,6 +5,8 @@
 package vista;
 
 import controlador.AlumnoController;
+import controlador.MatriculaController;
+import controlador.listas.ListaEnlazada;
 import controlador.listas.excepciones.ListaNullException;
 import controlador.listas.excepciones.PosicionNoEncontradaException;
 import java.awt.Graphics;
@@ -15,6 +17,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Alumno;
+import modelo.Matricula;
 import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
 
@@ -26,26 +29,27 @@ public class PerfilEstudiante extends javax.swing.JDialog {
 
     private FondoPanel fondo = new FondoPanel();
     private AlumnoController aC = new AlumnoController();
+    private MatriculaController mC= new MatriculaController();
 
     /**
      * Creates new form PerfilEstudiante
      */
     public PerfilEstudiante(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         initComponents();
         cargarCombos();
+        this.setLocationRelativeTo(this);
     }
     
     public PerfilEstudiante(java.awt.Frame parent, boolean modal, Alumno alumno) {
         super(parent, modal);
-        this.setLocationRelativeTo(null);
         this.setContentPane(fondo);
         aC.setAlumno(alumno);
         initComponents();
         cargarCombos();
         cargarAlumno();
+        this.setLocationRelativeTo(this);
     }
 
     public void cargarCombos() {
@@ -57,6 +61,7 @@ public class PerfilEstudiante extends javax.swing.JDialog {
             txtNombres.setText(this.aC.getAlumno().getNombres());
             txtApellidos.setText(this.aC.getAlumno().getApellidos());
             txtIdentificacion.setText(this.aC.getAlumno().getIdentificacion());
+            calcularNumeroAsignaturas();
             txtTipoIdentificacion.setText(String.valueOf(this.aC.getAlumno().getTipoIdentificacion()));
             txtDireccion.setText(this.aC.getAlumno().getDireccion());
             txtTelefono.setText(this.aC.getAlumno().getTelefono());
@@ -64,13 +69,58 @@ public class PerfilEstudiante extends javax.swing.JDialog {
             txtCorreo.setText(this.aC.getAlumno().getCorreo());
             txtCorreoInstitucional.setText(this.aC.getAlumno().getCuenta().getUsuario());
             txtContraseniaInstitucional.setText(this.aC.getAlumno().getCuenta().getContrasenia());
-//            txtNumeroMaterias.setText(String.valueOf(this.aC.getAlumno().getMatriculas().getSize()));
+            calcularNumeroAsignaturas();
+            this.aC.getAlumno().setNumMaterias(SOMEBITS);
+            
             
         } else {
             JOptionPane.showMessageDialog(null, "Datos incompletos");
         }
     }
+    
+    public void calcularNumeroAsignaturas(){
+        obtenerUltimaMatricula();
+        try{
+        for(int i =0 ;i < mC.getMatriculaList().getSize(); i++){
+            if(mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()){
+                txtNumeroMaterias.setText(String.valueOf(mC.getMatriculaList().obtener(i).getCursa().getSize()));
+            }
+        }
+        }catch(Exception e){
+            System.out.println("Error en calcular el numero de asignaturas" + e);
+        }
+    }
+    public void obtenerUltimaMatricula() {
+        mC.setMatriculaList(Utilidades.listarMatriculas());
+        ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
+        try {
+            System.out.println("lista 1 : " + aC.getAlumno().getId());
+            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
+                System.out.println("lista " + mC.getMatriculaList().obtener(i).getAlumno().getNombres());
+                if (mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()) {
+                    matriculaList.insertar(mC.getMatriculaList().obtener(i));
+                }
 
+            }
+            System.out.println("SIZE DE matriculaList " + matriculaList.getSize());
+            if (matriculaList.getSize() > 1) {
+                for (int i = 1; i < matriculaList.getSize(); i++) {
+                    if (matriculaList.obtener(i - 1).getFechaEmision().after(matriculaList.obtener(i).getFechaEmision())) {
+                        mC.setMatricula(matriculaList.obtener(i - 1));
+                    } else {
+                        mC.setMatricula(matriculaList.obtener(i));
+                    }
+                }
+            } else {
+                mC.setMatricula(matriculaList.obtener(0));
+                System.out.println("ID DE MATRUCULA " + mC.getMatricula().getIdMatricula());
+            }
+        } catch (PosicionNoEncontradaException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (ListaNullException ex) {
+            Logger.getLogger(FrmEstidiante.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
     /**
      * Metodo para cargar el fondo del Dialog
      */
@@ -86,7 +136,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         cbxTipoIdentif = new javax.swing.JPanel();
         jLabel4 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel17 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
@@ -107,7 +156,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         jLabel14 = new javax.swing.JLabel();
         txtCorreo = new javax.swing.JTextField();
         txtTipoIdentificacion = new javax.swing.JTextField();
-        txtNumeroMatriculas = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         txtNumeroMaterias = new javax.swing.JTextField();
         lblNombresApellidos = new javax.swing.JLabel();
@@ -126,9 +174,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
 
         jLabel6.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel6.setText("Telefono:");
-
-        jLabel17.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
-        jLabel17.setText("Numero Matriculas");
 
         jLabel8.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel8.setText("Direccion: ");
@@ -205,13 +250,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
 
         txtTipoIdentificacion.setEnabled(false);
 
-        txtNumeroMatriculas.setEnabled(false);
-        txtNumeroMatriculas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtNumeroMatriculasActionPerformed(evt);
-            }
-        });
-
         jLabel10.setFont(new java.awt.Font("Segoe UI Light", 0, 14)); // NOI18N
         jLabel10.setText("Materias");
 
@@ -281,13 +319,9 @@ public class PerfilEstudiante extends javax.swing.JDialog {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtCorreoInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(cbxTipoIdentifLayout.createSequentialGroup()
-                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel17)
-                            .addComponent(jLabel19))
+                        .addComponent(jLabel19)
                         .addGap(18, 18, 18)
-                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtContraseniaInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroMatriculas, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtContraseniaInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, 197, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(103, Short.MAX_VALUE))
         );
         cbxTipoIdentifLayout.setVerticalGroup(
@@ -345,11 +379,7 @@ public class PerfilEstudiante extends javax.swing.JDialog {
                         .addGap(4, 4, 4)
                         .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtContraseniaInstitucional, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cbxTipoIdentifLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNumeroMatriculas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(16, Short.MAX_VALUE))
         );
 
@@ -460,10 +490,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
     private void txtCorreoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCorreoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtCorreoActionPerformed
-
-    private void txtNumeroMatriculasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNumeroMatriculasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtNumeroMatriculasActionPerformed
 
     private void btnEditarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnEditarActionPerformed
         // TODO add your handling code here:
@@ -598,7 +624,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
@@ -619,7 +644,6 @@ public class PerfilEstudiante extends javax.swing.JDialog {
     private javax.swing.JTextField txtIdentificacion;
     private javax.swing.JTextField txtNombres;
     private javax.swing.JTextField txtNumeroMaterias;
-    private javax.swing.JTextField txtNumeroMatriculas;
     private javax.swing.JTextField txtTelefono;
     private javax.swing.JTextField txtTipoIdentificacion;
     // End of variables declaration//GEN-END:variables

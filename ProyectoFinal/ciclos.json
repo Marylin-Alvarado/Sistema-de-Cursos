@@ -1,101 +1,123 @@
 {
   "cabecera": {
     "dato": {
-      "id": 1,
+      "id": 2,
       "nombre": "1er Ciclo",
       "asignaturas": {
         "cabecera": {
           "dato": {
             "id": 1,
-            "nombre": "Mate",
+            "nombre": "Historia",
             "paralelo": "A",
             "unidad": "I",
-            "docente": {},
-            "numeroHoras": 10
+            "docente": {
+              "idDocente": 2,
+              "tituloTercerNivel": "Licenciatura",
+              "tituloCuartoNivel": "PHD",
+              "aniosExpDocente": 5,
+              "aniosExpLaboral": 7,
+              "nombres": "Davidd",
+              "apellidos": "Campoverde",
+              "identificacion": "1105983041",
+              "direccion": "Mexico y Brasil",
+              "telefono": "0999349427",
+              "ciudad": "Loja",
+              "fechaNacimiento": "25/03/2004",
+              "genero": "MASCULINO",
+              "correo": ""
+            },
+            "numeroHoras": 12
           },
           "siguiente": {
             "dato": {
               "id": 2,
-              "nombre": "Lenguage y Literatura",
+              "nombre": "Filosofia",
               "paralelo": "A",
               "unidad": "I",
               "docente": {},
-              "numeroHoras": 30
-            },
-            "siguiente": {
-              "dato": {
-                "id": 2,
-                "nombre": "Lenguage y Literatura",
-                "paralelo": "A",
-                "unidad": "I",
-                "docente": {},
-                "numeroHoras": 30
-              },
-              "siguiente": {
-                "dato": {
-                  "id": 1,
-                  "nombre": "Historia",
-                  "paralelo": "A",
-                  "unidad": "I",
-                  "docente": {
-                    "idDocente": 2,
-                    "tituloTercerNivel": "Licenciatura",
-                    "tituloCuartoNivel": "PHD",
-                    "aniosExpDocente": 5,
-                    "aniosExpLaboral": 7,
-                    "nombres": "Davidd",
-                    "apellidos": "Campoverde",
-                    "identificacion": "1105983041",
-                    "direccion": "Mexico y Brasil",
-                    "telefono": "0999349427",
-                    "ciudad": "Loja",
-                    "fechaNacimiento": "25/03/2004",
-                    "genero": "MASCULINO",
-                    "correo": ""
-                  },
-                  "numeroHoras": 12
-                },
-                "siguiente": {
-                  "dato": {
-                    "id": 1,
-                    "nombre": "Mate",
-                    "paralelo": "A",
-                    "unidad": "I",
-                    "docente": {},
-                    "numeroHoras": 10
-                  }
-                }
-              }
+              "numeroHoras": 80
             }
           }
         },
-        "size": 5,
+        "size": 2,
         "ascendente": 1,
         "descendente": 2
       }
     },
     "siguiente": {
       "dato": {
-        "id": 2,
+        "id": 3,
         "nombre": "2do Ciclo",
         "asignaturas": {
           "cabecera": {
             "dato": {
-              "id": 1,
-              "nombre": "Mate",
+              "id": 3,
+              "nombre": "Filosofia II",
               "paralelo": "A",
               "unidad": "I",
-              "docente": {},
-              "numeroHoras": 10
+              "docente": {
+                "idDocente": 1,
+                "tituloTercerNivel": "Licenciatura",
+                "tituloCuartoNivel": "PHD",
+                "aniosExpDocente": 8,
+                "aniosExpLaboral": 8,
+                "asignaturas": {
+                  "size": 0,
+                  "ascendente": 1,
+                  "descendente": 2
+                },
+                "nombres": "Carlos",
+                "apellidos": "Astudillo",
+                "identificacion": "0788542621",
+                "direccion": "Bolivar y Lourdes",
+                "telefono": "0995215124",
+                "ciudad": "Loja",
+                "fechaNacimiento": "03/03/1985",
+                "genero": "MASCULINO",
+                "cuenta": {
+                  "id": 1,
+                  "usuario": "Carlos.Astudillo",
+                  "tipoUser": "Docente",
+                  "contrasenia": "0788542621",
+                  "estado": false
+                }
+              },
+              "numeroHoras": 100
             },
             "siguiente": {
               "dato": {
-                "id": 2,
-                "nombre": "Lenguage y Literatura",
+                "id": 5,
+                "nombre": "Historia II",
                 "paralelo": "A",
                 "unidad": "I",
-                "docente": {},
-                "numeroHoras": 30
+                "docente": {
+                  "idDocente": 1,
+                  "tituloTercerNivel": "Licenciatura",
+                  "tituloCuartoNivel": "PHD",
+                  "aniosExpDocente": 8,
+                  "aniosExpLaboral": 8,
+                  "asignaturas": {
+                    "size": 0,
+                    "ascendente": 1,
+                    "descendente": 2
+                  },
+                  "nombres": "Carlos",
+                  "apellidos": "Astudillo",
+                  "identificacion": "0788542621",
+                  "direccion": "Bolivar y Lourdes",
+                  "telefono": "0995215124",
+                  "ciudad": "Loja",
+                  "fechaNacimiento": "03/03/1985",
+                  "genero": "MASCULINO",
+                  "cuenta": {
+                    "id": 1,
+                    "usuario": "Carlos.Astudillo",
+                    "tipoUser": "Docente",
+                    "contrasenia": "0788542621",
+                    "estado": false
+                  }
+                },
+                "numeroHoras": 100
               }
             }
           },
@@ -106,89 +128,90 @@
       },
       "siguiente": {
         "dato": {
-          "id": 3,
+          "id": 4,
           "nombre": "3er Ciclo",
           "asignaturas": {
             "cabecera": {
               "dato": {
-                "id": 1,
-                "nombre": "Mate",
+                "id": 4,
+                "nombre": "Filosofia III",
                 "paralelo": "A",
                 "unidad": "I",
-                "docente": {},
-                "numeroHoras": 10
+                "docente": {
+                  "idDocente": 1,
+                  "tituloTercerNivel": "Licenciatura",
+                  "tituloCuartoNivel": "PHD",
+                  "aniosExpDocente": 8,
+                  "aniosExpLaboral": 8,
+                  "asignaturas": {
+                    "size": 0,
+                    "ascendente": 1,
+                    "descendente": 2
+                  },
+                  "nombres": "Carlos",
+                  "apellidos": "Astudillo",
+                  "identificacion": "0788542621",
+                  "direccion": "Bolivar y Lourdes",
+                  "telefono": "0995215124",
+                  "ciudad": "Loja",
+                  "fechaNacimiento": "03/03/1985",
+                  "genero": "MASCULINO",
+                  "cuenta": {
+                    "id": 1,
+                    "usuario": "Carlos.Astudillo",
+                    "tipoUser": "Docente",
+                    "contrasenia": "0788542621",
+                    "estado": false
+                  }
+                },
+                "numeroHoras": 100
               },
               "siguiente": {
                 "dato": {
-                  "id": 2,
-                  "nombre": "Lenguage y Literatura",
+                  "id": 6,
+                  "nombre": "Historia III",
                   "paralelo": "A",
                   "unidad": "I",
-                  "docente": {},
-                  "numeroHoras": 30
-                },
-                "siguiente": {
-                  "dato": {
-                    "id": 3,
-                    "nombre": "Historia",
-                    "paralelo": "A",
-                    "unidad": "I",
-                    "docente": {},
-                    "numeroHoras": 30
-                  }
+                  "docente": {
+                    "idDocente": 1,
+                    "tituloTercerNivel": "Licenciatura",
+                    "tituloCuartoNivel": "PHD",
+                    "aniosExpDocente": 8,
+                    "aniosExpLaboral": 8,
+                    "asignaturas": {
+                      "size": 0,
+                      "ascendente": 1,
+                      "descendente": 2
+                    },
+                    "nombres": "Carlos",
+                    "apellidos": "Astudillo",
+                    "identificacion": "0788542621",
+                    "direccion": "Bolivar y Lourdes",
+                    "telefono": "0995215124",
+                    "ciudad": "Loja",
+                    "fechaNacimiento": "03/03/1985",
+                    "genero": "MASCULINO",
+                    "cuenta": {
+                      "id": 1,
+                      "usuario": "Carlos.Astudillo",
+                      "tipoUser": "Docente",
+                      "contrasenia": "0788542621",
+                      "estado": false
+                    }
+                  },
+                  "numeroHoras": 100
                 }
               }
             },
-            "size": 3,
+            "size": 2,
             "ascendente": 1,
             "descendente": 2
-          }
-        },
-        "siguiente": {
-          "dato": {
-            "id": 4,
-            "nombre": "4toCiclo",
-            "asignaturas": {
-              "cabecera": {
-                "dato": {
-                  "id": 1,
-                  "nombre": "Mate",
-                  "paralelo": "A",
-                  "unidad": "I",
-                  "docente": {},
-                  "numeroHoras": 10
-                },
-                "siguiente": {
-                  "dato": {
-                    "id": 2,
-                    "nombre": "Lenguage y Literatura",
-                    "paralelo": "A",
-                    "unidad": "I",
-                    "docente": {},
-                    "numeroHoras": 30
-                  },
-                  "siguiente": {
-                    "dato": {
-                      "id": 3,
-                      "nombre": "Historia",
-                      "paralelo": "A",
-                      "unidad": "I",
-                      "docente": {},
-                      "numeroHoras": 30
-                    }
-                  }
-                }
-              },
-              "size": 3,
-              "ascendente": 1,
-              "descendente": 2
-            }
           }
         }
       }
     }
   },
-  "size": 4,
+  "size": 3,
   "ascendente": 1,
   "descendente": 2
 }

@@ -80,9 +80,272 @@
         "descendente": 2
       },
       "promedioGeneral": 0.0
+    },
+    "siguiente": {
+      "dato": {
+        "idMatricula": 2,
+        "fechaEmision": "Feb 16, 2023, 10:17:28 PM",
+        "periodo": {
+          "idPeriodo": 1,
+          "mesInicio": "ENERO",
+          "mesFin": "ENERO",
+          "especificacion": "111"
+        },
+        "alumno": {
+          "id": 4,
+          "nombres": "Chenoa",
+          "apellidos": "Cabrera",
+          "identificacion": "112120121",
+          "direccion": "Loja",
+          "telefono": "0987712811",
+          "ciudad": "Loja",
+          "fechaNacimiento": "11/10/2003",
+          "genero": "FEMENINO",
+          "cuenta": {
+            "id": 3,
+            "usuario": "Chenoa.Cabrera",
+            "tipoUser": "Alumno",
+            "contrasenia": "112120121",
+            "estado": false
+          }
+        },
+        "cursa": {
+          "cabecera": {
+            "dato": {
+              "asignatura": {
+                "id": 2,
+                "nombre": "Filosofia",
+                "paralelo": "A",
+                "unidad": "I",
+                "docente": {},
+                "numeroHoras": 80
+              },
+              "horasAsistidas": 0,
+              "notaFinal": {},
+              "estadoAsignatura": "REPROBADA"
+            },
+            "siguiente": {
+              "dato": {
+                "asignatura": {
+                  "id": 2,
+                  "nombre": "Filosofia",
+                  "paralelo": "A",
+                  "unidad": "I",
+                  "docente": {},
+                  "numeroHoras": 80
+                },
+                "horasAsistidas": 0,
+                "notaFinal": {},
+                "estadoAsignatura": "REPROBADA"
+              }
+            }
+          },
+          "size": 2,
+          "ascendente": 1,
+          "descendente": 2
+        },
+        "promedioGeneral": 0.0
+      },
+      "siguiente": {
+        "dato": {
+          "idMatricula": 3,
+          "fechaEmision": "Feb 16, 2023, 10:31:12 PM",
+          "periodo": {
+            "idPeriodo": 1,
+            "mesInicio": "ENERO",
+            "mesFin": "ENERO",
+            "especificacion": "111"
+          },
+          "alumno": {
+            "id": 5,
+            "nombres": "Cristian",
+            "apellidos": "Santin",
+            "identificacion": "1011045678",
+            "direccion": "Loja",
+            "telefono": "0965436543",
+            "ciudad": "Loja",
+            "fechaNacimiento": "10/11/2002",
+            "genero": "MASCULINO",
+            "cuenta": {
+              "id": 4,
+              "usuario": "Cristian.Santin",
+              "tipoUser": "Alumno",
+              "contrasenia": "1011045678",
+              "estado": false
+            }
+          },
+          "cursa": {
+            "cabecera": {
+              "dato": {
+                "asignatura": {
+                  "id": 2,
+                  "nombre": "Filosofia",
+                  "paralelo": "A",
+                  "unidad": "I",
+                  "docente": {},
+                  "numeroHoras": 80
+                },
+                "horasAsistidas": 0,
+                "notaFinal": {},
+                "estadoAsignatura": "REPROBADA"
+              },
+              "siguiente": {
+                "dato": {
+                  "asignatura": {
+                    "id": 2,
+                    "nombre": "Filosofia",
+                    "paralelo": "A",
+                    "unidad": "I",
+                    "docente": {},
+                    "numeroHoras": 80
+                  },
+                  "horasAsistidas": 0,
+                  "notaFinal": {},
+                  "estadoAsignatura": "REPROBADA"
+                }
+              }
+            },
+            "size": 2,
+            "ascendente": 1,
+            "descendente": 2
+          },
+          "promedioGeneral": 0.0
+        },
+        "siguiente": {
+          "dato": {
+            "idMatricula": 4,
+            "fechaEmision": "Feb 16, 2023, 10:32:54 PM",
+            "periodo": {
+              "idPeriodo": 1,
+              "mesInicio": "ENERO",
+              "mesFin": "ENERO",
+              "especificacion": "111"
+            },
+            "alumno": {
+              "id": 1,
+              "nombres": "David",
+              "apellidos": "Campoverde",
+              "identificacion": "1105983041",
+              "direccion": "Mexico y Brasil",
+              "telefono": "0999349427",
+              "ciudad": "Loja",
+              "fechaNacimiento": "25/03/2004",
+              "genero": "MASCULINO",
+              "cuenta": {
+                "id": 2,
+                "usuario": "David.Campoverde",
+                "tipoUser": "Alumno",
+                "contrasenia": "1105983041",
+                "estado": false
+              },
+              "correo": "davidCampoverde@gmail.com"
+            },
+            "cursa": {
+              "cabecera": {
+                "dato": {
+                  "asignatura": {
+                    "id": 5,
+                    "nombre": "Historia II",
+                    "paralelo": "A",
+                    "unidad": "I",
+                    "docente": {
+                      "idDocente": 1,
+                      "tituloTercerNivel": "Licenciatura",
+                      "tituloCuartoNivel": "PHD",
+                      "aniosExpDocente": 8,
+                      "aniosExpLaboral": 8,
+                      "asignaturas": {
+                        "size": 0,
+                        "ascendente": 1,
+                        "descendente": 2
+                      },
+                      "nombres": "Carlos",
+                      "apellidos": "Astudillo",
+                      "identificacion": "0788542621",
+                      "direccion": "Bolivar y Lourdes",
+                      "telefono": "0995215124",
+                      "ciudad": "Loja",
+                      "fechaNacimiento": "03/03/1985",
+                      "genero": "MASCULINO",
+                      "cuenta": {
+                        "id": 1,
+                        "usuario": "Carlos.Astudillo",
+                        "tipoUser": "Docente",
+                        "contrasenia": "0788542621",
+                        "estado": false
+                      }
+                    },
+                    "numeroHoras": 100
+                  },
+                  "horasAsistidas": 0,
+                  "notaFinal": {
+                    "aprendizajeA": 8.0,
+                    "trabajoE": 8.0,
+                    "acompanamientoD": 8.0,
+                    "evaluacion": 8.0,
+                    "notaTotal": 8.0
+                  },
+                  "estadoAsignatura": "APROBADA"
+                },
+                "siguiente": {
+                  "dato": {
+                    "asignatura": {
+                      "id": 5,
+                      "nombre": "Historia II",
+                      "paralelo": "A",
+                      "unidad": "I",
+                      "docente": {
+                        "idDocente": 1,
+                        "tituloTercerNivel": "Licenciatura",
+                        "tituloCuartoNivel": "PHD",
+                        "aniosExpDocente": 8,
+                        "aniosExpLaboral": 8,
+                        "asignaturas": {
+                          "size": 0,
+                          "ascendente": 1,
+                          "descendente": 2
+                        },
+                        "nombres": "Carlos",
+                        "apellidos": "Astudillo",
+                        "identificacion": "0788542621",
+                        "direccion": "Bolivar y Lourdes",
+                        "telefono": "0995215124",
+                        "ciudad": "Loja",
+                        "fechaNacimiento": "03/03/1985",
+                        "genero": "MASCULINO",
+                        "cuenta": {
+                          "id": 1,
+                          "usuario": "Carlos.Astudillo",
+                          "tipoUser": "Docente",
+                          "contrasenia": "0788542621",
+                          "estado": false
+                        }
+                      },
+                      "numeroHoras": 100
+                    },
+                    "horasAsistidas": 0,
+                    "notaFinal": {
+                      "aprendizajeA": 9.0,
+                      "trabajoE": 9.0,
+                      "acompanamientoD": 9.0,
+                      "evaluacion": 9.0,
+                      "notaTotal": 9.0
+                    },
+                    "estadoAsignatura": "APROBADA"
+                  }
+                }
+              },
+              "size": 2,
+              "ascendente": 1,
+              "descendente": 2
+            },
+            "promedioGeneral": 0.0
+          }
+        }
+      }
     }
   },
-  "size": 1,
+  "size": 4,
   "ascendente": 1,
   "descendente": 2
 }
