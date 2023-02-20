@@ -97,10 +97,21 @@ public class Utilidades {
         return cbx;
     }
     
+    /**
+     * Metodo para cargar las secciones
+     * @param cbx
+     * @return 
+     */
     public static Seccion getComboSecciones(JComboBox cbx){
         return (Seccion) cbx.getSelectedItem();
     }
     
+    /**
+     * Metodo para cargar las mallas 
+     * @param cbx
+     * @param malla
+     * @return 
+     */
     public static JComboBox cargarMallas(JComboBox cbx, ListaEnlazada<Malla> malla) {
         cbx.removeAllItems();
         for(int i = 0; i < malla.getSize(); i++){
@@ -112,10 +123,20 @@ public class Utilidades {
         return cbx;
     }
     
+    /**
+     * Metodo para obtner el comboBox con el nombre de las mallas
+     * @param cbx
+     * @return 
+     */
     public static Malla getComboMallas(JComboBox cbx){
         return (Malla) cbx.getSelectedItem();
     }
 
+    /**
+     * Metodo para obtener el comboBox con el nombre de los meses
+     * @param cbx
+     * @return 
+     */
     public static JComboBox cargarMeses(JComboBox cbx) {
         cbx.removeAllItems();
         for (Meses mes : Meses.values()) {
@@ -794,7 +815,12 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-    
+    /**
+     * Metodo para eliminar el docente del archivo json
+     * @param posicionDocente
+     * @throws ListaVaciaException
+     * @throws PosicionNoEncontradaException 
+     */
      public static void eliminarDocente(Integer posicionDocente) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Docente> lista = listarDocentes();
         lista.eliminar(posicionDocente);
@@ -807,6 +833,12 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
+     /**
+      * Metodo para eliminar la matricula del archivo json
+      * @param posicionMatricula
+      * @throws ListaVaciaException
+      * @throws PosicionNoEncontradaException 
+      */
      public static void eliminarMatricula(Integer posicionMatricula) throws ListaVaciaException, PosicionNoEncontradaException {
         ListaEnlazada<Matricula> lista = listarMatriculas();
         lista.eliminar(posicionMatricula);
@@ -819,7 +851,10 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-     
+     /**
+      * Metodo para guardar la malla 
+      * @param malla 
+      */
      public static void guardarMalla(Malla malla) {
         ListaEnlazada<Malla> lista = listarMallas();
         lista.insertar(malla);
@@ -832,7 +867,10 @@ public class Utilidades {
             System.out.println("Error en el metodo de guardar en utilidades: " + e);
         }
     }
-     
+     /**
+      * Metodo para obtner las mallas del archivo local
+      * @return 
+      */
     public static ListaEnlazada<Malla> listarMallas() {
         ListaEnlazada<Malla> lista = new ListaEnlazada<>();
         String json = "";
@@ -853,7 +891,11 @@ public class Utilidades {
         return lista;
     }
     
-     
+    
+    /**
+     * Metodo para guardar la carrera en el archivo json
+     * @param carrera 
+     */
     public static void guardarCarrera(Carrera carrera) {
         ListaEnlazada<Carrera> lista = listarCarreras();
         lista.insertar(carrera);
@@ -867,6 +909,10 @@ public class Utilidades {
         }
     }
     
+    /**
+     * Metodo para obtner las carreras del archivo json local
+     * @return 
+     */
     public static ListaEnlazada<Carrera> listarCarreras() {
         ListaEnlazada<Carrera> lista = new ListaEnlazada<>();
         String json = "";

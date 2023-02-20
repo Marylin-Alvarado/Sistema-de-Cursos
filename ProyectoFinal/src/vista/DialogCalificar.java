@@ -23,7 +23,7 @@ import modelo.Nota;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ *Clase par poder asignar una calificaicon a un estudiante especifico
  * @author TecnoeXtrem
  */
 public class DialogCalificar extends javax.swing.JDialog {
@@ -58,6 +58,9 @@ public class DialogCalificar extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
 
+    /**
+     * Metdo para cargar los datos capturados del controlador
+     */
     public void actualizarLabels() {
         lblNombreEstudiante.setText(alumnController.getAlumno().getNombres() + " " + alumnController.getAlumno().getApellidos());
         try {
@@ -68,6 +71,9 @@ public class DialogCalificar extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Clase para cargar fondo
+     */
     class FondoPanel extends JPanel {
 
         private Image image;
@@ -260,6 +266,10 @@ public class DialogCalificar extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
+    /**
+     * Metodo para asignar una calificacion a un estudiante especifico 
+     * Recibe como paramtros las notas de los txt impuestos y calcular la nota gracias al metodo de su controlador
+     */
     public void asignarCalificacion() {
         try {
             System.out.println("Imprimir cursa " + cursaC.getCursaList().obtener(0).getAsignatura());

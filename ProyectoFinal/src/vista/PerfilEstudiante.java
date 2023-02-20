@@ -52,9 +52,15 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
 
+    /**
+     * Metodo para cargar los comboBox de la vista
+     */
     public void cargarCombos() {
         Utilidades.cargarComboGenero(cbxGenero);
     }
+    /**
+     * Metodo para cargar la informacion del alumno en la vista
+     */
     public void cargarAlumno() {
         if (this.aC.getAlumno() != null) {
             lblNombresApellidos.setText(this.aC.getAlumno().getNombres() + " " + this.aC.getAlumno().getApellidos());
@@ -78,6 +84,9 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         }
     }
     
+    /**
+     * Metodo para calcular el umeros de asignaturas de la ultima matricula
+     */
     public void calcularNumeroAsignaturas(){
         obtenerUltimaMatricula();
         try{
@@ -90,6 +99,9 @@ public class PerfilEstudiante extends javax.swing.JDialog {
             System.out.println("Error en calcular el numero de asignaturas" + e);
         }
     }
+    /**
+     * Metodo para obtener la ultima matriculada registrada
+     */
     public void obtenerUltimaMatricula() {
         mC.setMatriculaList(Utilidades.listarMatriculas());
         ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
@@ -554,6 +566,9 @@ public class PerfilEstudiante extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metodo para cargar el fondo del Dialog
+     */
     class FondoPanel extends JPanel {
 
         private Image image;

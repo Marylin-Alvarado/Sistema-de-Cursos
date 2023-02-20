@@ -21,7 +21,7 @@ import modelo.Matricula;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ *Vista para poder asignar asistencia a un alumno especifico
  * @author TecnoeXtrem
  */
 public class DialogAsignarAsistencia extends javax.swing.JDialog {
@@ -166,6 +166,10 @@ public class DialogAsignarAsistencia extends javax.swing.JDialog {
         asignarAsistencia();
     }//GEN-LAST:event_btnAsignarActionPerformed
 
+    /**
+     * Metodo para poder asignar la asistencia a un estudiante
+     * Captura el numero de horas del estudiante y calcula el porcentaje usando el metodo de su controler
+     */
     public void asignarAsistencia() {
         cursaC.getCursa().setHorasAsistidas(Integer.parseInt(txtHorasAsistidas.getText()));
         cursaC.calcularPorcentajeHorasAsistidas();
@@ -235,6 +239,9 @@ public class DialogAsignarAsistencia extends javax.swing.JDialog {
         });
     }
 
+    /**
+     * Clase para cargar fondo
+     */
     class FondoPanel extends JPanel {
 
         private Image image;

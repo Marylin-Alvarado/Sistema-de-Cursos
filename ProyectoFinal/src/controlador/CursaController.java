@@ -69,6 +69,10 @@ public class CursaController {
         }
     }
 
+    /**
+     * Método para calcular el porcentaje de horas asistidas en una asignatura
+     * de una determinada matrícula
+     */
     public void calcularNotaFinal(Nota nota) {
         try {
             nota.setNotaTotal((nota.getAcompanamientoD() * 0.2f) + (nota.getTrabajoE() * 0.25f) + (nota.getAprendizajeA() * 0.2f) + (nota.getEvaluacion() * 0.35f));
@@ -93,7 +97,13 @@ public class CursaController {
             cursa.setEstadoAsignatura(Estado.REPROBADA);
         }
     }
-
+    
+    /**
+     * Método para determinar, en base la nota final, si una matrícula aprobó o
+     * no determinada asignatura
+     *
+     * @param cursa
+     */
     public Estado determinarEstadoAsignaturaObjeto(Cursa cursa) {
         if (cursa.getNotaFinal().getNotaTotal() >= 7) {
             return Estado.APROBADA;

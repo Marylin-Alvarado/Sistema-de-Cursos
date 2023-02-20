@@ -26,7 +26,7 @@ import vista.Tabla.ModeloTablaMatriculas;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase para matricular a estudiante
  * @author TecnoeXtrem
  */
 public class DialogMatriculas extends javax.swing.JDialog {
@@ -494,6 +494,9 @@ public class DialogMatriculas extends javax.swing.JDialog {
         eliminarMatricula();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /**
+     * Metodo para eliminar la metricula escojida
+     */
     public void eliminarMatricula(){
         if(tblPrincipal.getSelectedRow() >= 0 ){
             try {

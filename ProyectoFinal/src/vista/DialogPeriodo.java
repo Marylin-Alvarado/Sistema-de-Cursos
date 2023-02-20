@@ -35,6 +35,9 @@ public class DialogPeriodo extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
     
+    /**
+     * Metodo para cargar los comboxBox presentes en la vista 
+     */
     public void cargarCombos(){
         Utilidades.cargarMeses(cbxMesInicio);
         Utilidades.cargarMeses(cbxMesFinal);
@@ -285,6 +288,9 @@ public class DialogPeriodo extends javax.swing.JDialog {
         eliminar();
     }//GEN-LAST:event_btnEliminarActionPerformed
 
+    /*
+    Metodo para eliminar el periodo escojido
+    */
     public void eliminar(){
         if(tblPeriodo.getSelectedRow() >= 0 ){
             try {
@@ -323,13 +329,20 @@ public class DialogPeriodo extends javax.swing.JDialog {
         inicio.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
+    /**
+     * Metodo para cargar la tabla con los periodos isponibles
+     */
     public void cargarTabla(){
         pC.setPeriodoList(Utilidades.listarPeriodos());
         mtp.setPeriodoList(Utilidades.listarPeriodos());
         tblPeriodo.setModel(mtp);
         tblPeriodo.updateUI();
     }
-     public void crearPeriodo(){
+    
+    /**
+     * Metodo para crear un periodo 
+     */
+    public void crearPeriodo(){
         if (txtEspecificacion.getText().isEmpty()){
             JOptionPane.showMessageDialog(null, "Datos incompletos");
         }else{

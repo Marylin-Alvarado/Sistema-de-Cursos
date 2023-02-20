@@ -22,7 +22,7 @@ import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase para cargar la informacion del Docente
  * @author SONY VAIO
  */
 public class FrmPerfilDocente extends javax.swing.JDialog {
@@ -66,7 +66,10 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
         Utilidades.cargarComboGenero(cbxGenero);
         Utilidades.cargarAsignaturas(cbxMaterias, obtenerAsignaturas());
     }
-
+    /**
+     * Metodo para obtner las asignatura en las que imparte orden el docente
+     * @return 
+     */
     public ListaEnlazada<Asignatura> obtenerAsignaturas(){
         aC.setAsignatursList(Utilidades.listarAsignaturas());
         ListaEnlazada<Asignatura> asignaturaList = new ListaEnlazada<>();
@@ -642,6 +645,9 @@ public class FrmPerfilDocente extends javax.swing.JDialog {
     private void cbxMateriasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxMateriasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxMateriasActionPerformed
+    /**
+     * Clase para cargar el fondo del Dialog
+     */
     class FondoPanel extends JPanel {
 
         private Image image;

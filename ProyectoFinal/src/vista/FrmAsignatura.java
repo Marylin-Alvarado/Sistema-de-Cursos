@@ -21,7 +21,7 @@ import vista.Tabla.ModeloTablaAsignatura;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase de CRUD de asignaturas
  * @author Marylin
  */
 
@@ -40,11 +40,16 @@ public class FrmAsignatura extends javax.swing.JDialog {
         setLocationRelativeTo(this);
         
     }
+    /**
+     * Metodo para cargar los comboBox presentes en la vista
+     */
      public void CargarCombos() {
     // Utilidades.cargarUnidades(cbxUnidad);
      Utilidades.cargarDocentes(cbxDocente, Utilidades.listarDocentes());
     }
-     
+     /*
+     Metodo para cargar la tabla con las asignaturas registradas
+     */
     public void cargarTabla() {
 
         mta.setListaAsignaturas(Utilidades.listarAsignaturas());
@@ -359,6 +364,11 @@ public class FrmAsignatura extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    /**
+     * Metodo para eliminar la asignatura seleccionada
+     * @throws PosicionNoEncontradaException
+     * @throws ListaVaciaException 
+     */
     public void eliminarMateria() throws PosicionNoEncontradaException, ListaVaciaException{
         if(tblAsignatura.getSelectedRow() >= 0 ){
             Utilidades.eliminarMatricula(tblAsignatura.getSelectedRow());
@@ -366,7 +376,11 @@ public class FrmAsignatura extends javax.swing.JDialog {
         }
     }
     
-    
+    /**
+     * Metodo paramodificar la asignatura seleccionada
+     * @throws PosicionNoEncontradaException
+     * @throws ListaNullException 
+     */
     public void modificarAsignatura() throws PosicionNoEncontradaException, ListaNullException {
         if (tblAsignatura.getSelectedRow() >= 0) {
             if (!txtNombre.getText().isEmpty() || !txtNumeroHoras.getText().isEmpty()) {
@@ -388,6 +402,9 @@ public class FrmAsignatura extends javax.swing.JDialog {
 //        aC.getAsignatursList().obtener(ERROR);
     }
     
+    /**
+     * Metodo para guardar los datos de la asignatura registrasa
+     */
     public void guardar() {
         aC.getAsignatura().setNombre(txtNombre.getText());
         aC.getAsignatura().setParalelo(((String) cbxParalelo.getSelectedItem()).charAt(0));

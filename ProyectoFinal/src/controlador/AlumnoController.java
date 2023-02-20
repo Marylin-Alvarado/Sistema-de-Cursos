@@ -32,10 +32,15 @@ public class AlumnoController {
         this.alumno = alumno;
     }
     
+    /*
+    Metodo ara generar un usaurio al momento de registrarse
+    */
     public void generarUsuario(){
         getAlumno().getCuenta().setUsuario(getAlumno().getNombres() + "." + getAlumno().getApellidos());
     }
-    
+    /**
+     * Metodo para generar constrasenia al momento de registrarse
+     */
     public void generarContrasenia(){
         getAlumno().getCuenta().setContrasenia(getAlumno().getNombres() + "-" + getAlumno().getApellidos() + "password" );
     }

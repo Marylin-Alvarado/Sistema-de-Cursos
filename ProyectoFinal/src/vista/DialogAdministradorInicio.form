@@ -61,10 +61,9 @@
                       <Component id="lblAdministradorDocentes" max="32767" attributes="0"/>
                       <Component id="lblAdministradorCarreras" max="32767" attributes="0"/>
                       <Component id="lblAdministradorAlumnos" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblAdministradorAsignaturas" alignment="0" max="32767" attributes="0"/>
+                      <Component id="lblAdministradorAsignaturas" alignment="0" pref="220" max="32767" attributes="0"/>
                       <Component id="btnRegresar" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblAdministradorAsistencias" alignment="0" max="32767" attributes="0"/>
-                      <Component id="lblAdministradorAdministradores" alignment="0" max="32767" attributes="0"/>
                       <Component id="lblAdministradorCuentas1" alignment="1" max="32767" attributes="0"/>
                       <Component id="lblAdministradorAsignaturas1" alignment="1" max="32767" attributes="0"/>
                       <Component id="lblAdministradorAsignaturas2" alignment="0" max="32767" attributes="0"/>
@@ -76,9 +75,7 @@
         <DimensionLayout dim="1">
           <Group type="103" groupAlignment="0" attributes="0">
               <Group type="102" alignment="1" attributes="0">
-                  <EmptySpace max="-2" attributes="0"/>
-                  <Component id="lblAdministradorAdministradores" min="-2" max="-2" attributes="0"/>
-                  <EmptySpace max="-2" attributes="0"/>
+                  <EmptySpace min="-2" pref="44" max="-2" attributes="0"/>
                   <Component id="lblAdministradorCarreras" min="-2" max="-2" attributes="0"/>
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Component id="lblAdministradorCuentas1" min="-2" max="-2" attributes="0"/>
@@ -194,18 +191,6 @@
           </Properties>
           <Events>
             <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAdministradorCuentasMouseClicked"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JLabel" name="lblAdministradorAdministradores">
-          <Properties>
-            <Property name="horizontalAlignment" type="int" value="0"/>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="3" name="/img/IconoAdministrador.png"/>
-            </Property>
-            <Property name="text" type="java.lang.String" value="ADMINISTRAR ADMINISTRADORES"/>
-          </Properties>
-          <Events>
-            <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="lblAdministradorAdministradoresMouseClicked"/>
           </Events>
         </Component>
         <Component class="javax.swing.JLabel" name="lblAdministradorCuentas1">

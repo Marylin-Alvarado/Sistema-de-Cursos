@@ -26,7 +26,7 @@ import vista.Tabla.ModeloTablaCompanieroEstudiante;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase para visualizar los metodos y datos disponibles para el docente
  * @author TecnoeXtrem
  */
 public class FrmDocente extends javax.swing.JDialog {
@@ -58,15 +58,24 @@ public class FrmDocente extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
 
+    /**
+     * Metodo para cambiar los datos de los labels mediante los datos obtenenidos de los controlers
+     */
     public void cambiarLabels() {
         lblNombreDocente.setText(dC.getDocente().getNombres() + " " + dC.getDocente().getApellidos());
     }
 
+    /**
+     * Metodo para cargar los comboBox 
+     */
     public void cargarCombos() {
         asigC.setAsignatursList(obtenerAsignaturas());
         Utilidades.cargarAsignaturas(cbxAsignaturas, asigC.getAsignatursList());
     }
-
+    /**
+     * Metodo para obtner las materias en las que esta un determinado docente
+     * @return 
+     */
     public ListaEnlazada<Asignatura> obtenerAsignaturas() {
         asigC.setAsignatursList(Utilidades.listarAsignaturas());
         ListaEnlazada<Asignatura> asignaturaList = new ListaEnlazada<>();
@@ -336,6 +345,9 @@ public class FrmDocente extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnAsistenciaActionPerformed
 
+    /**
+     * Metodo para cargar la tabla de los estudiantes de una matricula especifica
+     */
     public void cargarTablaEstudiantes() {
         cargarInfoEstudiantes();
         mtad.setAlumnoList(alumControler.getAlumnoList());
@@ -346,6 +358,9 @@ public class FrmDocente extends javax.swing.JDialog {
         tblPrincipal.updateUI();
     }
 
+    /**
+     * Metodo para obtener los estudiantes de una materia especifica
+     */
     public void cargarInfoEstudiantes() {
         mC.setMatriculaList(obtenerMatriculas());
         Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
@@ -370,6 +385,10 @@ public class FrmDocente extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metodo para obtener las ultimas matriculas de los estudiantes 
+     * @return 
+     */
     public ListaEnlazada<Matricula> obtenerMatriculas() {
         mC.setMatriculaList(Utilidades.listarMatriculas());
         ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
@@ -405,6 +424,9 @@ public class FrmDocente extends javax.swing.JDialog {
 
     /**
      * @param args the command line arguments
+     */
+    /**
+     * Clase para cargar el fondo del Dialog
      */
     class FondoPanel extends JPanel {
 

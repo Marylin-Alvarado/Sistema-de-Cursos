@@ -24,7 +24,7 @@ import modelo.enums.Generos;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase para visualizar la informacion del estudiante
  * @author SONY VAIO
  */
 public class VistaPerfilEstudiante extends javax.swing.JDialog {
@@ -57,9 +57,15 @@ public class VistaPerfilEstudiante extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
 
+    /**
+     * Metodo para cagar la informacion en los comboBox presentes
+     */
     public void cargarCombos() {
         Utilidades.cargarComboGenero(cbxGenero);
     }
+    /**
+     * Metodo para cargar la inforacion del estudiante en la vista
+     */
     public void cargarAlumno() {
         if (this.aC.getAlumno() != null) {
             lblNombresApellidos.setText(this.aC.getAlumno().getNombres() + " " + this.aC.getAlumno().getApellidos());
@@ -79,6 +85,9 @@ public class VistaPerfilEstudiante extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(null, "Datos incompletos");
         }
     }
+    /**
+     * Metodo para calcular el numero de asignaturas de la ultima matricula
+     */
     
     public void calcularNumeroAsignaturas(){
         obtenerUltimaMatricula();
@@ -92,7 +101,9 @@ public class VistaPerfilEstudiante extends javax.swing.JDialog {
             System.out.println("Error en calcular el numero de asignaturas" + e);
         }
     }
-    
+    /**
+     * Metodo para obtener la ultima matriculada registrada
+     */
     public void obtenerUltimaMatricula() {
         mC.setMatriculaList(Utilidades.listarMatriculas());
         ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
@@ -458,43 +469,10 @@ public class VistaPerfilEstudiante extends javax.swing.JDialog {
         this.dispose();
     }//GEN-LAST:event_btnRegresarActionPerformed
 
-    public void guardarAlumno() {
-        if (!txtNombres.getText().equals(aC.getAlumno().getNombres()) || !txtApellidos.getText().equals(aC.getAlumno().getApellidos())
-                || !txtDireccion.getText().equals(aC.getAlumno().getDireccion()) || !txtTelefono.getText().equals(aC.getAlumno().getTelefono())
-                || !txtTelefono.getText().equals(aC.getAlumno().getTelefono()) || !txtCiudad.getText().equals(aC.getAlumno().getCiudad())
-                || !cbxGenero.getSelectedItem().equals(aC.getAlumno().getGenero()) || !txtCorreo.getText().equals(aC.getAlumno().getCorreo())
-                || !txtContraseniaInstitucional.getText().equals(aC.getAlumno().getCuenta().getContrasenia())) {
-            aC.getAlumno().setNombres(txtNombres.getText());
-            aC.getAlumno().setApellidos(txtApellidos.getText());
-            aC.getAlumno().setDireccion(txtDireccion.getText());
-            aC.getAlumno().setTelefono(txtTelefono.getText());
-            aC.getAlumno().setCiudad(txtCiudad.getText());
-            aC.getAlumno().setGenero((Generos) cbxGenero.getSelectedItem());
-            aC.getAlumno().setCorreo(txtCorreo.getText());
-            aC.getAlumno().getCuenta().setContrasenia(txtContraseniaInstitucional.getText());
 
-            aC.setAlumnoList(Utilidades.listarAlumnos());
-            for (int i = 0; i < aC.getAlumnoList().getSize(); i++) {
-                try {
-                    if (aC.getAlumnoList().obtener(i).getIdAlumno() == aC.getAlumno().getIdAlumno()) {
-                        try {
-                            Utilidades.modificarAlumno(aC.getAlumno(), i);
-                        } catch (PosicionNoEncontradaException ex) {
-                            Logger.getLogger(VistaPerfilEstudiante.class.getName()).log(Level.SEVERE, null, ex);
-                        }
-                        JOptionPane.showMessageDialog(null, "No ha modificado el alumno correctamente");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "No se ha podido modificar ");
-                    }
-                } catch (PosicionNoEncontradaException ex) {
-                    Logger.getLogger(VistaPerfilEstudiante.class.getName()).log(Level.SEVERE, null, ex);
-                } catch (ListaNullException ex) {
-                    Logger.getLogger(VistaPerfilEstudiante.class.getName()).log(Level.SEVERE, null, ex);
-                }
-            }
-        }
-    }
-
+    /**
+     * Clase para cambiar el fondo del JDialog
+     */
     class FondoPanel extends JPanel {
 
         private Image image;

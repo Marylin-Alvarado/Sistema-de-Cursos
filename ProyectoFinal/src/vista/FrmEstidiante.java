@@ -26,7 +26,7 @@ import vista.Tabla.ModeloTablaMatriculas;
 import vista.Utilidades.Utilidades;
 
 /**
- *
+ * Clase para visualizar los datos del estudiante e implementar metodos creados
  * @author SONY VAIO
  */
 public class FrmEstidiante extends javax.swing.JDialog {
@@ -64,6 +64,9 @@ public class FrmEstidiante extends javax.swing.JDialog {
         this.setLocationRelativeTo(this);
     }
 
+    /**
+     * Metodo para obtener la notaFinal del estudiante 
+     */
     public void calcularNotaEstudiante() {
         Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
         try {
@@ -77,13 +80,13 @@ public class FrmEstidiante extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metodo para cargar la informacion del estudiante en los labels 
+     */
     public void cargarEstudiante() {
         lblNombreEstudiatnte.setText(aC.getAlumno().getNombres() + " " + aC.getAlumno().getApellidos());
         calcularNotaEstudiante();
     }
-//    public void cargarTabla() {
-//        tblInicial.updateUI();
-//    }
 
     /**
      * Metodo para cargar los comboBox del Dialog por medio de las utilidades
@@ -94,9 +97,11 @@ public class FrmEstidiante extends javax.swing.JDialog {
         Utilidades.cargarAsignaturas(cbxAsignaturas, asigC.getAsignatursList());
     }
 
+    /**
+     * Metodo para las asignaturas del estudiante 
+     */
     public void obtenerAsignaturas() {
         try {
-            System.out.println("Size de cursa " + mC.getMatricula().getCursa().getSize());
             for (int i = 0; i < mC.getMatricula().getCursa().getSize(); i++) {
                 asigC.getAsignatursList().insertar(mC.getMatricula().getCursa().obtener(i).getAsignatura());
             }
@@ -107,6 +112,9 @@ public class FrmEstidiante extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metodo para calcular la ultima matricula del estudiante registrado
+     */
     public void obtenerUltimaMatricula() {
         mC.setMatriculaList(Utilidades.listarMatriculas());
         ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
@@ -162,6 +170,9 @@ public class FrmEstidiante extends javax.swing.JDialog {
         tblInicial.setModel(mtm);
         tblInicial.updateUI();
     }
+    /**
+     * Metodo para cargar la informacion de los estudiantes compa;eros del presentes 
+     */
 
     public void cargarTablaCompanieros() {
         calcularAsignaturas();
@@ -170,21 +181,19 @@ public class FrmEstidiante extends javax.swing.JDialog {
         tblInicial.setModel(mtce);
         tblInicial.updateUI();
     }
-
+    
+    /**
+     * Metodo para obtner los alumnos que coinciden en la misma matricula
+     */
     public void calcularAsignaturas() {
         mC.setMatriculaList(obtenerMatriculas());
-        System.out.println("Mc size " + mC.getMatriculaList().getSize());
         Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
-        System.out.println("nombre " + a.getNombre());
         try {
 
             for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
                 for (int j = 0; j < mC.getMatriculaList().obtener(i).getCursa().getSize(); j++) {
-//                    System.out.println("FOR " + mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre());
-                    System.out.println("j " + j);
                     if (a.getNombre().equals(mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre())) {
                         aC.getAlumnoList().insertar(mC.getMatriculaList().obtener(i).getAlumno());
-                        System.out.println("Estudiante " + j);
                     }
                 }
             }
@@ -197,6 +206,10 @@ public class FrmEstidiante extends javax.swing.JDialog {
         }
     }
 
+    /**
+     * Metodo para obtener la ultima matricula registrada de cada estudiante en el sistema
+     * @return 
+     */
     public ListaEnlazada<Matricula> obtenerMatriculas() {
         mC.setMatriculaList(Utilidades.listarMatriculas());
         ListaEnlazada<Matricula> matriculaList = new ListaEnlazada<>();
@@ -461,30 +474,10 @@ public class FrmEstidiante extends javax.swing.JDialog {
     }//GEN-LAST:event_btnParticipantesActionPerformed
 
     private void cbxAsignaturasMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_cbxAsignaturasMouseClicked
-        // TODO add your handling code here:
-//        diriguirseMaterias();
-//        cambiarNota();
+
         calcularNotaEstudiante();
     }//GEN-LAST:event_cbxAsignaturasMouseClicked
 
-//    public void cambiarNota() {
-//        Asignatura a = (Asignatura) cbxAsignaturas.getSelectedItem();
-//        try {
-//            for (int i = 0; i < mC.getMatriculaList().getSize(); i++) {
-//                for (int j = 0; j < mC.getMatriculaList().obtener(i).getCursa().getSize(); j++) {
-//                    cursaControler.setCursaList(mC.getMatriculaList().obtener(i).getCursa());
-//                    if (mC.getMatriculaList().obtener(i).getAlumno().getId() == aC.getAlumno().getId()
-//                            && a.getNombre().equals(mC.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre())) {
-////                        cursaControler.calcularNotaFinal();
-//                        System.out.println("Dentro de cambiar nota  " + mC.getMatriculaList().obtener(i).getAlumno() + " " + mC.getMatriculaList().obtener(i).getCursa().obtener(j).getNotaFinal().getNotaTotal());
-//                        lblNotaFinal.setText(String.valueOf(cursaControler.getCursaList().obtener(j).getNotaFinal().getNotaTotal()));
-//                    }
-//                }
-//            }
-//        } catch (Exception e) {
-//            System.out.println("Error en cambiarNota " + e);
-//        }
-//    }
     private void cbxAsignaturasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cbxAsignaturasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_cbxAsignaturasActionPerformed
