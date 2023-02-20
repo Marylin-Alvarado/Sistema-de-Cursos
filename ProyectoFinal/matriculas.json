@@ -340,12 +340,567 @@
               "descendente": 2
             },
             "promedioGeneral": 0.0
+          },
+          "siguiente": {
+            "dato": {
+              "idMatricula": 5,
+              "fechaEmision": "Feb 19, 2023, 6:33:46 PM",
+              "periodo": {
+                "idPeriodo": 1,
+                "mesInicio": "ENERO",
+                "mesFin": "ENERO",
+                "especificacion": "111"
+              },
+              "alumno": {
+                "id": 5,
+                "nombres": "Cristian",
+                "apellidos": "Santin",
+                "identificacion": "1011045678",
+                "direccion": "Loja",
+                "telefono": "0965436543",
+                "ciudad": "Loja",
+                "fechaNacimiento": "10/11/2002",
+                "genero": "MASCULINO",
+                "cuenta": {
+                  "id": 4,
+                  "usuario": "Cristian.Santin",
+                  "tipoUser": "Alumno",
+                  "contrasenia": "1011045678",
+                  "estado": false
+                }
+              },
+              "cursa": {
+                "cabecera": {
+                  "dato": {
+                    "asignatura": {
+                      "id": 2,
+                      "nombre": "Filosofia",
+                      "paralelo": "A",
+                      "unidad": "I",
+                      "docente": {},
+                      "numeroHoras": 80
+                    },
+                    "horasAsistidas": 0,
+                    "notaFinal": {},
+                    "estadoAsignatura": "REPROBADA"
+                  },
+                  "siguiente": {
+                    "dato": {
+                      "asignatura": {
+                        "id": 2,
+                        "nombre": "Filosofia",
+                        "paralelo": "A",
+                        "unidad": "I",
+                        "docente": {},
+                        "numeroHoras": 80
+                      },
+                      "horasAsistidas": 0,
+                      "notaFinal": {},
+                      "estadoAsignatura": "REPROBADA"
+                    },
+                    "siguiente": {
+                      "dato": {
+                        "asignatura": {
+                          "id": 2,
+                          "nombre": "Filosofia",
+                          "paralelo": "A",
+                          "unidad": "I",
+                          "docente": {},
+                          "numeroHoras": 80
+                        },
+                        "horasAsistidas": 0,
+                        "notaFinal": {},
+                        "estadoAsignatura": "REPROBADA"
+                      },
+                      "siguiente": {
+                        "dato": {
+                          "asignatura": {
+                            "id": 2,
+                            "nombre": "Filosofia",
+                            "paralelo": "A",
+                            "unidad": "I",
+                            "docente": {},
+                            "numeroHoras": 80
+                          },
+                          "horasAsistidas": 0,
+                          "notaFinal": {},
+                          "estadoAsignatura": "REPROBADA"
+                        },
+                        "siguiente": {
+                          "dato": {
+                            "asignatura": {
+                              "id": 2,
+                              "nombre": "Filosofia",
+                              "paralelo": "A",
+                              "unidad": "I",
+                              "docente": {},
+                              "numeroHoras": 80
+                            },
+                            "horasAsistidas": 0,
+                            "notaFinal": {},
+                            "estadoAsignatura": "REPROBADA"
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "size": 5,
+                "ascendente": 1,
+                "descendente": 2
+              },
+              "promedioGeneral": 0.0
+            },
+            "siguiente": {
+              "dato": {
+                "idMatricula": 6,
+                "fechaEmision": "Feb 19, 2023, 7:05:16 PM",
+                "periodo": {
+                  "idPeriodo": 1,
+                  "mesInicio": "ENERO",
+                  "mesFin": "ENERO",
+                  "especificacion": "111"
+                },
+                "alumno": {
+                  "id": 6,
+                  "nombres": "Juan",
+                  "apellidos": "Vega",
+                  "identificacion": "1011112121",
+                  "direccion": "Cerca",
+                  "telefono": "0989214534",
+                  "ciudad": "Loja",
+                  "fechaNacimiento": "12/11/2001",
+                  "genero": "MASCULINO",
+                  "cuenta": {
+                    "id": 5,
+                    "usuario": "Juan.Vega",
+                    "tipoUser": "Alumno",
+                    "contrasenia": "1011112121",
+                    "estado": false
+                  }
+                },
+                "cursa": {
+                  "cabecera": {
+                    "dato": {
+                      "asignatura": {
+                        "id": 2,
+                        "nombre": "Filosofia",
+                        "paralelo": "A",
+                        "unidad": "I",
+                        "docente": {},
+                        "numeroHoras": 80
+                      },
+                      "horasAsistidas": 0,
+                      "notaFinal": {},
+                      "estadoAsignatura": "REPROBADA"
+                    },
+                    "siguiente": {
+                      "dato": {
+                        "asignatura": {
+                          "id": 2,
+                          "nombre": "Filosofia",
+                          "paralelo": "A",
+                          "unidad": "I",
+                          "docente": {},
+                          "numeroHoras": 80
+                        },
+                        "horasAsistidas": 0,
+                        "notaFinal": {},
+                        "estadoAsignatura": "REPROBADA"
+                      }
+                    }
+                  },
+                  "size": 2,
+                  "ascendente": 1,
+                  "descendente": 2
+                },
+                "promedioGeneral": 0.0
+              },
+              "siguiente": {
+                "dato": {
+                  "idMatricula": 7,
+                  "fechaEmision": "Feb 19, 2023, 7:15:45 PM",
+                  "periodo": {
+                    "idPeriodo": 1,
+                    "mesInicio": "ENERO",
+                    "mesFin": "ENERO",
+                    "especificacion": "111"
+                  },
+                  "alumno": {
+                    "id": 7,
+                    "nombres": "Dennys",
+                    "apellidos": "Mejia",
+                    "identificacion": "12231121212",
+                    "direccion": "Near",
+                    "telefono": "09777537281",
+                    "ciudad": "Loja",
+                    "fechaNacimiento": "12/11/2002",
+                    "genero": "MASCULINO",
+                    "cuenta": {
+                      "id": 6,
+                      "usuario": "Dennys.Mejia",
+                      "tipoUser": "Alumno",
+                      "contrasenia": "12231121212",
+                      "estado": false
+                    }
+                  },
+                  "cursa": {
+                    "cabecera": {
+                      "dato": {
+                        "asignatura": {
+                          "id": 2,
+                          "nombre": "Filosofia",
+                          "paralelo": "A",
+                          "unidad": "I",
+                          "docente": {},
+                          "numeroHoras": 80
+                        },
+                        "horasAsistidas": 0,
+                        "notaFinal": {},
+                        "estadoAsignatura": "REPROBADA"
+                      },
+                      "siguiente": {
+                        "dato": {
+                          "asignatura": {
+                            "id": 2,
+                            "nombre": "Filosofia",
+                            "paralelo": "A",
+                            "unidad": "I",
+                            "docente": {},
+                            "numeroHoras": 80
+                          },
+                          "horasAsistidas": 0,
+                          "notaFinal": {},
+                          "estadoAsignatura": "REPROBADA"
+                        }
+                      }
+                    },
+                    "size": 2,
+                    "ascendente": 1,
+                    "descendente": 2
+                  },
+                  "promedioGeneral": 0.0
+                },
+                "siguiente": {
+                  "dato": {
+                    "idMatricula": 8,
+                    "fechaEmision": "Feb 19, 2023, 7:52:23 PM",
+                    "periodo": {
+                      "idPeriodo": 1,
+                      "mesInicio": "ENERO",
+                      "mesFin": "ENERO",
+                      "especificacion": "111"
+                    },
+                    "alumno": {
+                      "id": 1,
+                      "nombres": "David",
+                      "apellidos": "Campoverde",
+                      "identificacion": "1105983041",
+                      "direccion": "Mexico y Brasil",
+                      "telefono": "0999349427",
+                      "ciudad": "Loja",
+                      "fechaNacimiento": "25/03/2004",
+                      "genero": "MASCULINO",
+                      "cuenta": {
+                        "id": 2,
+                        "usuario": "David.Campoverde",
+                        "tipoUser": "Alumno",
+                        "contrasenia": "1105983041",
+                        "estado": false
+                      },
+                      "correo": "davidCampoverde@gmail.com"
+                    },
+                    "cursa": {
+                      "cabecera": {
+                        "dato": {
+                          "asignatura": {
+                            "id": 2,
+                            "nombre": "Filosofia",
+                            "paralelo": "A",
+                            "unidad": "I",
+                            "docente": {},
+                            "numeroHoras": 80
+                          },
+                          "horasAsistidas": 0,
+                          "notaFinal": {},
+                          "estadoAsignatura": "REPROBADA"
+                        },
+                        "siguiente": {
+                          "dato": {
+                            "asignatura": {
+                              "id": 2,
+                              "nombre": "Filosofia",
+                              "paralelo": "A",
+                              "unidad": "I",
+                              "docente": {},
+                              "numeroHoras": 80
+                            },
+                            "horasAsistidas": 0,
+                            "notaFinal": {},
+                            "estadoAsignatura": "REPROBADA"
+                          }
+                        }
+                      },
+                      "size": 2,
+                      "ascendente": 1,
+                      "descendente": 2
+                    },
+                    "promedioGeneral": 0.0
+                  },
+                  "siguiente": {
+                    "dato": {
+                      "idMatricula": 9,
+                      "fechaEmision": "Feb 19, 2023, 7:55:43 PM",
+                      "periodo": {
+                        "idPeriodo": 1,
+                        "mesInicio": "ENERO",
+                        "mesFin": "ENERO",
+                        "especificacion": "111"
+                      },
+                      "alumno": {
+                        "id": 9,
+                        "nombres": "Juan",
+                        "apellidos": "Lopez",
+                        "identificacion": "1021010135",
+                        "direccion": "Centro",
+                        "telefono": "0986474929",
+                        "ciudad": "Loja",
+                        "fechaNacimiento": "12/11/2002",
+                        "genero": "MASCULINO",
+                        "cuenta": {
+                          "id": 8,
+                          "usuario": "Juan.Lopez",
+                          "tipoUser": "Alumno",
+                          "contrasenia": "1021010135",
+                          "estado": false
+                        }
+                      },
+                      "cursa": {
+                        "cabecera": {
+                          "dato": {
+                            "asignatura": {
+                              "id": 1,
+                              "nombre": "Historia",
+                              "paralelo": "A",
+                              "unidad": "I",
+                              "docente": {
+                                "idDocente": 2,
+                                "tituloTercerNivel": "Licenciatura",
+                                "tituloCuartoNivel": "PHD",
+                                "aniosExpDocente": 5,
+                                "aniosExpLaboral": 7,
+                                "nombres": "Davidd",
+                                "apellidos": "Campoverde",
+                                "identificacion": "1105983041",
+                                "direccion": "Mexico y Brasil",
+                                "telefono": "0999349427",
+                                "ciudad": "Loja",
+                                "fechaNacimiento": "25/03/2004",
+                                "genero": "MASCULINO",
+                                "correo": ""
+                              },
+                              "numeroHoras": 12
+                            },
+                            "horasAsistidas": 0,
+                            "notaFinal": {},
+                            "estadoAsignatura": "REPROBADA"
+                          },
+                          "siguiente": {
+                            "dato": {
+                              "asignatura": {
+                                "id": 2,
+                                "nombre": "Filosofia",
+                                "paralelo": "A",
+                                "unidad": "I",
+                                "docente": {},
+                                "numeroHoras": 80
+                              },
+                              "horasAsistidas": 0,
+                              "notaFinal": {},
+                              "estadoAsignatura": "REPROBADA"
+                            }
+                          }
+                        },
+                        "size": 2,
+                        "ascendente": 1,
+                        "descendente": 2
+                      },
+                      "promedioGeneral": 0.0
+                    },
+                    "siguiente": {
+                      "dato": {
+                        "idMatricula": 10,
+                        "fechaEmision": "Feb 19, 2023, 8:04:02 PM",
+                        "periodo": {
+                          "idPeriodo": 1,
+                          "mesInicio": "ENERO",
+                          "mesFin": "ENERO",
+                          "especificacion": "111"
+                        },
+                        "alumno": {
+                          "id": 9,
+                          "nombres": "Juan",
+                          "apellidos": "Lopez",
+                          "identificacion": "1021010135",
+                          "direccion": "Centro",
+                          "telefono": "0986474929",
+                          "ciudad": "Loja",
+                          "fechaNacimiento": "12/11/2002",
+                          "genero": "MASCULINO",
+                          "cuenta": {
+                            "id": 8,
+                            "usuario": "Juan.Lopez",
+                            "tipoUser": "Alumno",
+                            "contrasenia": "1021010135",
+                            "estado": false
+                          }
+                        },
+                        "cursa": {
+                          "cabecera": {
+                            "dato": {
+                              "asignatura": {
+                                "id": 1,
+                                "nombre": "Historia",
+                                "paralelo": "A",
+                                "unidad": "I",
+                                "docente": {
+                                  "idDocente": 2,
+                                  "tituloTercerNivel": "Licenciatura",
+                                  "tituloCuartoNivel": "PHD",
+                                  "aniosExpDocente": 5,
+                                  "aniosExpLaboral": 7,
+                                  "nombres": "Davidd",
+                                  "apellidos": "Campoverde",
+                                  "identificacion": "1105983041",
+                                  "direccion": "Mexico y Brasil",
+                                  "telefono": "0999349427",
+                                  "ciudad": "Loja",
+                                  "fechaNacimiento": "25/03/2004",
+                                  "genero": "MASCULINO",
+                                  "correo": ""
+                                },
+                                "numeroHoras": 12
+                              },
+                              "horasAsistidas": 0,
+                              "notaFinal": {},
+                              "estadoAsignatura": "REPROBADA"
+                            },
+                            "siguiente": {
+                              "dato": {
+                                "asignatura": {
+                                  "id": 2,
+                                  "nombre": "Filosofia",
+                                  "paralelo": "A",
+                                  "unidad": "I",
+                                  "docente": {},
+                                  "numeroHoras": 80
+                                },
+                                "horasAsistidas": 0,
+                                "notaFinal": {},
+                                "estadoAsignatura": "REPROBADA"
+                              },
+                              "siguiente": {
+                                "dato": {
+                                  "asignatura": {
+                                    "id": 3,
+                                    "nombre": "Filosofia II",
+                                    "paralelo": "A",
+                                    "unidad": "I",
+                                    "docente": {
+                                      "idDocente": 1,
+                                      "tituloTercerNivel": "Licenciatura",
+                                      "tituloCuartoNivel": "PHD",
+                                      "aniosExpDocente": 8,
+                                      "aniosExpLaboral": 8,
+                                      "asignaturas": {
+                                        "size": 0,
+                                        "ascendente": 1,
+                                        "descendente": 2
+                                      },
+                                      "nombres": "Carlos",
+                                      "apellidos": "Astudillo",
+                                      "identificacion": "0788542621",
+                                      "direccion": "Bolivar y Lourdes",
+                                      "telefono": "0995215124",
+                                      "ciudad": "Loja",
+                                      "fechaNacimiento": "03/03/1985",
+                                      "genero": "MASCULINO",
+                                      "cuenta": {
+                                        "id": 1,
+                                        "usuario": "Carlos.Astudillo",
+                                        "tipoUser": "Docente",
+                                        "contrasenia": "0788542621",
+                                        "estado": false
+                                      }
+                                    },
+                                    "numeroHoras": 100
+                                  },
+                                  "horasAsistidas": 50,
+                                  "notaFinal": {},
+                                  "porcentajeHorasAsistidas": 50,
+                                  "estadoAsignatura": "REPROBADA"
+                                },
+                                "siguiente": {
+                                  "dato": {
+                                    "asignatura": {
+                                      "id": 5,
+                                      "nombre": "Historia II",
+                                      "paralelo": "A",
+                                      "unidad": "I",
+                                      "docente": {
+                                        "idDocente": 1,
+                                        "tituloTercerNivel": "Licenciatura",
+                                        "tituloCuartoNivel": "PHD",
+                                        "aniosExpDocente": 8,
+                                        "aniosExpLaboral": 8,
+                                        "asignaturas": {
+                                          "size": 0,
+                                          "ascendente": 1,
+                                          "descendente": 2
+                                        },
+                                        "nombres": "Carlos",
+                                        "apellidos": "Astudillo",
+                                        "identificacion": "0788542621",
+                                        "direccion": "Bolivar y Lourdes",
+                                        "telefono": "0995215124",
+                                        "ciudad": "Loja",
+                                        "fechaNacimiento": "03/03/1985",
+                                        "genero": "MASCULINO",
+                                        "cuenta": {
+                                          "id": 1,
+                                          "usuario": "Carlos.Astudillo",
+                                          "tipoUser": "Docente",
+                                          "contrasenia": "0788542621",
+                                          "estado": false
+                                        }
+                                      },
+                                      "numeroHoras": 100
+                                    },
+                                    "horasAsistidas": 0,
+                                    "notaFinal": {},
+                                    "estadoAsignatura": "REPROBADA"
+                                  }
+                                }
+                              }
+                            }
+                          },
+                          "size": 4,
+                          "ascendente": 1,
+                          "descendente": 2
+                        },
+                        "promedioGeneral": 0.0
+                      }
+                    }
+                  }
+                }
+              }
+            }
           }
         }
       }
     }
   },
-  "size": 4,
+  "size": 10,
   "ascendente": 1,
   "descendente": 2
 }

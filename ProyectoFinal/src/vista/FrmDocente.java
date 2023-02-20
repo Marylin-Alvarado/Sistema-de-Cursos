@@ -50,9 +50,9 @@ public class FrmDocente extends javax.swing.JDialog {
 
     public FrmDocente(java.awt.Frame parent, boolean modal, Docente docente) {
         super(parent, modal);
-        this.setContentPane(fondo);
-        dC.setDocente(docente);
+//        this.setContentPane(fondo);
         initComponents();
+        dC.setDocente(docente);
         cambiarLabels();
         cargarCombos();
         this.setLocationRelativeTo(this);
@@ -101,6 +101,7 @@ public class FrmDocente extends javax.swing.JDialog {
         btnVerPerfil = new javax.swing.JButton();
         btnCalificar = new javax.swing.JButton();
         btnSalir = new javax.swing.JButton();
+        btnAsistencia = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -175,6 +176,14 @@ public class FrmDocente extends javax.swing.JDialog {
             }
         });
 
+        btnAsistencia.setText("Asistencia");
+        btnAsistencia.setEnabled(false);
+        btnAsistencia.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAsistenciaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -199,7 +208,9 @@ public class FrmDocente extends javax.swing.JDialog {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(btnVerPerfil)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCalificar)))))
+                                .addComponent(btnCalificar)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnAsistencia)))
                 .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -219,7 +230,8 @@ public class FrmDocente extends javax.swing.JDialog {
                     .addComponent(cbxAsignaturas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton2)
                     .addComponent(btnVerPerfil)
-                    .addComponent(btnCalificar))
+                    .addComponent(btnCalificar)
+                    .addComponent(btnAsistencia))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -273,6 +285,7 @@ public class FrmDocente extends javax.swing.JDialog {
         // TODO add your handling code here:
         btnVerPerfil.setEnabled(true);
         btnCalificar.setEnabled(true);
+        btnAsistencia.setEnabled(true);
     }//GEN-LAST:event_tblPrincipalMouseClicked
 
     private void btnCalificarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalificarActionPerformed
@@ -281,7 +294,7 @@ public class FrmDocente extends javax.swing.JDialog {
             try {
                 alumControler.setAlumno(alumControler.getAlumnoList().obtener(tblPrincipal.getSelectedRow()));
                 System.out.println("Cursa " + cursaControler.getCursaList().obtener(tblPrincipal.getSelectedRow()).getAsignatura());
-                DialogCalificar dialogCalificar = new DialogCalificar(null, true, alumControler.getAlumno(), 
+                DialogCalificar dialogCalificar = new DialogCalificar(null, true, alumControler.getAlumno(),
                         cursaControler.getCursaList().obtener(tblPrincipal.getSelectedRow()), dC.getDocente(),
                         mC.getMatriculaList());
                 this.setVisible(false);
@@ -302,6 +315,26 @@ public class FrmDocente extends javax.swing.JDialog {
         diaLogin.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void btnAsistenciaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAsistenciaActionPerformed
+        // TODO add your handling code here:
+        if (tblPrincipal.getSelectedRow() >= 0) {
+            try {
+                alumControler.setAlumno(alumControler.getAlumnoList().obtener(tblPrincipal.getSelectedRow()));
+                System.out.println("Cursa " + cursaControler.getCursaList().obtener(tblPrincipal.getSelectedRow()).getAsignatura());
+                DialogAsignarAsistencia diaAsignarAsitencia = new DialogAsignarAsistencia(null, true, alumControler.getAlumno(), dC.getDocente(),
+                        cursaControler.getCursaList().obtener(tblPrincipal.getSelectedRow()),
+                        mC.getMatriculaList());
+                this.setVisible(false);
+                diaAsignarAsitencia.setVisible(true);
+                this.dispose();
+            } catch (PosicionNoEncontradaException ex) {
+                Logger.getLogger(FrmDocente.class.getName()).log(Level.SEVERE, null, ex);
+            } catch (ListaNullException ex) {
+                Logger.getLogger(FrmDocente.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }//GEN-LAST:event_btnAsistenciaActionPerformed
 
     public void cargarTablaEstudiantes() {
         cargarInfoEstudiantes();
@@ -426,6 +459,7 @@ public class FrmDocente extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAsistencia;
     private javax.swing.JButton btnCalificar;
     private javax.swing.JButton btnSalir;
     private javax.swing.JButton btnVerPerfil;

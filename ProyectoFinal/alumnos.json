@@ -96,13 +96,98 @@
                 "contrasenia": "1011045678",
                 "estado": false
               }
+            },
+            "siguiente": {
+              "dato": {
+                "id": 6,
+                "nombres": "Juan",
+                "apellidos": "Vega",
+                "identificacion": "1011112121",
+                "direccion": "Cerca",
+                "telefono": "0989214534",
+                "ciudad": "Loja",
+                "fechaNacimiento": "12/11/2001",
+                "genero": "MASCULINO",
+                "cuenta": {
+                  "id": 5,
+                  "usuario": "Juan.Vega",
+                  "tipoUser": "Alumno",
+                  "contrasenia": "1011112121",
+                  "estado": false
+                }
+              },
+              "siguiente": {
+                "dato": {
+                  "id": 7,
+                  "nombres": "Dennys",
+                  "apellidos": "Mejia",
+                  "identificacion": "12231121212",
+                  "direccion": "Near",
+                  "telefono": "09777537281",
+                  "ciudad": "Loja",
+                  "fechaNacimiento": "12/11/2002",
+                  "genero": "MASCULINO",
+                  "cuenta": {
+                    "id": 6,
+                    "usuario": "Dennys.Mejia",
+                    "tipoUser": "Alumno",
+                    "contrasenia": "12231121212",
+                    "estado": false
+                  }
+                },
+                "siguiente": {
+                  "dato": {
+                    "id": 8,
+                    "nombres": "Frank",
+                    "apellidos": "Salazar",
+                    "identificacion": "10212102121",
+                    "direccion": "Centro",
+                    "telefono": "0984563829",
+                    "ciudad": "Loja",
+                    "fechaNacimiento": "12/10/2000",
+                    "genero": "MASCULINO",
+                    "cuenta": {
+                      "id": 7,
+                      "usuario": "Frank.Salazar",
+                      "tipoUser": "Alumno",
+                      "contrasenia": "10212102121",
+                      "estado": false
+                    }
+                  },
+                  "siguiente": {
+                    "dato": {
+                      "id": 9,
+                      "nombres": "Juan",
+                      "apellidos": "Lopez",
+                      "identificacion": "1021010135",
+                      "direccion": "Centro",
+                      "telefono": "0986474929",
+                      "ciudad": "Loja",
+                      "fechaNacimiento": "12/11/2002",
+                      "genero": "MASCULINO",
+                      "cuenta": {
+                        "id": 8,
+                        "usuario": "Juan.Lopez",
+                        "tipoUser": "Alumno",
+                        "contrasenia": "1021010135",
+                        "estado": false
+                      }
+                    },
+                    "siguiente": {
+                      "dato": {
+                        "id": 10
+                      }
+                    }
+                  }
+                }
+              }
             }
           }
         }
       }
     }
   },
-  "size": 5,
+  "size": 10,
   "ascendente": 1,
   "descendente": 2
 }

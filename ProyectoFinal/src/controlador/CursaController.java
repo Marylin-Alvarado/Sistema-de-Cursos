@@ -19,6 +19,14 @@ public class CursaController {
     private ListaEnlazada<Cursa> cursaList = new ListaEnlazada<>();
     private Cursa cursa;
 
+    public Cursa getCursa() {
+        return cursa;
+    }
+
+    public void setCursa(Cursa cursa) {
+        this.cursa = cursa;
+    }
+
     public CursaController() {
         cursaList = new ListaEnlazada<>();
     }
@@ -27,14 +35,17 @@ public class CursaController {
      * Método para calcular el porcentaje de horas asistidas en una asignatura
      * de una determinada matrícula
      */
-    public void porcentajeHorasAsistidas() {
-        for (int i = 0; i <= cursaList.getSize(); i++) {
-            try {
-                Cursa cursaAux = cursaList.obtener(i);
-                cursaAux.setPorcentajeHorasAsistidas((cursaAux.getHorasAsistidas() * 100) / cursaAux.getAsignatura().getNumeroHoras());
-            } catch (Exception e) {
-            }
+    public void calcularPorcentajeHorasAsistidas() {
+//        for (int i = 0; i <= cursaList.getSize(); i++) {
+        try {
+//                Cursa cursaAux = cursaList.obtener(i);
+//            cursaAux.setPorcentajeHorasAsistidas((cursaAux.getHorasAsistidas() * 100) / cursaAux.getAsignatura().getNumeroHoras());
+            cursa.setPorcentajeHorasAsistidas((cursa.getHorasAsistidas()*100) / cursa.getAsignatura().getNumeroHoras());
+            System.out.println("porcentaje de siscencia en controler" + cursa.getPorcentajeHorasAsistidas());
+            
+        } catch (Exception e) {
         }
+//        }
     }
 
     /**

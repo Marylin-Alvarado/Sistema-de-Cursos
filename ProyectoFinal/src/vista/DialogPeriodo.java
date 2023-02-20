@@ -29,10 +29,10 @@ public class DialogPeriodo extends javax.swing.JDialog {
      */
     public DialogPeriodo(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
-        this.setLocationRelativeTo(null);
         initComponents();
         cargarCombos();
         cargarTabla();
+        this.setLocationRelativeTo(this);
     }
     
     public void cargarCombos(){

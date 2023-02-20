@@ -13,6 +13,7 @@ import controlador.listas.ListaEnlazada;
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import modelo.Alumno;
 import modelo.Cursa;
@@ -68,7 +69,9 @@ public class DialogCalificar extends javax.swing.JDialog {
     }
 
     class FondoPanel extends JPanel {
+
         private Image image;
+
         /**
          * Metodo para pintar los graficos de los grafos en la pantalla
          *
@@ -269,14 +272,18 @@ public class DialogCalificar extends javax.swing.JDialog {
             cursaC.calcularNotaFinal(notaController.getNota());
 
             for (int i = 0; i < matriculaControler.getMatriculaList().getSize(); i++) {
+                System.out.println("Matricula " + matriculaControler.getMatriculaList().obtener(i).getAlumno().getId());
                 for (int j = 0; j < matriculaControler.getMatriculaList().obtener(i).getCursa().getSize(); j++) {
+
                     if (matriculaControler.getMatriculaList().obtener(i).getAlumno().getId() == alumnController.getAlumno().getId()
-                            && matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre() == 
-                            cursaC.getCursaList().obtener(0).getAsignatura().getNombre()) {
-                            matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).setNotaFinal(cursaC.getCursaList().obtener(0).getNotaFinal());
-                            System.out.println("DENTOR DE MODIFIICAR");
-                            System.out.println("Nota final " + matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).getNotaFinal().getNotaTotal());
-                            Utilidades.modificarMatricula(matriculaControler.getMatriculaList().obtener(i), (matriculaControler.getMatriculaList().obtener(i).getIdMatricula()-1));
+                            && matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).getAsignatura().getNombre()
+                            == cursaC.getCursaList().obtener(0).getAsignatura().getNombre()) {
+                        matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).setNotaFinal(cursaC.getCursaList().obtener(0).getNotaFinal());
+                        System.out.println("DENTOR DE MODIFIICAR");
+                        System.out.println("Nota final " + matriculaControler.getMatriculaList().obtener(i).getCursa().obtener(j).getNotaFinal().getNotaTotal());
+                        Utilidades.modificarMatricula(matriculaControler.getMatriculaList().obtener(i), (matriculaControler.getMatriculaList().obtener(i).getIdMatricula() - 1));
+                        JOptionPane.showMessageDialog(null, "Calificacion registrada");
+
                     }
                 }
             }
